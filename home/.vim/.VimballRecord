@@ -1,0 +1,1 @@
+file_templates.vba: call delete('/home/craig/.vim/plugin/file_templates.vim')|call delete('/home/craig/.vim/templates/example.h')|call delete('/home/craig/.vim/templates/example.c')

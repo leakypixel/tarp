@@ -1,0 +1,6 @@
+*.log
+*.bak
+**/multisync/**
+**/Trash/
+**lockfile**
+home/.vim/.netrwhist

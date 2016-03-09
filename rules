@@ -1,0 +1,22 @@
+# Includes
++ .vim/**
++ .pip/**
++ bash-scripts/**
++ .fonts/**
++ .bash_aliases
++ .bashrc
++ .gitconfig
++ .gitmessage
++ .npmrc
++ .profile
++ .selected_editor
++ .vimrc
++ .tmux.conf
++ .tmux/**
++ .conkystatsrc
++ .conkytimerc
++ .stalonetrayrc
+
+# Excludes
+- /**/
+- /*

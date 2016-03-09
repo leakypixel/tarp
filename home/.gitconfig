@@ -1,0 +1,50 @@
+[user]
+  email = hi@leakypixel.net
+  name = Craig Fletcher
+
+[push]
+  default = upstream
+
+[merge]
+  ff = no
+  tool = vimdiff
+
+[color]
+  ui = auto
+  branch = auto
+  diff = auto
+  status = auto
+  interactive = auto
+
+[credential]
+  # Somehow different for just about every system I use. First is arch, second is deb. 
+  # /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+  # /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
+  # helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+
+[alias]
+  co = checkout
+  b = branch
+  a = add
+  s = status
+  p = push origin
+  hr = reset --hard @{u}
+  c = commit -vp
+  l = log --oneline --abbrev-commit --branches=* --graph --decorate --color
+  wtf = blame
+
+[core]
+  editor = vim
+  whitespace = trailing-space,space-before-tab
+
+[commit]
+  template = ~/.gitmessage
+
+[diff]
+  algorithm = patience
+
+[help]
+  autocorrect = -1
+
+[credential]
+  helper = store

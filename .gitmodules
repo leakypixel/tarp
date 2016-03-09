@@ -4,3 +4,33 @@
 [submodule "home/.vim/bundle/Vundle.vim"]
 	path = home/.vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule "home/.vim/bundle/vim-airline-themes"]
+	path = home/.vim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule "home/.vim/bundle/limelight.vim"]
+	path = home/.vim/bundle/limelight.vim
+	url = https://github.com/junegunn/limelight.vim.git
+[submodule "home/.vim/bundle/vim-fugitive"]
+	path = home/.vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "home/.vim/bundle/vim-airline"]
+	path = home/.vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline.git
+[submodule "home/.vim/bundle/nerdtree"]
+	path = home/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "home/.vim/bundle/ctrlp.vim"]
+	path = home/.vim/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "home/.vim/bundle/jshint.vim"]
+	path = home/.vim/bundle/jshint.vim
+	url = https://github.com/wookiehangover/jshint.vim.git
+[submodule "home/.vim/bundle/vim-obsession"]
+	path = home/.vim/bundle/vim-obsession
+	url = https://github.com/tpope/vim-obsession.git
+[submodule "home/.vim/bundle/tmuxline.vim"]
+	path = home/.vim/bundle/tmuxline.vim
+	url = https://github.com/edkolev/tmuxline.vim.git
+[submodule "home/.vim/bundle/vim-javascript"]
+	path = home/.vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git

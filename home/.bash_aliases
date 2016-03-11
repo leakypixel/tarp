@@ -4,6 +4,7 @@ alias delete='bash ~/bash-scripts/git-delete-branch.sh'
 alias eradicate='bash ~/bash-scripts/remove-from-git-history.sh'
 alias cleanup='bash ~/bash-scripts/clean-branches-that-dont-exist-on-remote.sh'
 alias setauthor='bash ~/bash-scripts/change-git-author.sh'
+alias colourset='bash ~/tmp/replace-colours.sh'
 
 # Scripts
 alias replace='bash ~/bash-scripts/replace.sh'

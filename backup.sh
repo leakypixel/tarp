@@ -4,7 +4,12 @@ basedir=$HOME/tarp
 cd $basedir
 
 echo Copying configs...
-rsync -arvv --no-links --include-from=rules $HOME/ $basedir/home
+
+# Less than ideal, and needs fixing in future.
+shopt -s dotglob # for considering dot files (turn on dot files)
+while read file; do
+  cp -r $HOME/$file $basedir/home/
+done <rules
 
 files=$(find $basedir/home/ -maxdepth 1 -not -type l -not -name 'home' -printf "%f ")
 

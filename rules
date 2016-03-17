@@ -4,7 +4,6 @@
 + .pip/**
 + bash-scripts/**
 + .fonts/**
-+ .bash_aliases
 + .bashrc
 + .gitconfig
 + .gitmessage

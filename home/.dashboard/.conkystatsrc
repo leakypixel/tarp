@@ -1,0 +1,72 @@
+# conky configuration
+##############################################
+# Settings
+##############################################
+background yes
+use_xft yes
+xftfont Liberation Sans:size=9
+xftalpha 1
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_transparent yes
+##############################################
+## cairo-compmgr
+own_window_type override
+own_window_argb_visual no
+##############################################
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 600
+maximum_width 400
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color 0f0f0f
+alignment top_left
+gap_x 45
+gap_y 75
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+top_cpu_separate no
+##############################################
+#  Output
+##############################################
+ 
+TEXT
+${font roboto:bold:size=11}Internal IP: $alignr ${addr eno1}
+${font roboto:bold:size=11}External IP:$alignr${execi 3600 wget -O - http://ip.tupeux.com | tail}
+${font roboto:bold:size=11}Host:$alignr$nodename
+${font roboto:bold:size=11}Uptime:$alignr$uptime_short
+ 
+CPU $alignr${font roboto:normal:size=11}${cpu cpu0}% 
+${cpubar cpu0}
+ 
+${font roboto:bold:size=11}RAM ${font roboto:normal:size=11}$alignc $mem / $memmax $alignr $memperc%
+$membar
+ 
+${font roboto:bold:size=11}TOP PROCESSES
+${hr}
+${color}NAME                 ${alignr} PID   CPU  MEM
+${color}${top name 1}${alignr}${top pid 1}${top cpu 1}${top mem 1}
+${color}${top name 2}${alignr}${top pid 2}${top cpu 2}${top mem 2}
+${color}${top name 3}${alignr}${top pid 3}${top cpu 3}${top mem 3}
+${color}${top name 4}${alignr}${top pid 4}${top cpu 4}${top mem 4}
+${color}${top name 5}${alignr}${top pid 5}${top cpu 2}${top mem 5}
+${color}${top name 6}${alignr}${top pid 6}${top cpu 3}${top mem 6}
+${color}${top name 7}${alignr}${top pid 7}${top cpu 4}${top mem 7}
+${color}${top name 8}${alignr}${top pid 8}${top cpu 1}${top mem 8}
+${color}${top name 9}${alignr}${top pid 9}${top cpu 2}${top mem 9}
+${color}${top name 10}${alignr}${top pid 10}${top cpu 3}${top mem 10}
+ 
+${font roboto:bold:size=11}NETWORK
+${hr}
+${downspeedgraph eno1}
+Download: ${downspeed eno1} $alignr Total: ${totaldown eno1}
+${upspeedgraph eno1}
+Upload: ${upspeed eno1} $alignr Total: ${totalup eno1}
+
+

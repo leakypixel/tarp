@@ -1,17 +1,13 @@
-# Includes
-+ .vim
-+ .bash
-+ bash-scripts
-+ .dashboard
-+ .fonts/**
-+ .bashrc
-+ .gitconfig
-+ .gitmessage
-+ .profile
-+ .selected_editor
-+ .vimrc
-+ .tmux.conf
-+ .tmux
-
-# Excludes
-- *
+.vim
+.bash
+bash-scripts
+.dashboard
+.fonts
+.bashrc
+.gitconfig
+.gitmessage
+.profile
+.selected_editor
+.vimrc
+.tmux.conf
+.tmux

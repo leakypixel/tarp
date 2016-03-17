@@ -6,7 +6,6 @@
 + .bashrc
 + .gitconfig
 + .gitmessage
-+ .npmrc
 + .profile
 + .selected_editor
 + .vimrc

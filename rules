@@ -2,6 +2,7 @@
 + .vim/**
 + .bash/**
 + bash-scripts/**
++ .dashboard/**
 + .fonts/**
 + .bashrc
 + .gitconfig
@@ -11,9 +12,6 @@
 + .vimrc
 + .tmux.conf
 + .tmux/**
-+ .conkystatsrc
-+ .conkytimerc
-+ .stalonetrayrc
 
 # Excludes
 - /**/

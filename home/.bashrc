@@ -4,6 +4,9 @@ case $- in
       *) return;;
 esac
 
+# Set history location
+export HISTFILE=$HOME/.bash/.bash_history
+
 # Don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -30,7 +33,7 @@ shopt -s globstar
 export TERM=screen-256color
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+BASE16_SHELL="$HOME/.bash/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # If we're not already tmuxed, be tmuxed
@@ -46,7 +49,7 @@ export DIFFTOOL="vim"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    test -r $HOME/.dircolors && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
@@ -69,8 +72,8 @@ alias mv='mv -i'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+if [ -f $HOME/.bash/.bash_aliases ]; then
+  . $HOME/.bash/.bash_aliases
 fi
 
 # RVM/Ruby
@@ -78,8 +81,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.gem/ruby/2.2.0/bin"
 
 # Android
-export PATH=${PATH}:~/android-sdk-linux/tools
-export PATH=${PATH}:~/android-sdk-linux/platform-tools
+export PATH=${PATH}:$HOME/android-sdk-linux/tools
+export PATH=${PATH}:$HOME/android-sdk-linux/platform-tools
 
 # NodeJS/NPM
 export PATH="$PATH:/usr/bin/npm"
@@ -97,21 +100,21 @@ export PATH="$PATH:/home/craigf/.local/bin"
 alias fuck='$(thefuck $(fc -ln -1))'
 
 # Marking of directories, and jumping to them - script from http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
-if [ -f ~/bash-scripts/mark-jump.sh ]; then
-  source ~/bash-scripts/mark-jump.sh
+if [ -f $HOME/.bash/mark-jump.sh ]; then
+  source $HOME/.bash/mark-jump.sh
 fi
 
 # Set some colour variables
-if [ -f ~/bash-scripts/color-variables.bash ]; then
-  source ~/bash-scripts/color-variables.bash
+if [ -f $HOME/.bash/color-variables.bash ]; then
+  source $HOME/.bash/color-variables.bash
 fi
 
 # Set git prompt
-if [ -f ~/bash-scripts/git-prompt.sh ]; then
-  source ~/bash-scripts/git-prompt.sh
+if [ -f $HOME/.bash/git-prompt.sh ]; then
+  source $HOME/.bash/git-prompt.sh
 fi
 
 # Set git completion
-if [ -f ~/bash-scripts/git-completion.sh ]; then
-  source ~/bash-scripts/git-completion.sh
+if [ -f $HOME/.bash/git-completion.sh ]; then
+  source $HOME/.bash/git-completion.sh
 fi

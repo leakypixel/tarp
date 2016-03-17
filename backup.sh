@@ -4,7 +4,7 @@ basedir=$HOME/tarp
 cd $basedir
 
 echo Copying configs...
-rsync -arPu --no-links --include-from=rules $HOME $basedir/home
+rsync -arvv --no-links --include-from=rules $HOME $basedir/home
 
 files=$(find $basedir/home/ -maxdepth 1 -not -type l -not -name 'home' -printf "%f ")
 

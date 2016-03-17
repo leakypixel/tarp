@@ -13,10 +13,6 @@ set listchars=eol:¬,tab:»·
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
 
-"" Set colourscheme and colours on
-colorscheme Tomorrow-Night-Eighties
-set t_Co=256
-
 "" Set leader to space so it can be hit by either hand
 let mapleader = "\<Space>"
 
@@ -25,6 +21,8 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+set t_Co=256
 
 "" While we're talking about splits...
 set splitright " Default to opening a split to the right instead of the left
@@ -47,6 +45,7 @@ noremap <leader>. :ts<cr>
 map <C-n> :NERDTreeToggle<CR>
 map <C-f> :CtrlPMixed<CR>
 set pastetoggle=<f5>
+
 "" Switch between double-space soft tabs and hard tabs
 noremap <leader>T :%s/  /\t/gi<cr>
 noremap <leader>t :%s/\t/  /gi<cr>
@@ -68,7 +67,12 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'chriskempson/base16-vim'
 call vundle#end()
+
+"" Set colourscheme and colours on
+let base16colorspace=256
+colorscheme base16-default
 
 "" CtrlP options for massive (read: java-like) projects
 let g:ctrlp_max_files=0
@@ -82,7 +86,7 @@ autocmd VimEnter * Limelight 0.5
 "" Have CtrlP open in active split, like vim's native dir browser
 let NERDTreeHijackNetrw=1
 
-"" All the usual stuff - no compatible, turn some nice to haves on and enable pathogen
+"" All the usual stuff - no compatible, turn some nice to haves on
 set nocompatible
 syntax on
 filetype plugin indent on

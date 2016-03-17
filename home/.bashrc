@@ -1,15 +1,10 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
-complete -o default -o nospace -F _git dotgit
-# don't put duplicate lines or lines starting with space in the history.
+
+# Don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
@@ -31,32 +26,18 @@ shopt -s globstar
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
+# Colours on
+export TERM=screen-256color
 
-# Colored prompt, if the terminal has the capability
-force_color_prompt=yes
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-  # We have color support; assume it's compliant with Ecma-48
-  # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-  # a case would tend to support setf rather than setaf.)
-  color_prompt=yes
-    else
-  color_prompt=
-    fi
+# If we're not already tmuxed, be tmuxed
+if [ -z "$TMUX" ]; then
+  # Connect to a tmux session if one already exists, otherwise make a new one (set in tmux config).
+  tmux attach
 fi
-
-if [ "$TERM" == "xterm" ]; then
-    export TERM=xterm-256color
-fi
-
-# If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
 
 # Set vim as the editor for just about everything
 export VISUAL="vim"
@@ -67,8 +48,8 @@ export DIFFTOOL="vim"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'

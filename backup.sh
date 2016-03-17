@@ -1,6 +1,6 @@
 #!/bin/bash
 
-basedir=~/tarp
+basedir=$HOME/tarp
 cd $basedir
 
 echo Copying configs...
@@ -9,9 +9,9 @@ rsync -arPu --no-links --include-from=rules $HOME $basedir/home
 files=$(find $basedir/home/ -maxdepth 1 -not -type l -not -name 'home' -printf "%f ")
 
 for file in $files; do
-    rm -rf ~/$file
+    rm -rf $HOME/$file
     echo "Creating symlink to $file in home directory."
-    ln -s $basedir/home/$file ~/$file
+    ln -s $basedir/home/$file $HOME/$file
 done
 
 # Add submodules to index

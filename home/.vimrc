@@ -57,7 +57,6 @@ call vundle#begin()
 
 "" Plugins
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'wookiehangover/jshint.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -68,6 +67,7 @@ Plugin 'tpope/vim-obsession'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'chriskempson/base16-vim'
+Plugin 'cakebaker/scss-syntax.vim'
 call vundle#end()
 
 "" Set colourscheme and colours on

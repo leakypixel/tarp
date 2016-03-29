@@ -114,7 +114,7 @@ let g:airline_powerline_fonts = 1
 "" Use eslint formatter for JS
 autocmd FileType javascript setlocal equalprg=eslint-pretty
 
-"" Ignore some common non-dev directories
+"" Ignore some common non-dev directories/files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*  
 
 "" Highlight trailing or orphaned tabs
@@ -131,3 +131,6 @@ augroup HighlightPeskyTabs
       \   hi def TrailingWS ctermbg=red guibg=red |
       \ endif
 augroup END
+
+"" Record session
+autocmd VimEnter * Obsess

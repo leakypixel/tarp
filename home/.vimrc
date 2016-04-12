@@ -32,9 +32,9 @@ set splitbelow " Default to opening a split below instead of above
 noremap ) :bprevious<cr>
 noremap ( :bnext<cr>
 noremap <leader>d :bdelete<cr>
-noremap <leader># :w<cr>
-noremap <leader>q :wq<cr>
-noremap <leader>w :w<cr>:bd<cr>
+noremap <leader>w :w<cr>
+noremap <leader>q :x<cr>
+noremap <leader>x :w<cr>:bd<cr>
 noremap <leader>v :vsp<cr>
 noremap <leader>s :sp<cr>
 noremap + :vertical resize +5<cr>
@@ -49,6 +49,15 @@ set pastetoggle=<f5>
 "" Switch between double-space soft tabs and hard tabs
 noremap <leader>T :%s/  /\t/gi<cr>
 noremap <leader>t :%s/\t/  /gi<cr>
+
+"" remove whitespace
+map <leader>s :%s/\s\+$//<CR>
+
+"" Autoformat
+map <leader>f ggVGG=
+
+"" Jump to next in quickfix
+map <leader>n :cn<cr>
 
 "" Vundle plugins
 filetype off
@@ -68,6 +77,7 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'chriskempson/base16-vim'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'wookiehangover/jshint.vim'
 call vundle#end()
 
 "" Set colourscheme and colours on
@@ -111,26 +121,35 @@ set expandtab
 "" Let airline use powerline fonts
 let g:airline_powerline_fonts = 1
 
-"" Use eslint formatter for JS
-autocmd FileType javascript setlocal equalprg=eslint-pretty
-
 "" Ignore some common non-dev directories/files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*  
+
 
 "" Highlight trailing or orphaned tabs
 augroup HighlightPeskyTabs
   au!
   autocmd BufRead,BufNewFile *
-      \ syn match Tab "\t\+$" |
+      \ syn match Tab "\t" |
       \ syn match TrailingWS "\s\+$" |
-      \ if &background == "dark" |
-      \   hi def Tab ctermbg=red guibg=red |
-      \   hi def TrailingWS ctermbg=red guibg=red |
-      \ else |
-      \   hi def Tab ctermbg=red guibg=red |
-      \   hi def TrailingWS ctermbg=red guibg=red |
-      \ endif
+      \ hi def Tab ctermbg=red guibg=red |
+      \ hi def TrailingWS ctermbg=red guibg=red |
 augroup END
 
-"" Record session
-autocmd VimEnter * Obsess
+"" Setup for JS
+"" Turn JSHint output off by default because it's a pest
+augroup JavaScript
+  au!
+  autocmd BufRead,BufNewFile *.js
+        \ set filetype=javascript |
+        \ JSHintToggle
+augroup END
+"" Use eslint formatter for JS
+autocmd FileType javascript setlocal equalprg=eslint-pretty
+"" Get some JSHint output
+autocmd FileType javascript map <buffer> <leader>l :JSHintToggle<cr>:JSHintUpdate<cr>
+
+" Remap shift key failure
+command! W :w
+command! Wq :wq
+command! E :e
+command! Q :q

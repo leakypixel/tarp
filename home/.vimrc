@@ -104,7 +104,7 @@ set background=dark
 set list
 set nu
 
-"" Set tab widths, etc.
+"" Set tab widths, line length, etc.
 set autoindent
 set smartindent
 let s:tabwidth=2
@@ -113,10 +113,12 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+set textwidth=80
+set wrapmargin=2
 
 "" Always display status line, but not mode
-:set laststatus=2
-:set noshowmode
+set laststatus=2
+set noshowmode
 
 "" Let airline use powerline fonts
 let g:airline_powerline_fonts = 1
@@ -147,6 +149,14 @@ augroup END
 autocmd FileType javascript setlocal equalprg=eslint-pretty
 "" Get some JSHint output
 autocmd FileType javascript map <buffer> <leader>l :JSHintToggle<cr>:JSHintUpdate<cr>
+
+"" Setup for SCSS
+"" Use sass-convert to format
+autocmd FileType scss setlocal equalprg=sass-convert\ -F\ scss\ -T\ scss\ -s
+
+"" Setup for HTML
+"" Use HTMLTidy to format
+autocmd FileType html setlocal equalprg=tidy\ -i\ -f\ --quiet\ --tidy-mark\ no\ --show-body-only\ auto\ --wrap\ 80
 
 " Remap shift key failure
 command! W :w

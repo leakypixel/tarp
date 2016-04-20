@@ -8,6 +8,7 @@ alias colourset='bash ~/tmp/replace-colours.sh'
 
 # Other scripts
 alias replace='bash ~/bash-scripts/replace.sh'
+alias uniqify='bash ~/bash-scripts/uniqueify.sh'
 alias fast='bash ~/bash-scripts/set-high-priority.sh'
 alias force-backup='bash ~/tarp/backup.sh'
 

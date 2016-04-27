@@ -31,6 +31,7 @@
   hr = reset --hard @{u}
   c = commit -vp
   l = log --oneline --abbrev-commit --branches=* --graph --decorate --color
+  up = !git fetch origin && git rebase origin/master
   wtf = blame
 
 [core]

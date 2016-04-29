@@ -26,5 +26,3 @@ cd $basedir
 git add -A
 git commit -m "Auto backup"
 git push origin
-
-echo Done all backups.

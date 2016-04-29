@@ -9,7 +9,6 @@ alias setauthor='bash ~/bash-scripts/change-git-author.sh'
 alias replace='bash ~/bash-scripts/replace.sh'
 alias uniqify='bash ~/bash-scripts/uniqueify.sh'
 alias fast='bash ~/bash-scripts/set-high-priority.sh'
-alias force-backup='bash ~/tarp/backup.sh'
 
 # Some nicer aliases for frequent commands
 alias please='sudo'

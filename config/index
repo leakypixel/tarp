@@ -11,3 +11,12 @@ bash-scripts
 .vimrc
 .tmux.conf
 .tmux
+.config/albert
+.config/autostart
+.config/libfm
+.config/lxpanel
+.config/lxsession
+.config/lxsession-default-apps
+.config/lxterminal
+.config/pcmanfm
+.config/xfce4

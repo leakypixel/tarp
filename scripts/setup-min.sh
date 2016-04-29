@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 basedir=~/tarp
 
 cd $basedir
@@ -13,4 +15,9 @@ for file in $files; do
 done
 
 git submodule init
-git submodule update
+git submodule up
+
+git clone https://github.com/leakypixel/default-configs.git $HOME/default-configs
+rm -rf $HOME/default-configs/.git
+rsync -avh $HOME/default-configs $HOME/.config
+rm -rf $HOME/default-configs

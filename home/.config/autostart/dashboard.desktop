@@ -2,5 +2,5 @@
 Type=Application
 Name=Dashboard
 Comment=Start stalonetray and conky at log in
-Exec=$HOME/.dashboard/start-dashboard.sh
+Exec=sh -c "$HOME/.dashboard/start-dashboard.sh"
 Terminal=false

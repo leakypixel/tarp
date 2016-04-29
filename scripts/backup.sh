@@ -3,22 +3,6 @@
 basedir=$HOME/tarp
 cd $basedir
 
-echo Copying configs...
-
-# Less than ideal, and needs fixing in future.
-shopt -s dotglob # for considering dot files (turn on dot files)
-while read file; do
-  cp -r $HOME/$file $basedir/home/
-done <rules
-
-files=$(find $basedir/home/ -maxdepth 1 -not -type l -not -name 'home' -printf "%f ")
-
-for file in $files; do
-    rm -rf $HOME/$file
-    echo "Creating symlink to $file in home directory."
-    ln -s $basedir/home/$file $HOME/$file
-done
-
 # Add submodules to index
 # Loop through all the non-git directories in my configs
 for i in $(find $basedir/home/ -type d -not -path "**/.git/**" -not -path "**/.git");

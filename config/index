@@ -16,7 +16,6 @@ bash-scripts
 .config/libfm
 .config/lxpanel
 .config/lxsession
-.config/lxsession-default-apps
 .config/lxterminal
 .config/pcmanfm
 .config/xfce4

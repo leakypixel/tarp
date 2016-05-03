@@ -20,3 +20,4 @@ bash-scripts
 .config/lxterminal
 .config/pcmanfm
 .config/xfce4
+.config/openbox

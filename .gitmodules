@@ -40,3 +40,15 @@
 [submodule "home/.vim/bundle/scss-syntax.vim"]
 	path = home/.vim/bundle/scss-syntax.vim
 	url = https://github.com/cakebaker/scss-syntax.vim.git
+[submodule "home/.tmux/plugins/tmux-continuum"]
+	path = home/.tmux/plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum.git
+[submodule "home/.tmux/plugins/tmux-resurrect"]
+	path = home/.tmux/plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect.git
+[submodule "home/.tmux/plugins/tmux-sensible"]
+	path = home/.tmux/plugins/tmux-sensible
+	url = https://github.com/tmux-plugins/tmux-sensible.git
+[submodule "home/.tmux/plugins/tpm"]
+	path = home/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git

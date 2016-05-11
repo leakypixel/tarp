@@ -124,6 +124,12 @@ set noshowmode
 "" Let airline use powerline fonts
 let g:airline_powerline_fonts = 1
 
+"" Turn on tabline
+let g:airline#extensions#tabline#enabled = 1
+
+"" Turn off setting the tmux theme automatically
+let g:airline#extensions#tmuxline#enabled = 0
+
 "" Ignore some common non-dev directories/files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*  
 

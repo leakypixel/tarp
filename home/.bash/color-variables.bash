@@ -1,17 +1,22 @@
 # Colour variables, from arch wiki color bash prompt: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+# Modified regular colours to use shell defaults.
 # Double quotes enable $color variable expansion and the \[ \] escapes around them make them not count as character positions so the cursor position is not wrong.
 # Reset
-Reset='\e[0m'       # Text Reset
+Reset='\e[0;0m'       # Text Reset
+
+# Make it bold
+Bold='\E[1m'
+Italic='\E[3m'
 
 # Regular Colors
-Black='\e[0;30m'        # Black
-Red='\e[0;31m'          # Red
-Green='\e[0;32m'        # Green
-Yellow='\e[0;33m'       # Yellow
-Blue='\e[0;34m'         # Blue
-Purple='\e[0;35m'       # Purple
-Cyan='\e[0;36m'         # Cyan
-White='\e[0;37m'        # White
+Black='\e[30m'        # Black
+Red='\e[31m'          # Red
+Green='\e[32m'        # Green
+Yellow='\e[33m'       # Yellow
+Blue='\e[34m'         # Blue
+Purple='\e[35m'       # Purple
+Cyan='\e[36m'         # Cyan
+White='\e[37m'        # White
 
 # Bold
 BBlack='\e[1;30m'       # Black

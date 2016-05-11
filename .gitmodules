@@ -40,3 +40,6 @@
 [submodule "home/.vim/bundle/scss-syntax.vim"]
 	path = home/.vim/bundle/scss-syntax.vim
 	url = https://github.com/cakebaker/scss-syntax.vim.git
+[submodule "home/.vim/bundle/vim-json"]
+	path = home/.vim/bundle/vim-json
+	url = https://github.com/elzr/vim-json.git

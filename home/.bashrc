@@ -76,6 +76,11 @@ if [ -f $HOME/.bash/.bash_aliases ]; then
   . $HOME/.bash/.bash_aliases
 fi
 
+# Function definitions.
+if [ -f $HOME/.bash/.bash_functions ]; then
+  . $HOME/.bash/.bash_functions
+fi
+
 # RVM/Ruby
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.gem/ruby/2.2.0/bin"

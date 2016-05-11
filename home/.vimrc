@@ -78,6 +78,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'chriskempson/base16-vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'wookiehangover/jshint.vim'
+Plugin 'elzr/vim-json'
 call vundle#end()
 
 "" Set colourscheme and colours on
@@ -157,6 +158,9 @@ autocmd FileType scss setlocal equalprg=sass-convert\ -F\ scss\ -T\ scss\ -s
 "" Setup for HTML
 "" Use HTMLTidy to format
 autocmd FileType html setlocal equalprg=tidy\ -i\ -f\ --quiet\ --tidy-mark\ no\ --show-body-only\ auto\ --wrap\ 80
+
+"" Turn off hiding quotes in JSON
+let g:vim_json_syntax_conceal = 0
 
 " Remap shift key failure
 command! W :w

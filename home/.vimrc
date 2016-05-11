@@ -78,6 +78,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'chriskempson/base16-vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'wookiehangover/jshint.vim'
+Plugin 'elzr/vim-json'
 call vundle#end()
 
 "" Set colourscheme and colours on
@@ -123,6 +124,12 @@ set noshowmode
 "" Let airline use powerline fonts
 let g:airline_powerline_fonts = 1
 
+"" Turn on tabline
+let g:airline#extensions#tabline#enabled = 1
+
+"" Turn off setting the tmux theme automatically
+let g:airline#extensions#tmuxline#enabled = 0
+
 "" Ignore some common non-dev directories/files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*  
 
@@ -157,6 +164,9 @@ autocmd FileType scss setlocal equalprg=sass-convert\ -F\ scss\ -T\ scss\ -s
 "" Setup for HTML
 "" Use HTMLTidy to format
 autocmd FileType html setlocal equalprg=tidy\ -i\ -f\ --quiet\ --tidy-mark\ no\ --show-body-only\ auto\ --wrap\ 80
+
+"" Turn off hiding quotes in JSON
+let g:vim_json_syntax_conceal = 0
 
 " Remap shift key failure
 command! W :w

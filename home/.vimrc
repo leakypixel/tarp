@@ -1,11 +1,21 @@
+"" All the usual stuff - no compatible, turn some nice to haves on
 set nocompatible
+syntax on
+filetype plugin indent on
+set background=dark
+set list
+set nu
+
 "" Stop VIM creating files everywhere
-set nobackup            " no backup files
-set nowritebackup       " only in case you don't want a backup file while editing
-set noswapfile          " no swap files
+set nobackup
+set nowritebackup
+set noswapfile
 
 "" Hide closed buffers
 set hidden
+
+"" Explicitly turn on 256 colour
+set t_Co=256
 
 "" Show the end of line char as a ¬, so it's nice and visible
 set listchars=eol:¬,tab:»·
@@ -22,7 +32,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-set t_Co=256
 
 "" While we're talking about splits...
 set splitright " Default to opening a split to the right instead of the left
@@ -96,14 +105,6 @@ autocmd VimEnter * Limelight 0.5
 
 "" Have CtrlP open in active split, like vim's native dir browser
 let NERDTreeHijackNetrw=1
-
-"" All the usual stuff - no compatible, turn some nice to haves on
-set nocompatible
-syntax on
-filetype plugin indent on
-set background=dark
-set list
-set nu
 
 "" Set tab widths, line length, etc.
 set autoindent

@@ -29,14 +29,14 @@ set splitright " Default to opening a split to the right instead of the left
 set splitbelow " Default to opening a split below instead of above
 
 "" Set custom keybindings
-noremap ) :bprevious<cr>
-noremap ( :bnext<cr>
+noremap ) :bnext<cr>
+noremap ( :bprevious<cr>
 noremap <leader>d :bdelete<cr>
 noremap <leader>w :w<cr>
 noremap <leader>q :x<cr>
 noremap <leader>x :w<cr>:bd<cr>
 noremap <leader>v :vsp<cr>
-noremap <leader>s :sp<cr>
+noremap <leader>h :sp<cr>
 noremap + :vertical resize +5<cr>
 noremap - :vertical resize -5<cr>
 noremap <leader>o:resize +5<cr>
@@ -173,3 +173,23 @@ command! W :w
 command! Wq :wq
 command! E :e
 command! Q :q
+
+command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
+function! s:RunShellCommand(cmdline)
+  echo a:cmdline
+  let expanded_cmdline = a:cmdline
+  for part in split(a:cmdline, ' ')
+     if part[0] =~ '\v[%#<]'
+        let expanded_part = fnameescape(expand(part))
+        let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+     endif
+  endfor
+  botright new
+  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+  call setline(1, 'You entered:    ' . a:cmdline)
+  call setline(2, 'Expanded Form:  ' .expanded_cmdline)
+  call setline(3,substitute(getline(2),'.','=','g'))
+  execute '$read !'. expanded_cmdline
+  setlocal nomodifiable
+  1
+endfunction

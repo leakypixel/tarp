@@ -2,5 +2,5 @@
 Type=Application
 Name=Compton compositor
 Comment=Start compton at log in
-Exec=compton -cCG -d 5
+Exec=compton -bcCG
 OnlyShowIn=LXDE;

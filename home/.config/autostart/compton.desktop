@@ -2,5 +2,4 @@
 Type=Application
 Name=Compton compositor
 Comment=Start compton at log in
-Exec=compton -bcCG
-OnlyShowIn=LXDE;
+Exec=compton -b

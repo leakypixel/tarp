@@ -37,6 +37,11 @@ shopt -s globstar
 # Colours on
 export TERM=screen-256color
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.bash/base16-default.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+
 # If we're not already tmuxed, be tmuxed
 if [ -z "$TMUX" ]; then
   # Connect to a tmux session if one already exists, otherwise make a new one (set in tmux config).
@@ -95,10 +100,6 @@ fi
 if [ -f $HOME/.bash/color-variables.bash ]; then
   source $HOME/.bash/color-variables.bash
 fi
-
-# Base16 Shell
-BASE16_SHELL="$HOME/.bash/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 
 # Set git prompt

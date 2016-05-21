@@ -16,7 +16,7 @@ draw_shades no
 draw_outline no
 draw_borders no
 draw_graph_borders no
-default_color 111111
+default_color f1f1f1
 alignment top_left
 gap_x 45
 gap_y 75

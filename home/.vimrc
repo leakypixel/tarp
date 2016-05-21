@@ -1,11 +1,21 @@
+"" All the usual stuff - no compatible, turn some nice to haves on
 set nocompatible
+syntax on
+filetype plugin indent on
+set background=dark
+set list
+set nu
+
 "" Stop VIM creating files everywhere
-set nobackup            " no backup files
-set nowritebackup       " only in case you don't want a backup file while editing
-set noswapfile          " no swap files
+set nobackup
+set nowritebackup
+set noswapfile
 
 "" Hide closed buffers
 set hidden
+
+"" Explicitly turn on 256 colour
+set t_Co=256
 
 "" Show the end of line char as a ¬, so it's nice and visible
 set listchars=eol:¬,tab:»·
@@ -22,21 +32,20 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-set t_Co=256
 
 "" While we're talking about splits...
 set splitright " Default to opening a split to the right instead of the left
 set splitbelow " Default to opening a split below instead of above
 
 "" Set custom keybindings
-noremap ) :bprevious<cr>
-noremap ( :bnext<cr>
+noremap ) :bnext<cr>
+noremap ( :bprevious<cr>
 noremap <leader>d :bdelete<cr>
 noremap <leader>w :w<cr>
 noremap <leader>q :x<cr>
 noremap <leader>x :w<cr>:bd<cr>
 noremap <leader>v :vsp<cr>
-noremap <leader>s :sp<cr>
+noremap <leader>h :sp<cr>
 noremap + :vertical resize +5<cr>
 noremap - :vertical resize -5<cr>
 noremap <leader>o:resize +5<cr>
@@ -96,14 +105,6 @@ autocmd VimEnter * Limelight 0.5
 
 "" Have CtrlP open in active split, like vim's native dir browser
 let NERDTreeHijackNetrw=1
-
-"" All the usual stuff - no compatible, turn some nice to haves on
-set nocompatible
-syntax on
-filetype plugin indent on
-set background=dark
-set list
-set nu
 
 "" Set tab widths, line length, etc.
 set autoindent
@@ -173,3 +174,23 @@ command! W :w
 command! Wq :wq
 command! E :e
 command! Q :q
+
+command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
+function! s:RunShellCommand(cmdline)
+  echo a:cmdline
+  let expanded_cmdline = a:cmdline
+  for part in split(a:cmdline, ' ')
+     if part[0] =~ '\v[%#<]'
+        let expanded_part = fnameescape(expand(part))
+        let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+     endif
+  endfor
+  botright new
+  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+  call setline(1, 'You entered:    ' . a:cmdline)
+  call setline(2, 'Expanded Form:  ' .expanded_cmdline)
+  call setline(3,substitute(getline(2),'.','=','g'))
+  execute '$read !'. expanded_cmdline
+  setlocal nomodifiable
+  1
+endfunction

@@ -1,7 +1,6 @@
 "" All the usual stuff - no compatible, turn some nice to haves on
 set nocompatible
 syntax on
-filetype plugin indent on
 set background=dark
 set list
 set nu
@@ -88,6 +87,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'wookiehangover/jshint.vim'
 Plugin 'elzr/vim-json'
+Plugin 'leafgarland/typescript-vim'
 call vundle#end()
 
 "" Set colourscheme and colours on
@@ -132,7 +132,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
 
 "" Ignore some common non-dev directories/files
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*  
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
 
 
 "" Highlight trailing or orphaned tabs
@@ -194,3 +194,6 @@ function! s:RunShellCommand(cmdline)
   setlocal nomodifiable
   1
 endfunction
+
+filetype off
+filetype plugin indent on

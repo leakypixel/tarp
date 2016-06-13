@@ -41,7 +41,7 @@
   whitespace = trailing-space,space-before-tab
 
 [commit]
-  template = ~/.git/.gitmessage
+  template = ~/.gitfiles/.gitmessage
 
 [diff]
   algorithm = patience

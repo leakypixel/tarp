@@ -7,3 +7,8 @@ feature/autoindent-scss was branched from: master
 feature/hex-code-correction was branched from: master
 feature/fix-hex-codes was branched from: rich-exante-ajax-facets-2505
 feature/hex-code-correction was branched from: master
+feature/fix-githook-colours was branched from: master
+cf-this-branch-will-break was branched from: master
+cf-branch-breaker was branched from: cf-this-branch-will-break
+feature/fix-merge-linting was branched from: master
+cf-path-join was branched from: master

@@ -9,7 +9,6 @@ alias setauthor='bash ~/bash-scripts/change-git-author.sh'
 alias replace='bash ~/bash-scripts/replace.sh'
 alias uniqify='bash ~/bash-scripts/uniqueify.sh'
 alias fast='bash ~/bash-scripts/set-high-priority.sh'
-alias alarm='~/bash-scripts/alarm.sh'
 
 # Some nicer aliases for frequent commands
 alias please='sudo'
@@ -21,6 +20,7 @@ alias gr='grunt'
 alias gu='gulp'
 alias rl='source ~/.bashrc'
 alias xclip='xclip -selection c'
+alias c='cless'
 alias jsh='jshint **/*.js'
 alias ufm='git checkout master && git pull && git checkout - && git merge master'
 alias upd='git checkout master && git pull && git fetch --prune && bash ~/bash-scripts/clean-branches-that-dont-exist-on-remote.sh'
@@ -28,6 +28,8 @@ alias upd='git checkout master && git pull && git fetch --prune && bash ~/bash-s
 # Restart vagrant box
 alias rs='j box && sudo vagrant ssh -c "sudo service tomcat7 restart" && cd -'
 
+# Kill all docker containers that're up
+alias dk='~/bash-scripts/bring-all-docker-machines-down.sh'
 
 # Aliases because I'd likely have to google every time I wrote the command
 alias tree='find . -not -path "*/\.*" | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"'

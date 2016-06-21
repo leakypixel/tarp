@@ -55,3 +55,9 @@
 [submodule "home/.vim/bundle/vim-json"]
 	path = home/.vim/bundle/vim-json
 	url = https://github.com/elzr/vim-json.git
+[submodule "home/.vim/bundle/editorconfig-vim"]
+	path = home/.vim/bundle/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "home/.vim/bundle/jshint2.vim"]
+	path = home/.vim/bundle/jshint2.vim
+	url = https://github.com/Shutnik/jshint2.vim.git

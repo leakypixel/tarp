@@ -85,10 +85,15 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'chriskempson/base16-vim'
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'wookiehangover/jshint.vim'
+Plugin 'Shutnik/jshint2.vim'
 Plugin 'elzr/vim-json'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'editorconfig/editorconfig-vim'
 call vundle#end()
+
+"" Editorconfig plugin setup
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
 
 "" Set colourscheme and colours on
 let base16colorspace=256
@@ -97,7 +102,7 @@ colorscheme base16-default
 "" CtrlP options for massive (read: java-like) projects
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:50,results:50'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:10'
 let g:ctrlp_clear_cache_on_exit = 0
 
 "" Turn Limelight on for hyper-focused editing
@@ -151,12 +156,11 @@ augroup JavaScript
   au!
   autocmd BufRead,BufNewFile *.js
         \ set filetype=javascript |
-        \ JSHintToggle
 augroup END
 "" Use eslint formatter for JS
 autocmd FileType javascript setlocal equalprg=eslint-pretty
 "" Get some JSHint output
-autocmd FileType javascript map <buffer> <leader>l :JSHintToggle<cr>:JSHintUpdate<cr>
+autocmd FileType javascript map <buffer> <leader>l :JSHint<cr>
 
 "" Setup for SCSS
 "" Use sass-convert to format

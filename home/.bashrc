@@ -47,6 +47,8 @@ fi
 export VISUAL="vim"
 export EDITOR="vim"
 export DIFFTOOL="vim"
+# ...including in bash! :D
+set -o vi
 
 # enable color support of ls
 if [ -x /usr/bin/dircolors ]; then

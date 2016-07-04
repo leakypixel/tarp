@@ -49,6 +49,8 @@ noremap + :vertical resize +5<cr>
 noremap - :vertical resize -5<cr>
 noremap <leader>o:resize +5<cr>
 noremap <leader>l :resize -5<cr>
+noremap <leader>y :'<,'>%w !xclip<cr>
+noremap <leader>Y :%w !xclip<cr>
 noremap <leader>. :ts<cr>
 map <C-n> :NERDTreeToggle<CR>
 map <C-f> :CtrlPMixed<CR>
@@ -168,7 +170,7 @@ autocmd FileType scss setlocal equalprg=sass-convert\ -F\ scss\ -T\ scss\ -s
 
 "" Setup for HTML
 "" Use HTMLTidy to format
-autocmd FileType html setlocal equalprg=tidy\ -i\ -f\ --quiet\ --tidy-mark\ no\ --show-body-only\ auto\ --wrap\ 80
+autocmd FileType html setlocal equalprg=tidy\ -i\ -f\ --tidy-mark\ no\ --show-body-only\ auto\ --wrap\ 80
 
 "" Turn off hiding quotes in JSON
 let g:vim_json_syntax_conceal = 0

@@ -9,6 +9,7 @@ alias setauthor='bash ~/bash-scripts/change-git-author.sh'
 alias replace='bash ~/bash-scripts/replace.sh'
 alias uniqify='bash ~/bash-scripts/uniqueify.sh'
 alias fast='bash ~/bash-scripts/set-high-priority.sh'
+alias brn='~/bash-scripts/bulk-rename.sh'
 
 # Some nicer aliases for frequent commands
 alias please='sudo'
@@ -24,6 +25,7 @@ alias c='cless'
 alias jsh='jshint **/*.js'
 alias ufm='git checkout master && git pull && git checkout - && git merge master'
 alias upd='git checkout master && git pull && git fetch --prune && bash ~/bash-scripts/clean-branches-that-dont-exist-on-remote.sh'
+alias sn='tmux rename-window $(basename $PWD)'
 
 # Restart vagrant box
 alias rs='j box && sudo vagrant ssh -c "sudo service tomcat7 restart" && cd -'

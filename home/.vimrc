@@ -47,11 +47,13 @@ noremap <leader>v :vsp<cr>
 noremap <leader>h :sp<cr>
 noremap + :vertical resize +5<cr>
 noremap - :vertical resize -5<cr>
-noremap <leader>o:resize +5<cr>
-noremap <leader>l :resize -5<cr>
+noremap <leader>+ :resize +5<cr>
+noremap <leader>- :resize -5<cr>
+noremap <leader>l :lopen<cr>
+noremap <leader>n :lnext<cr>
+noremap <leader>c :SyntasticCheck<cr>
 noremap <leader>y :'<,'>%w !xclip<cr>
 noremap <leader>Y :%w !xclip<cr>
-noremap <leader>. :ts<cr>
 map <C-n> :NERDTreeToggle<CR>
 map <C-f> :CtrlPMixed<CR>
 set pastetoggle=<f5>
@@ -65,9 +67,6 @@ map <leader>s :%s/\s\+$//<CR>
 
 "" Autoformat
 map <leader>f ggVGG=
-
-"" Jump to next in quickfix
-map <leader>n :cn<cr>
 
 "" Vundle plugins
 filetype off
@@ -84,22 +83,14 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'pangloss/vim-javascript'
 Plugin 'chriskempson/base16-vim'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'Shutnik/jshint2.vim'
-Plugin 'elzr/vim-json'
-Plugin 'leafgarland/typescript-vim'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'scrooloose/syntastic'
 call vundle#end()
 
 "" Editorconfig plugin setup
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-
-"" Set colourscheme and colours on
-let base16colorspace=256
-colorscheme base16-default
 
 "" CtrlP options for massive (read: java-like) projects
 let g:ctrlp_max_files=0
@@ -129,6 +120,10 @@ set wrapmargin=2
 set laststatus=2
 set noshowmode
 
+"" Set wildmode
+set wildmenu
+set wildmode=longest:full,full
+
 "" Let airline use powerline fonts
 let g:airline_powerline_fonts = 1
 
@@ -141,28 +136,9 @@ let g:airline#extensions#tmuxline#enabled = 0
 "" Ignore some common non-dev directories/files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
 
-
-"" Highlight trailing or orphaned tabs
-augroup HighlightPeskyTabs
-  au!
-  autocmd BufRead,BufNewFile *
-      \ syn match Tab "\t" |
-      \ syn match TrailingWS "\s\+$" |
-      \ hi def Tab ctermbg=red guibg=red |
-      \ hi def TrailingWS ctermbg=red guibg=red |
-augroup END
-
 "" Setup for JS
-"" Turn JSHint output off by default because it's a pest
-augroup JavaScript
-  au!
-  autocmd BufRead,BufNewFile *.js
-        \ set filetype=javascript |
-augroup END
 "" Use eslint formatter for JS
 autocmd FileType javascript setlocal equalprg=eslint-pretty
-"" Get some JSHint output
-autocmd FileType javascript map <buffer> <leader>l :JSHint<cr>
 
 "" Setup for SCSS
 "" Use sass-convert to format
@@ -170,10 +146,7 @@ autocmd FileType scss setlocal equalprg=sass-convert\ -F\ scss\ -T\ scss\ -s
 
 "" Setup for HTML
 "" Use HTMLTidy to format
-autocmd FileType html setlocal equalprg=tidy\ -i\ -f\ --tidy-mark\ no\ --show-body-only\ auto\ --wrap\ 80
-
-"" Turn off hiding quotes in JSON
-let g:vim_json_syntax_conceal = 0
+autocmd FileType html setlocal equalprg=tidy\ -i\ --tidy-mark\ no\ --show-body-only\ auto\ --wrap\ 80
 
 " Remap shift key failure
 command! W :w
@@ -181,25 +154,33 @@ command! Wq :wq
 command! E :e
 command! Q :q
 
-command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
-function! s:RunShellCommand(cmdline)
-  echo a:cmdline
-  let expanded_cmdline = a:cmdline
-  for part in split(a:cmdline, ' ')
-     if part[0] =~ '\v[%#<]'
-        let expanded_part = fnameescape(expand(part))
-        let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
-     endif
-  endfor
-  botright new
-  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
-  call setline(1, 'You entered:    ' . a:cmdline)
-  call setline(2, 'Expanded Form:  ' .expanded_cmdline)
-  call setline(3,substitute(getline(2),'.','=','g'))
-  execute '$read !'. expanded_cmdline
-  setlocal nomodifiable
-  1
-endfunction
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '❌'
+let g:syntastic_warning_symbol = '⁉️'
+let g:syntastic_style_warning_symbol = '⁉️'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
+
+
+"" Set colourscheme and colours on
+let base16colorspace=256
+colorscheme base16-default-dark
 
 filetype off
 filetype plugin indent on

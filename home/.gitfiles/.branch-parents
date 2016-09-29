@@ -37,3 +37,5 @@ feature/create-component was branched from: master
 feature/image-location-from-client was branched from: master
 feature/local-font was branched from: master
 feature/reflow-ordering was branched from: master
+feature/tweak-reordering-method was branched from: master
+feature/fix-async-memory-access was branched from: master

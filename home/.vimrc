@@ -140,6 +140,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
 "" Use eslint formatter for JS
 autocmd FileType javascript setlocal equalprg=eslint-pretty
 
+"" Use python JSONTool for JSON
+autocmd FileType json setlocal equalprg=python\ -m\ json.tool
+
 "" Setup for SCSS
 "" Use sass-convert to format
 autocmd FileType scss setlocal equalprg=sass-convert\ -F\ scss\ -T\ scss\ -s

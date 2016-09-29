@@ -40,7 +40,7 @@ export TERM=screen-256color
 # If we're not already tmuxed, be tmuxed
 if [ -z "$TMUX" ]; then
   # Connect to a tmux session if one already exists, otherwise make a new one (set in tmux config).
-  tmux attach
+  exec tmux attach
 fi
 
 # Set vim as the editor for just about everything

@@ -426,7 +426,7 @@
     </keybind>
     <keybind key="C-A-l">
       <action name="Execute">
-        <command>lxsession-default lock</command>
+        <command>lxdm -c USER_SWITCH</command>
       </action>
     </keybind>
     <keybind key="F9">

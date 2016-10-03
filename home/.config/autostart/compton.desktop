@@ -2,4 +2,4 @@
 Type=Application
 Name=Compton compositor
 Comment=Start compton at log in
-Exec=compton -b
+Exec=compton -CGb --no-fading-openclose

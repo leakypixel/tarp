@@ -45,13 +45,15 @@ BASE16_SHELL="$HOME/.bash/base16-default.dark.sh"
 # If we're not already tmuxed, be tmuxed
 if [ -z "$TMUX" ]; then
   # Connect to a tmux session if one already exists, otherwise make a new one (set in tmux config).
-  tmux attach
+  exec tmux attach
 fi
 
 # Set vim as the editor for just about everything
 export VISUAL="vim"
 export EDITOR="vim"
 export DIFFTOOL="vim"
+# ...including in bash! :D
+set -o vi
 
 # enable color support of ls
 if [ -x /usr/bin/dircolors ]; then

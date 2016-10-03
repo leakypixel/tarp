@@ -5,7 +5,7 @@ bash-scripts
 .fonts
 .bashrc
 .gitconfig
-.gitmessage
+.gitfiles
 .profile
 .selected_editor
 .vimrc

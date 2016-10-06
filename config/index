@@ -11,6 +11,7 @@ bash-scripts
 .vimrc
 .tmux.conf
 .tmux
+.eslintlintrc.json
 .config/albert
 .config/autostart
 .config/libfm

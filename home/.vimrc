@@ -87,6 +87,7 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'leafgarland/typescript-vim'
 call vundle#end()
 
 "" Editorconfig plugin setup
@@ -140,6 +141,10 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
 "" Setup for JS
 "" Use eslint formatter for JS
 autocmd FileType javascript setlocal equalprg=eslint-pretty
+
+"" Setup for go
+"" Use gofmt
+autocmd FileType go setlocal equalprg=gofmt
 
 "" Use python JSONTool for JSON
 autocmd FileType json setlocal equalprg=python\ -m\ json.tool

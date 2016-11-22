@@ -65,6 +65,10 @@ if [ -f $HOME/.bash/.bash_functions ]; then
   . $HOME/.bash/.bash_functions
 fi
 
+# GoLang
+export GOPATH=$HOME/dev/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
 # RVM/Ruby
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.gem/ruby/2.2.0/bin"

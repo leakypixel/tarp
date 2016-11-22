@@ -9,6 +9,13 @@
         "sourceType": "module"
     },
     "rules": {
+        "brace-style": [
+            "error",
+            "1tbs",
+            {
+                "allowSingleLine": true
+            }
+        ],
         "class-methods-use-this": "error",
         "complexity": [
             "error",
@@ -56,6 +63,12 @@
         ],
         "no-unsafe-negation": "error",
         "no-unused-labels": "error",
+        "no-unused-vars": [
+            "error",
+            {
+                "vars": "local"
+            }
+        ],
         "no-useless-call": "error",
         "no-useless-computed-key": "error",
         "no-useless-concat": "error",

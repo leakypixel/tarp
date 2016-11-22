@@ -67,3 +67,6 @@
 [submodule "home/.vim/bundle/vim-javascript-syntax"]
 	path = home/.vim/bundle/vim-javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "home/.vim/bundle/typescript-vim"]
+	path = home/.vim/bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git

@@ -101,7 +101,14 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:10'
 let g:ctrlp_clear_cache_on_exit = 0
 
 "" Turn Limelight on for hyper-focused editing
-autocmd VimEnter * Limelight 0.5
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+autocmd VimEnter * Limelight
 
 "" Have CtrlP open in active split, like vim's native dir browser
 let NERDTreeHijackNetrw=1
@@ -131,7 +138,9 @@ let g:airline_powerline_fonts = 1
 
 "" Turn on tabline
 let g:airline#extensions#tabline#enabled = 1
+"" Set the airline theme
 
+let g:airline_theme='base16_3024'
 "" Turn off setting the tmux theme automatically
 let g:airline#extensions#tmuxline#enabled = 0
 
@@ -188,8 +197,8 @@ highlight link SyntasticStyleWarningSign SignColumn
 
 
 "" Set colourscheme and colours on
-let base16colorspace=256
-colorscheme base16-default-dark
+"let base16colorspace=256
+"colorscheme base16-default-dark
 
 filetype off
 filetype plugin indent on

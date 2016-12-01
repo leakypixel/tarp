@@ -11,6 +11,7 @@ bash-scripts
 .vimrc
 .tmux.conf
 .tmux
+.Xresources
 .eslintrc.json
 .config/albert
 .config/autostart
@@ -21,3 +22,4 @@ bash-scripts
 .config/pcmanfm
 .config/xfce4
 .config/openbox
+.config/i3

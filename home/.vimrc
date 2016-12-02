@@ -3,6 +3,7 @@ set nocompatible
 syntax on
 set background=dark
 set list
+set term=xterm
 set nu
 
 "" Stop VIM creating files everywhere
@@ -138,9 +139,10 @@ let g:airline_powerline_fonts = 1
 
 "" Turn on tabline
 let g:airline#extensions#tabline#enabled = 1
-"" Set the airline theme
 
-let g:airline_theme='base16_3024'
+"" Set the airline theme
+let g:airline_theme='base16_flat'
+
 "" Turn off setting the tmux theme automatically
 let g:airline#extensions#tmuxline#enabled = 0
 

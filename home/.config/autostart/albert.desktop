@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Albert
-Comment=Start albert at log in
-Exec=albert
-

@@ -48,3 +48,5 @@ feature/reduce-complexity was branched from: master
 testing-framework was branched from: master
 maintenance/remove-testing-framework was branched from: master
 maintenance/upgrade-carousel was branched from: develop
+bugfix/multiple-timer-objects was branched from: develop
+bugfix/multiple-timer-objects was branched from: master

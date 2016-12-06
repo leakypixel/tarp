@@ -23,6 +23,6 @@ while read package; do
   if [ $(which $package) ]; then
     echo $package already installed.
   else
-    install $package
+    system_install $package
   fi
 done<$system_package_list

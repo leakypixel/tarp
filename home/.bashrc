@@ -37,16 +37,11 @@ shopt -s globstar
 # Colours on
 export TERM=screen-256color
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.bash/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
-
 # If we're not already tmuxed, be tmuxed
-if [ -z "$TMUX" ]; then
+#if [ -z "$TMUX" ]; then
   # Connect to a tmux session if one already exists, otherwise make a new one (set in tmux config).
-  exec tmux attach
-fi
+#  exec tmux attach
+#fi
 
 # Set vim as the editor for just about everything
 export VISUAL="vim"
@@ -69,6 +64,10 @@ fi
 if [ -f $HOME/.bash/.bash_functions ]; then
   . $HOME/.bash/.bash_functions
 fi
+
+# GoLang
+export GOPATH=$HOME/dev/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # RVM/Ruby
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
@@ -102,7 +101,6 @@ fi
 if [ -f $HOME/.bash/color-variables.bash ]; then
   source $HOME/.bash/color-variables.bash
 fi
-
 
 # Set git prompt
 if [ -f $HOME/.bash/git-prompt.sh ]; then

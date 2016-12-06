@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Compton compositor
-Comment=Start compton at log in
-Exec=compton -b --config /dev/null
-OnlyShowIn=LXDE;

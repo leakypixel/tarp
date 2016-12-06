@@ -1,11 +1,21 @@
+"" All the usual stuff - no compatible, turn some nice to haves on
 set nocompatible
+syntax on
+set background=dark
+set list
+set term=xterm
+set nu
+
 "" Stop VIM creating files everywhere
-set nobackup            " no backup files
-set nowritebackup       " only in case you don't want a backup file while editing
-set noswapfile          " no swap files
+set nobackup
+set nowritebackup
+set noswapfile
 
 "" Hide closed buffers
 set hidden
+
+"" Explicitly turn on 256 colour
+set t_Co=256
 
 "" Show the end of line char as a ¬, so it's nice and visible
 set listchars=eol:¬,tab:»·
@@ -22,26 +32,29 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-set t_Co=256
 
 "" While we're talking about splits...
 set splitright " Default to opening a split to the right instead of the left
 set splitbelow " Default to opening a split below instead of above
 
 "" Set custom keybindings
-noremap ) :bprevious<cr>
-noremap ( :bnext<cr>
+noremap ) :bnext<cr>
+noremap ( :bprevious<cr>
 noremap <leader>d :bdelete<cr>
-noremap <leader># :w<cr>
-noremap <leader>q :wq<cr>
-noremap <leader>w :w<cr>:bd<cr>
+noremap <leader>w :w<cr>
+noremap <leader>q :x<cr>
+noremap <leader>x :w<cr>:bd<cr>
 noremap <leader>v :vsp<cr>
-noremap <leader>s :sp<cr>
+noremap <leader>h :sp<cr>
 noremap + :vertical resize +5<cr>
 noremap - :vertical resize -5<cr>
-noremap <leader>o:resize +5<cr>
-noremap <leader>l :resize -5<cr>
-noremap <leader>. :ts<cr>
+noremap <leader>+ :resize +5<cr>
+noremap <leader>- :resize -5<cr>
+noremap <leader>l :lopen<cr>
+noremap <leader>n :lnext<cr>
+noremap <leader>c :SyntasticCheck<cr>
+noremap <leader>y :'<,'>%w !xclip<cr>
+noremap <leader>Y :%w !xclip<cr>
 map <C-n> :NERDTreeToggle<CR>
 map <C-f> :CtrlPMixed<CR>
 set pastetoggle=<f5>
@@ -50,6 +63,12 @@ set pastetoggle=<f5>
 noremap <leader>T :%s/  /\t/gi<cr>
 noremap <leader>t :%s/\t/  /gi<cr>
 
+"" remove whitespace
+map <leader>s :%s/\s\+$//<CR>
+
+"" Autoformat
+map <leader>f ggVGG=
+
 "" Vundle plugins
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -57,7 +76,6 @@ call vundle#begin()
 
 "" Plugins
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'wookiehangover/jshint.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -65,36 +83,38 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'pangloss/vim-javascript'
 Plugin 'chriskempson/base16-vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'leafgarland/typescript-vim'
 call vundle#end()
 
-"" Set colourscheme and colours on
-let base16colorspace=256
-colorscheme base16-default
+"" Editorconfig plugin setup
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
 
 "" CtrlP options for massive (read: java-like) projects
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:50,results:50'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:10'
 let g:ctrlp_clear_cache_on_exit = 0
 
 "" Turn Limelight on for hyper-focused editing
-autocmd VimEnter * Limelight 0.5
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+autocmd VimEnter * Limelight
 
 "" Have CtrlP open in active split, like vim's native dir browser
 let NERDTreeHijackNetrw=1
 
-"" All the usual stuff - no compatible, turn some nice to haves on
-set nocompatible
-syntax on
-filetype plugin indent on
-set background=dark
-set list
-set nu
-
-"" Set tab widths, etc.
+"" Set tab widths, line length, etc.
 set autoindent
 set smartindent
 let s:tabwidth=2
@@ -103,31 +123,84 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+set textwidth=80
+set wrapmargin=2
 
 "" Always display status line, but not mode
-:set laststatus=2
-:set noshowmode
+set laststatus=2
+set noshowmode
+
+"" Set wildmode
+set wildmenu
+set wildmode=longest:full,full
 
 "" Let airline use powerline fonts
 let g:airline_powerline_fonts = 1
 
+"" Turn on tabline
+let g:airline#extensions#tabline#enabled = 1
+
+"" Set the airline theme
+let g:airline_theme='base16_flat'
+
+"" Turn off setting the tmux theme automatically
+let g:airline#extensions#tmuxline#enabled = 0
+
+"" Ignore some common non-dev directories/files
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
+
+"" Setup for JS
 "" Use eslint formatter for JS
 autocmd FileType javascript setlocal equalprg=eslint-pretty
 
-"" Ignore some common non-dev directories
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*  
+"" Setup for go
+"" Use gofmt
+autocmd FileType go setlocal equalprg=gofmt
 
-"" Highlight trailing or orphaned tabs
-augroup HighlightPeskyTabs
-  au!
-  autocmd BufRead,BufNewFile *
-      \ syn match Tab "\t\+$" |
-      \ syn match TrailingWS "\s\+$" |
-      \ if &background == "dark" |
-      \   hi def Tab ctermbg=red guibg=red |
-      \   hi def TrailingWS ctermbg=red guibg=red |
-      \ else |
-      \   hi def Tab ctermbg=red guibg=red |
-      \   hi def TrailingWS ctermbg=red guibg=red |
-      \ endif
-augroup END
+"" Use python JSONTool for JSON
+autocmd FileType json setlocal equalprg=python\ -m\ json.tool
+
+"" Setup for SCSS
+"" Use sass-convert to format
+autocmd FileType scss setlocal equalprg=sass-convert\ -F\ scss\ -T\ scss\ -s
+
+"" Setup for HTML
+"" Use HTMLTidy to format
+autocmd FileType html setlocal equalprg=tidy\ -i\ --tidy-mark\ no\ --show-body-only\ auto\ --wrap\ 80
+
+" Remap shift key failure
+command! W :w
+command! Wq :wq
+command! E :e
+command! Q :q
+
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '❌'
+let g:syntastic_warning_symbol = '⁉️'
+let g:syntastic_style_warning_symbol = '⁉️'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
+
+
+"" Set colourscheme and colours on
+"let base16colorspace=256
+"colorscheme base16-default-dark
+
+filetype off
+filetype plugin indent on

@@ -1,0 +1,16 @@
+.vim
+.bash
+bash-scripts
+.bashrc
+.gitconfig
+.gitfiles
+.profile
+.selected_editor
+.vimrc
+.Xresources
+.eslintrc.json
+.config/libfm
+.config/pcmanfm
+.config/i3
+.config/i3status
+.config/dunst

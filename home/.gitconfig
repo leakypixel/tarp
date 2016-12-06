@@ -10,17 +10,18 @@
   tool = vimdiff
 
 [color]
-  ui = auto
-  branch = auto
   diff = auto
   status = auto
+  branch = auto
   interactive = auto
+  ui = true
+  pager = true
 
 [credential]
   # Somehow different for just about every system I use. First is arch, second is deb. 
   # /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
   # /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
-  # helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+  helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
 
 [alias]
   co = checkout
@@ -30,7 +31,9 @@
   p = push origin
   hr = reset --hard @{u}
   c = commit -vp
+  fi = diff-tree --no-commit-id --name-only -r
   l = log --oneline --abbrev-commit --branches=* --graph --decorate --color
+  up = !git fetch origin && git rebase origin/master
   wtf = blame
 
 [core]
@@ -38,10 +41,11 @@
   whitespace = trailing-space,space-before-tab
 
 [commit]
-  template = ~/.gitmessage
+  template = ~/.gitfiles/.gitmessage
 
 [diff]
   algorithm = patience
+	tool = vimdiff
 
 [help]
   autocorrect = -1

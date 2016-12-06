@@ -4,6 +4,11 @@ case $- in
       *) return;;
 esac
 
+# Set UTF-8
+export LC_ALL="en_GB.UTF-8"
+export LANG="en_GB.UTF-8"
+export LANGUAGE="en_GB.UTF-8"
+
 # Set history location
 export HISTFILE=$HOME/.bash/.bash_history
 
@@ -32,49 +37,37 @@ shopt -s globstar
 # Colours on
 export TERM=screen-256color
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.bash/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
 # If we're not already tmuxed, be tmuxed
-if [ -z "$TMUX" ]; then
+#if [ -z "$TMUX" ]; then
   # Connect to a tmux session if one already exists, otherwise make a new one (set in tmux config).
-  tmux attach
-fi
+#  exec tmux attach
+#fi
 
 # Set vim as the editor for just about everything
 export VISUAL="vim"
 export EDITOR="vim"
 export DIFFTOOL="vim"
+# ...including in bash! :D
+set -o vi
 
-# enable color support of ls and also add handy aliases
+# enable color support of ls
 if [ -x /usr/bin/dircolors ]; then
-    test -r $HOME/.dircolors && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+  test -r $HOME/.dircolors && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
 fi
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Default mv to prompt before overwrite
-alias mv='mv -i'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 if [ -f $HOME/.bash/.bash_aliases ]; then
   . $HOME/.bash/.bash_aliases
 fi
+
+# Function definitions.
+if [ -f $HOME/.bash/.bash_functions ]; then
+  . $HOME/.bash/.bash_functions
+fi
+
+# GoLang
+export GOPATH=$HOME/dev/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # RVM/Ruby
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
@@ -118,3 +111,4 @@ fi
 if [ -f $HOME/.bash/git-completion.sh ]; then
   source $HOME/.bash/git-completion.sh
 fi
+

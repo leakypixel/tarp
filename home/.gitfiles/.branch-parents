@@ -39,3 +39,14 @@ feature/local-font was branched from: master
 feature/reflow-ordering was branched from: master
 feature/tweak-reordering-method was branched from: master
 feature/fix-async-memory-access was branched from: master
+branding was branched from: master
+white-label was branched from: master
+feature/rename-and-tidy was branched from: master
+feature/circular-carousel was branched from: master
+bugfix/ie9-avoid-get-by-id was branched from: master
+feature/reduce-complexity was branched from: master
+testing-framework was branched from: master
+maintenance/remove-testing-framework was branched from: master
+maintenance/upgrade-carousel was branched from: develop
+bugfix/multiple-timer-objects was branched from: develop
+bugfix/multiple-timer-objects was branched from: master

@@ -11,3 +11,10 @@ git submodule up
 
 $basedir/scripts/update-links.sh
 $basedir/scripts/install-node-packages.sh
+
+branch_exists=$(git branch -a | grep -l `hostname`)
+if [ -z "$branch_exists" ]; then
+  git checkout -b `hostname`
+else
+  echo "Branch `hostname` exists."
+fi

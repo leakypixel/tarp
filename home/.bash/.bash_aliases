@@ -1,6 +1,7 @@
 # Git scripts
 alias create='bash ~/bash-scripts/git-create-branch.sh'
 alias delete='bash ~/bash-scripts/git-delete-branch.sh'
+alias bac='bash ~/bash-scripts/git-branch-and-commit-changes.sh'
 alias eradicate='bash ~/bash-scripts/remove-from-git-history.sh'
 alias cleanup='bash ~/bash-scripts/clean-branches-that-dont-exist-on-remote.sh'
 alias setauthor='bash ~/bash-scripts/change-git-author.sh'

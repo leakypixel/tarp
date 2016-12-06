@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Dashboard
+Comment=Start stalonetray and conky at log in
+Exec=sh -c "$HOME/.dashboard/start-dashboard.sh"
+Terminal=false

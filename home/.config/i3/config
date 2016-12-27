@@ -8,7 +8,7 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
+set TERMINAL="gnome-terminal"
 set $mod Mod4 
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -161,7 +161,7 @@ bindsym $mod+r mode "resize"
 #}
 bar {
   status_command i3status
-        tray_output primary
+#        tray_output primary
   font pango: Waree 8
   colors {
     separator #95A5A6

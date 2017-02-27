@@ -50,3 +50,6 @@ maintenance/remove-testing-framework was branched from: master
 maintenance/upgrade-carousel was branched from: develop
 bugfix/multiple-timer-objects was branched from: develop
 bugfix/multiple-timer-objects was branched from: master
+feature/config-hierarchy was branched from: master
+feature/letsencrypt was branched from: master
+bugfix/url-handling was branched from: master

@@ -2,7 +2,7 @@
 mkcd () { mkdir "$@" && cd "$@"; }
 
 # Colourise less
-cless () { /usr/share/source-highlight/src-hilite-lesspipe.sh "$@" | less -R; }
+cless () { /usr/bin/src-hilite-lesspipe.sh "$@" | less -R; }
 
 # Open all matching files in vim
 vomit () { vim $(grep -rl "$1" "$2"); }

@@ -30,7 +30,7 @@ font pango: Waree 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
 
 # lock th screen
 bindsym $mod+g exec i3lock -i ~/.config/i3/lock.png

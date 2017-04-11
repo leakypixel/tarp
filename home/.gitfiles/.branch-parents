@@ -53,3 +53,4 @@ bugfix/multiple-timer-objects was branched from: master
 feature/config-hierarchy was branched from: master
 feature/letsencrypt was branched from: master
 bugfix/url-handling was branched from: master
+fix/remove-tabel-component was branched from: develop

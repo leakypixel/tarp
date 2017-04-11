@@ -30,7 +30,7 @@ font pango: Waree 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec termite
 
 # lock th screen
 bindsym $mod+g exec dm-tool lock

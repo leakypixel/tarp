@@ -1,5 +1,5 @@
 "" All the usual stuff - no compatible, turn some nice to haves on
-set nocompatible
+"" set nocompatible - not actually needed as .vimrc presence turns this on automatically
 syntax on
 set background=dark
 set list
@@ -123,7 +123,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
-set textwidth=80
+"" set textwidth=80
 set wrapmargin=2
 
 "" Always display status line, but not mode
@@ -166,13 +166,16 @@ autocmd FileType scss setlocal equalprg=sass-convert\ -F\ scss\ -T\ scss\ -s
 
 "" Setup for HTML
 "" Use HTMLTidy to format
-autocmd FileType html setlocal equalprg=tidy\ -i\ --tidy-mark\ no\ --show-body-only\ auto\ --wrap\ 80
+autocmd FileType html setlocal equalprg=tidy\ -ashtml\ -i\ -q\ --tidy-mark\ no\ --show-body-only\ auto
 
 " Remap shift key failure
 command! W :w
 command! Wq :wq
 command! E :e
 command! Q :q
+
+" Delete buffer without deleting split
+command Bd bp\|bd \#
 
 " Syntastic settings
 set statusline+=%#warningmsg#
@@ -187,10 +190,10 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '❌'
-let g:syntastic_warning_symbol = '⁉️'
-let g:syntastic_style_warning_symbol = '⁉️'
+let g:syntastic_error_symbol = '!'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_warning_symbol = '?!'
+let g:syntastic_style_warning_symbol = '?✗'
 
 highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn

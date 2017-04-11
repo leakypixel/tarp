@@ -12,5 +12,6 @@ bash-scripts
 .config/libfm
 .config/pcmanfm
 .config/i3
+.config/termite
 .config/i3status
 .config/dunst

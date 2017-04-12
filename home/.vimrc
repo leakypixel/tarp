@@ -34,7 +34,7 @@ map <C-l> <C-w>l
 
 
 "" While we're talking about splits...
-set splitright " Default to opening a split to the right instead of the left
+"" set splitright " Default to opening a split to the right instead of the left
 set splitbelow " Default to opening a split below instead of above
 
 "" Set custom keybindings
@@ -55,6 +55,7 @@ noremap <leader>n :lnext<cr>
 noremap <leader>c :SyntasticCheck<cr>
 noremap <leader>y :'<,'>%w !xclip<cr>
 noremap <leader>Y :%w !xclip<cr>
+noremap <leader>S :call MakeSession()<cr>
 map <C-n> :NERDTreeToggle<CR>
 map <C-f> :CtrlPMixed<CR>
 set pastetoggle=<f5>
@@ -124,7 +125,7 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 "" set textwidth=80
-set wrapmargin=2
+"" set wrapmargin=2
 
 "" Always display status line, but not mode
 set laststatus=2
@@ -177,6 +178,10 @@ command! Q :q
 " Delete buffer without deleting split
 command Bd bp\|bd \#
 
+"" Don't store problematic options in saved sessions
+set ssop-=options    " do not store global and local values in a session
+set ssop-=folds      " do not store folds
+
 " Syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -207,3 +212,29 @@ highlight link SyntasticStyleWarningSign SignColumn
 
 filetype off
 filetype plugin indent on
+
+"" Make a new session using ~/.vim/sessions to avoid accidentally including a
+"" session.vim in a project
+function! MakeSession()
+  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  if (filewritable(b:sessiondir) != 2)
+    exe 'silent !mkdir -p ' b:sessiondir
+    redraw!
+  endif
+  let b:filename = b:sessiondir . '/session.vim'
+  exe "mksession! " . b:filename
+  echo "Saved session."
+endfunction
+
+" Loads a session if it exists
+function! LoadSession()
+  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  let b:sessionfile = b:sessiondir . "/session.vim"
+  if (filereadable(b:sessionfile))
+    exe 'source ' b:sessionfile
+  else
+    echo "No session loaded."
+  endif
+endfunction
+
+au VimEnter * nested :call LoadSession()

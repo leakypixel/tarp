@@ -173,6 +173,6 @@ client.focused_inactive #7F8C8D #7F8C8D #95A5A6 #34495E
 client.unfocused #34495E #34495E #95A5A6 #34495E
 client.urgent #7F8C8D #E74C3C #ECF0F1 #E74C3C
 
-exec connman-gtk --no-startup-id
-exec pa-applet --no-startup-id
-exec --no-startup-id xsetroot -solid "#333333"
+exec connman-gtk
+exec pa-applet
+exec --no-startup-id xsetroot -solid "#1ABC9C"

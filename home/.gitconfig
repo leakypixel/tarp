@@ -21,7 +21,7 @@
   # Keeping these here for easy switching between machines. First is arch, second is deb. 
   # /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
   # /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
-  helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+  # helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 
 [alias]
   co = checkout

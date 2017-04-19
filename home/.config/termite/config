@@ -1,5 +1,6 @@
 [options]
 font = Monospace 11
+scrollback_lines = 10000
 
 # Base16 Flat
 # Author: Chris Kempson (http://chriskempson.com)

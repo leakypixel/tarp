@@ -1,4 +1,4 @@
 gulp
 grunt
-jshint
+eslint
 eslint-pretty

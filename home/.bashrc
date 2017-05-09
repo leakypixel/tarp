@@ -79,15 +79,14 @@ export PATH=${PATH}:$HOME/android-sdk-linux/platform-tools
 
 # NodeJS/NPM
 export PATH="$PATH:/usr/bin/npm"
-export PATH=/home/craigf/.node/bin:$PATH
+export PATH=/home/leakypixel/.node/bin:$PATH
 
 # Load NVM for node version management
-export NVM_DIR="/home/craigf/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+source /usr/share/nvm/init-nvm.sh
 
 # Binaries in path
 export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:/home/craigf/.local/bin"
+export PATH="$PATH:/home/leakypixel/.local/bin"
 
 # Fuck (best-guess last incorrect command, pip install thefuck)
 alias fuck='$(thefuck $(fc -ln -1))'

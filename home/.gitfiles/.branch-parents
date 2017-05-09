@@ -64,3 +64,4 @@ feature/deployment-scripts was branched from: develop
 feature/fix-gtihooks was branched from: develop
 feature/default-file-extensiomn was branched from: master
 feature/update-readme was branched from: master
+fix/payment-button-feedback was branched from: develop

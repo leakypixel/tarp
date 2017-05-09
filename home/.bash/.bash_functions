@@ -2,17 +2,10 @@
 mkcd () { mkdir "$@" && cd "$@"; }
 
 # Colourise less
-cless () { /usr/share/source-highlight/src-hilite-lesspipe.sh "$@" | less -R; }
+cless () { /usr/bin/src-hilite-lesspipe.sh "$@" | less -R; }
 
 # Open all matching files in vim
 vomit () { vim $(grep -rl "$1" "$2"); }
 
-# Set tmux window name
-function sn () {
-  if [ -z "$1" ]; then
-    name=$(basename $PWD)
-  else
-    name=$1
-  fi
-  tmux rename-window "$name"
-}
+# Delete saved vim session
+rmsession () { rm "$HOME/.vim/sessions$PWD/session.vim" && echo "CWD vim session deleted."; }

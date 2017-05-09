@@ -1,22 +1,22 @@
-! Base16 Default Dark
+! Base16 Flat
 ! Scheme: Chris Kempson (http://chriskempson.com)
 
-#define base00 #181818
-#define base01 #282828
-#define base02 #383838
-#define base03 #585858
-#define base04 #b8b8b8
-#define base05 #d8d8d8
-#define base06 #e8e8e8
-#define base07 #f8f8f8
-#define base08 #ab4642
-#define base09 #dc9656
-#define base0A #f7ca88
-#define base0B #a1b56c
-#define base0C #86c1b9
-#define base0D #7cafc2
-#define base0E #ba8baf
-#define base0F #a16946
+#define base00 #2C3E50
+#define base01 #34495E
+#define base02 #7F8C8D
+#define base03 #95A5A6
+#define base04 #BDC3C7
+#define base05 #e0e0e0
+#define base06 #f5f5f5
+#define base07 #ECF0F1
+#define base08 #E74C3C
+#define base09 #E67E22
+#define base0A #F1C40F
+#define base0B #2ECC71
+#define base0C #1ABC9C
+#define base0D #3498DB
+#define base0E #9B59B6
+#define base0F #be643c
 
 *.foreground:   base05
 *.background:   base00

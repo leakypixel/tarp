@@ -65,3 +65,11 @@ feature/fix-gtihooks was branched from: develop
 feature/default-file-extensiomn was branched from: master
 feature/update-readme was branched from: master
 fix/payment-button-feedback was branched from: develop
+fix/checkout-button was branched from: develop
+feature/additional-products-upsell was branched from: develop
+feature/hide-finance-messages was branched from: develop
+feature/halfords-checkout-upsell was branched from: develop
+feature/add-branching-and-deployment-docs was branched from: develop
+feature/native-methods-in-utils was branched from: master
+fix/remove-location-finder-in-header was branched from: master
+backup/dev-before-reversion was branched from: dev

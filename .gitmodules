@@ -22,45 +22,21 @@
 [submodule "home/.vim/bundle/ctrlp.vim"]
 	path = home/.vim/bundle/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule "home/.vim/bundle/jshint.vim"]
-	path = home/.vim/bundle/jshint.vim
-	url = https://github.com/wookiehangover/jshint.vim.git
 [submodule "home/.vim/bundle/vim-obsession"]
 	path = home/.vim/bundle/vim-obsession
 	url = https://github.com/tpope/vim-obsession.git
-[submodule "home/.vim/bundle/tmuxline.vim"]
-	path = home/.vim/bundle/tmuxline.vim
-	url = https://github.com/edkolev/tmuxline.vim.git
-[submodule "home/.vim/bundle/vim-javascript"]
-	path = home/.vim/bundle/vim-javascript
-	url = https://github.com/pangloss/vim-javascript.git
 [submodule "home/.vim/bundle/base16-vim"]
 	path = home/.vim/bundle/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
-[submodule "home/.vim/bundle/scss-syntax.vim"]
-	path = home/.vim/bundle/scss-syntax.vim
-	url = https://github.com/cakebaker/scss-syntax.vim.git
-[submodule "home/.tmux/plugins/tmux-continuum"]
-	path = home/.tmux/plugins/tmux-continuum
-	url = https://github.com/tmux-plugins/tmux-continuum.git
-[submodule "home/.vim/bundle/vim-json"]
-	path = home/.vim/bundle/vim-json
-	url = https://github.com/elzr/vim-json.git
 [submodule "home/.vim/bundle/editorconfig-vim"]
 	path = home/.vim/bundle/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
-[submodule "home/.vim/bundle/jshint2.vim"]
-	path = home/.vim/bundle/jshint2.vim
-	url = https://github.com/Shutnik/jshint2.vim.git
 [submodule "home/.vim/bundle/syntastic"]
 	path = home/.vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "home/.vim/bundle/vim-javascript-syntax"]
 	path = home/.vim/bundle/vim-javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
-[submodule "home/.vim/bundle/typescript-vim"]
-	path = home/.vim/bundle/typescript-vim
-	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "home/.vim/bundle/Colorizer"]
 	path = home/.vim/bundle/Colorizer
 	url = https://github.com/chrisbra/Colorizer.git

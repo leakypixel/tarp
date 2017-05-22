@@ -61,3 +61,6 @@
 [submodule "home/.vim/bundle/typescript-vim"]
 	path = home/.vim/bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "home/.vim/bundle/Colorizer"]
+	path = home/.vim/bundle/Colorizer
+	url = https://github.com/chrisbra/Colorizer.git

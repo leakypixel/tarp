@@ -85,11 +85,10 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
 Plugin 'jelera/vim-javascript-syntax'
-Plugin 'edkolev/tmuxline.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'leafgarland/typescript-vim'
+Plugin 'chrisbra/Colorizer'
 call vundle#end()
 
 "" Editorconfig plugin setup
@@ -101,6 +100,7 @@ let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:10'
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 "" Turn Limelight on for hyper-focused editing
 " Color name (:help cterm-colors) or ANSI code

@@ -40,6 +40,8 @@ set splitbelow " Default to opening a split below instead of above
 "" Set custom keybindings
 noremap ) :bnext<cr>
 noremap ( :bprevious<cr>
+noremap <leader>p :cprevious<cr>
+noremap <leader>n :cnext<cr>
 noremap <leader>d :bdelete<cr>
 noremap <leader>w :w<cr>
 noremap <leader>q :x<cr>

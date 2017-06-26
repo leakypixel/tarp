@@ -73,3 +73,15 @@ feature/add-branching-and-deployment-docs was branched from: develop
 feature/native-methods-in-utils was branched from: master
 fix/remove-location-finder-in-header was branched from: master
 backup/dev-before-reversion was branched from: dev
+feature/add-image-header-overlay was branched from: dev
+feature/additional-products-basket-awareness was branched from: develop
+fix/ie-edge-divider was branched from: dev
+fix/seller-signup-display was branched from: dev
+revert-to-1st-june was branched from: master
+fix/header-tablet-breakage was branched from: develop
+feature/move-additional-products-above-payment was branched from: develop
+feature/recommended-tyre-size-styling was branched from: develop
+feature/checkout-timeout was branched from: develop
+documentation/git-strategy was branched from: develop
+documentation/rename-and-sort was branched from: develop
+search-suggestions-hand-cursor was branched from: dev

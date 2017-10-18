@@ -111,3 +111,6 @@ if [ -f $HOME/.bash/git-completion.sh ]; then
   source $HOME/.bash/git-completion.sh
 fi
 
+# Add ntfy auto notify on long command complete
+eval "$(ntfy shell-integration)"
+export AUTO_NTFY_DONE_IGNORE="vim screen meld"

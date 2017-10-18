@@ -13,6 +13,7 @@ alias fast='bash ~/bash-scripts/set-high-priority.sh'
 alias brn='~/bash-scripts/bulk-rename.sh'
 
 # Some nicer aliases for frequent commands
+alias sp='vim ~/notes/scratchpad-$(date +"%m-%d-%Y-%T")'
 alias please='sudo'
 alias s='sudo'
 alias j='jump'
@@ -24,8 +25,8 @@ alias rl='source ~/.bashrc'
 alias xclip='xclip -selection c'
 alias c='cless'
 alias jsh='jshint **/*.js'
-alias ufm='git checkout master && git pull && git checkout - && git merge master'
-alias upd='git checkout master && git pull && git fetch --prune && bash ~/bash-scripts/clean-branches-that-dont-exist-on-remote.sh'
+alias ufm='git stash && git checkout master && git pull && git checkout - && git rebase master'
+alias upd='git stash && git checkout master && git pull && git fetch --prune && bash ~/bash-scripts/clean-branches-that-dont-exist-on-remote.sh'
 
 # Restart vagrant box
 alias rs='j box && sudo vagrant ssh -c "sudo service tomcat7 restart" && cd -'

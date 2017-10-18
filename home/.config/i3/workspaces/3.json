@@ -1,0 +1,47 @@
+{
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": null,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1058,
+               "width": 1916,
+               "x": 2,
+               "y": 20
+            },
+            "percent": 0.333333333333333,
+            "swallows": [
+               {
+                "instance": "^slack$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 720,
+               "width": 1280,
+               "x": 320,
+               "y": 180
+            },
+            "percent": 0.333333333333333,
+            "swallows": [
+               {
+                "class": "^discord$",
+                "instance": "^discord$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

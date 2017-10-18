@@ -184,6 +184,26 @@ client.focused_inactive #7F8C8D #7F8C8D #95A5A6 #34495E
 client.unfocused #34495E #34495E #95A5A6 #34495E
 client.urgent #7F8C8D #E74C3C #ECF0F1 #E74C3C
 
-exec connman-gtk
-exec pa-applet
-exec --no-startup-id xsetroot -solid "#1ABC9C"
+# Load layouts
+exec --no-startup-id "i3-msg 'workspace number 1; append_layout /home/leakypixel/.config/i3/workspaces/1.json'"
+exec --no-startup-id "i3-msg 'workspace number 2; append_layout /home/leakypixel/.config/i3/workspaces/2.json'"
+exec --no-startup-id "i3-msg 'workspace number 3; append_layout /home/leakypixel/.config/i3/workspaces/3.json'"
+
+# Start applets
+exec --no-startup-id connman-gtk
+exec --no-startup-id pa-applet
+
+
+# Set the background colour
+exec --no-startup-id xsetroot -solid "#0077bb"
+
+# Desperately try to make sure hangouts opens on the correct workspace
+for_window [title="Hangouts"] move container to workspace 3
+
+# Start apps
+exec --no-startup-id "termite"
+exec --no-startup-id "termite"
+exec --no-startup-id "termite"
+exec --no-startup-id "google-chrome-stable"
+exec --no-startup-id "discord"
+exec --no-startup-id "slack"

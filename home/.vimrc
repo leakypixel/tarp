@@ -5,6 +5,7 @@ set background=dark
 set list
 set term=xterm
 set nu
+set viminfo=""
 
 "" Stop VIM creating files everywhere
 set nobackup

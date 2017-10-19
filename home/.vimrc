@@ -35,7 +35,7 @@ map <C-l> <C-w>l
 
 
 "" While we're talking about splits...
-"" set splitright " Default to opening a split to the right instead of the left
+set splitright " Default to opening a split to the right instead of the left
 set splitbelow " Default to opening a split below instead of above
 
 "" Set custom keybindings
@@ -87,11 +87,11 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'tpope/vim-commentary'
 Plugin 'chriskempson/base16-vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'chrisbra/Colorizer'
+Plugin 'sheerun/vim-polyglot'
 call vundle#end()
 
 "" Editorconfig plugin setup
@@ -115,7 +115,7 @@ let g:limelight_conceal_guifg = 'DarkGray'
 let g:limelight_conceal_guifg = '#777777'
 autocmd VimEnter * Limelight
 
-"" Have CtrlP open in active split, like vim's native dir browser
+"" Have NerdTree open in active split, like vim's native dir browser
 let NERDTreeHijackNetrw=1
 
 "" Set tab widths, line length, etc.
@@ -146,9 +146,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 "" Set the airline theme
 let g:airline_theme='base16_flat'
-
-"" Turn off setting the tmux theme automatically
-let g:airline#extensions#tmuxline#enabled = 0
 
 "" Ignore some common non-dev directories/files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
@@ -185,33 +182,39 @@ command Bd bp\|bd \#
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
 
-" Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"" ALE settings
+" After this is configured, :ALEFix will try and fix your JS code with ESLint.
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
+"" Config for JSX
+let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+let g:ale_linter_aliases = {'jsx': 'css'}
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
 
-let g:syntastic_error_symbol = '!'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_warning_symbol = '?!'
-let g:syntastic_style_warning_symbol = '?✗'
+" Fix files automatically on save.
+let g:ale_fix_on_save = 1
 
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
+" Enable completion where available.
+let g:ale_completion_enabled = 1
 
+" Set ALE characters
+let g:ale_sign_error = '!'
+let g:ale_sign_warning = '?'
+
+" Turn on ALE + Airline integration
+let g:airline#extensions#ale#enabled = 1
 
 "" Set colourscheme and colours on
-"let base16colorspace=256
-"colorscheme base16-default-dark
+let base16colorspace=256
+colorscheme base16-default-dark
 
 filetype off
 filetype plugin indent on

@@ -115,3 +115,4 @@ intermediate/is-everything-broken was branched from: master
 debugging/white-label-project-halfords was branched from: feature/white-label-project-halfords
 rebased/white-label-project-halfords was branched from: debugging/white-label-project-halfords
 feature/update-website-messaging was branched from: master
+feature/add-hme-to-nginx-conf-halfords was branched from: feature/white-label-project-halfords

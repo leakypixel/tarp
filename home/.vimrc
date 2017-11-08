@@ -192,7 +192,7 @@ let g:ale_linters = {
 \}
 
 "" Config for JSX
-let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+let g:ale_linters = {'jsx': ['stylelint', 'eslint'], 'tsx': ['typescript-eslint-parser']}
 let g:ale_linter_aliases = {'jsx': 'css'}
 augroup FiletypeGroup
     autocmd!

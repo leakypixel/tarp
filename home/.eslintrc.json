@@ -4,6 +4,7 @@
         "es6": true,
         "node": true
     },
+    "parser": "typescript-eslint-parser",
     "extends": "eslint:recommended",
     "parserOptions": {
         "sourceType": "module"

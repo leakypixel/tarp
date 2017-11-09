@@ -30,7 +30,7 @@ font pango: Waree 9
 floating_modifier $mod
 
 # Screenshot
-bindsym Print exec scrot -s /home/leakypixel/images/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym --release Print exec scrot -s '/home/leakypixel/images/screenshots/%Y-%m-%d_%H:%M:%S.png'
 
 # start a terminal
 bindsym $mod+Return exec termite
@@ -165,7 +165,7 @@ bar {
   hidden_state hide
   modifier $mod
   status_command i3status
-  font pango: Waree 8
+  font pango: Waree 9
   colors {
     separator #95A5A6
     background #2C3E50
@@ -182,6 +182,15 @@ client.focused_inactive #7F8C8D #7F8C8D #95A5A6 #34495E
 client.unfocused #34495E #34495E #95A5A6 #34495E
 client.urgent #7F8C8D #E74C3C #ECF0F1 #E74C3C
 
+# Hide borders where appropriate
+hide_edge_borders smart
+
+# Leave fullscreen when a popup/floating window occurs
+popup_during_fullscreen leave_fullscreen
+
+# Magic switching back to the previous workspace on double-tap of other workspace switch key
+workspace_auto_back_and_forth yes
+
 # Load layouts
 exec --no-startup-id "i3-msg 'workspace number 1; append_layout /home/leakypixel/.config/i3/workspaces/1.json'"
 exec --no-startup-id "i3-msg 'workspace number 2; append_layout /home/leakypixel/.config/i3/workspaces/2.json'"
@@ -192,7 +201,7 @@ exec --no-startup-id connman-gtk
 exec --no-startup-id pa-applet
 
 # Start compton compostior
-exec compton -CGb
+exec --no-startup-id compton -CGb
 
 # Set the background
 exec --no-startup-id feh --no-fehbg --bg-fill --randomize ~/.config/wallpaper/*

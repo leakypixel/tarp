@@ -16,8 +16,12 @@ do
     # Git submodules don't like absolute paths, so strip it down to something git-friendly
     relpath=$(echo $i | sed 's|'$basedir'/|./|')
     # Finally, add it using the remote and relative path we generated above
+    echo $i
     git submodule add $remote $relpath
-    git config -f .gitmodules submodule.$relpath.ignore untracked
+
+    # Nasty looking crap to ignore untracked changes to submodules
+    submodulepath=$(echo $relpath | sed s#\\./##g)
+    git config -f .gitmodules submodule.$submodulepath.ignore untracked
   fi
 done
 

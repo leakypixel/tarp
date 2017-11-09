@@ -55,3 +55,15 @@
 [submodule "home/.vim/bundle/jspc.vim"]
 	path = home/.vim/bundle/jspc.vim
 	url = https://github.com/othree/jspc.vim.git
+[submodule "./home/.vim/bundle/vim-commentary"]
+	ignore = untracked
+[submodule "./home/.vim/bundle/Colorizer"]
+	ignore = untracked
+[submodule "./home/.vim/bundle/ale"]
+	ignore = untracked
+[submodule "./home/.vim/bundle/vim-polyglot"]
+	ignore = untracked
+[submodule "./home/.vim/bundle/vim-gutentags"]
+	ignore = untracked
+[submodule "./home/.vim/bundle/jspc.vim"]
+	ignore = untracked

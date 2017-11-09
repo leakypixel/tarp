@@ -17,6 +17,7 @@ do
     relpath=$(echo $i | sed 's|'$basedir'/|./|')
     # Finally, add it using the remote and relative path we generated above
     git submodule add $remote $relpath
+    git config -f .gitmodules submodule.$relpath.ignore untracked
   fi
 done
 

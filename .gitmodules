@@ -40,21 +40,27 @@
 [submodule "home/.vim/bundle/Colorizer"]
 	path = home/.vim/bundle/Colorizer
 	url = https://github.com/chrisbra/Colorizer.git
+	ignore = untracked
 [submodule "home/.vim/bundle/vim-commentary"]
 	path = home/.vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+	ignore = untracked
 [submodule "home/.vim/bundle/ale"]
 	path = home/.vim/bundle/ale
 	url = https://github.com/w0rp/ale.git
+	ignore = untracked
 [submodule "home/.vim/bundle/vim-polyglot"]
 	path = home/.vim/bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
+	ignore = untracked
 [submodule "home/.vim/bundle/vim-gutentags"]
 	path = home/.vim/bundle/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags.git
+	ignore = untracked
 [submodule "home/.vim/bundle/jspc.vim"]
 	path = home/.vim/bundle/jspc.vim
 	url = https://github.com/othree/jspc.vim.git
+	ignore = untracked
 [submodule "./home/.vim/bundle/vim-commentary"]
 	ignore = untracked
 [submodule "./home/.vim/bundle/Colorizer"]

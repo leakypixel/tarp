@@ -8,8 +8,8 @@
        "x": 0,
        "y": 0
     },
-    "name": "leakypixel@gerry:~/dev/voyager",
-    "percent": 0.6,
+    "name": "leakypixel@gerry",
+    "percent": 0.7,
     "swallows": [
        {
          "class": "^Termite$"
@@ -22,21 +22,15 @@
     "border": "normal",
     "floating": "auto_off",
     "layout": "splitv",
-    "percent": 0.4,
+    "percent": 0.3,
     "type": "con",
     "nodes": [
         {
             "border": "normal",
             "current_border_width": 2,
             "floating": "auto_off",
-            "geometry": {
-               "height": 434,
-               "width": 722,
-               "x": 0,
-               "y": 0
-            },
             "name": "leakypixel@gerry:~",
-            "percent": 0.5,
+            "percent": 0.33,
             "swallows": [
                {
                  "class": "^Termite$"
@@ -48,14 +42,21 @@
             "border": "normal",
             "current_border_width": 2,
             "floating": "auto_off",
-            "geometry": {
-               "height": 434,
-               "width": 722,
-               "x": 0,
-               "y": 0
-            },
             "name": "leakypixel@gerry:~",
-            "percent": 0.5,
+            "percent": 0.33,
+            "swallows": [
+               {
+                 "class": "^Termite$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "name": "leakypixel@gerry:~",
+            "percent": 0.33,
             "swallows": [
                {
                  "class": "^Termite$"

@@ -41,11 +41,11 @@ set splitbelow " Default to opening a split below instead of above
 "" Set custom keybindings
 noremap ) :bnext<cr>
 noremap ( :bprevious<cr>
+noremap <leader>q :copen<cr>
 noremap <leader>p :cprevious<cr>
 noremap <leader>n :cnext<cr>
 noremap <leader>d :bdelete<cr>
 noremap <leader>w :w<cr>
-noremap <leader>q :x<cr>
 noremap <leader>x :w<cr>:bd<cr>
 noremap <leader>v :vsp<cr>
 noremap <leader>h :sp<cr>
@@ -92,11 +92,15 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'w0rp/ale'
 Plugin 'chrisbra/Colorizer'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'othree/jspc.vim'
 call vundle#end()
 
 "" Editorconfig plugin setup
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
+"" Have fugitive grep open quickfix when run
+autocmd QuickFixCmdPost *grep* cwindow
 
 "" CtrlP options for massive (read: java-like) projects
 let g:ctrlp_max_files=0
@@ -153,6 +157,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
 "" Setup for JS
 "" Use eslint formatter for JS
 autocmd FileType javascript setlocal equalprg=eslint-pretty
+autocmd FileType javascript setlocal omnifunc=jspc#omni
 
 "" Setup for go
 "" Use gofmt

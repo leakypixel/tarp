@@ -49,3 +49,9 @@
 [submodule "home/.vim/bundle/vim-polyglot"]
 	path = home/.vim/bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "home/.vim/bundle/vim-gutentags"]
+	path = home/.vim/bundle/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags.git
+[submodule "home/.vim/bundle/jspc.vim"]
+	path = home/.vim/bundle/jspc.vim
+	url = https://github.com/othree/jspc.vim.git

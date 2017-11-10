@@ -110,14 +110,10 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 "" Turn Limelight on for hyper-focused editing
-" Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-
-" Color name (:help gui-colors) or RGB color
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_conceal_guifg = '#777777'
 autocmd VimEnter * Limelight
+" Color name (:help gui-colors) or RGB color
+"let g:limelight_conceal_guifg = 'DarkGray'
+"let g:limelight_conceal_guifg = '#777777'
 
 "" Have NerdTree open in active split, like vim's native dir browser
 let NERDTreeHijackNetrw=1
@@ -223,6 +219,9 @@ colorscheme base16-default-dark
 
 filetype off
 filetype plugin indent on
+
+"" Make comments italic
+highlight Comment cterm=italic
 
 "" Make a new session using ~/.vim/sessions to avoid accidentally including a
 "" session.vim in a project

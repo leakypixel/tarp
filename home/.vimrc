@@ -92,7 +92,6 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'w0rp/ale'
 Plugin 'chrisbra/Colorizer'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'othree/jspc.vim'
 call vundle#end()
 

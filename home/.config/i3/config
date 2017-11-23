@@ -158,28 +158,50 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Flat theme
+set $bg-color            #3498DB
+set $inactive-bg-color   #657d8e
+set $text-color          #2C3E50
+set $inactive-text-color #95A5A6
+set $urgent-bg-color     #E74C3C
+set $indicator-color     #34495E
+set $urgent-indicator-color  #E74C3C
+set $urgent-workspace-color  #ECF0F1
+set $statusline-color        #E0E0E0
+
+# Arc theme
+#set $bg-color            #2f343f
+#set $inactive-bg-color   #2f343f
+#set $text-color          #f3f4f5
+#set $inactive-text-color #676E7D
+#set $urgent-bg-color     #E53935
+#set $indicator-color     #00ff00
+#set $urgent-indicator-color  #00ff00
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          $indicator-color
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-indicator-color
+
+# bar
 bar {
   mode hide
   hidden_state hide
   modifier $mod
   status_command i3status
   colors {
-    separator #95A5A6
-    background #2C3E50
-    statusline #e0e0e0
-    focused_workspace #3498DB #3498DB #2C3E50
-    active_workspace #7F8C8D #7F8C8D #ECF0F1
-    inactive_workspace #34495E #34495E #95A5A6
-    urgent_workspace #E74C3C #E74C3C #ECF0F1
+    background $text-color
+    separator $inactive-text-color
+    statusline $statusline-color
+    #                  border             background         text
+    focused_workspace  $bg-color          $bg-color          $text-color
+    active_workspace   $inactive-bg-color $inactive-bg-color $urgent-workspace-color
+    inactive_workspace $indicator-color   $indicator-color   $inactive-text-color
+    urgent_workspace   $urgent-bg-color   $urgent-bg-color   $urgent-workspace-color
   }
 }
-
-client.focused #3498DB #3498DB #2C3E50 #34495E
-client.focused_inactive #7F8C8D #7F8C8D #95A5A6 #34495E
-client.unfocused #34495E #34495E #95A5A6 #34495E
-client.urgent #7F8C8D #E74C3C #ECF0F1 #E74C3C
 
 # Hide borders where appropriate
 hide_edge_borders smart

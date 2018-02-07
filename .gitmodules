@@ -61,3 +61,5 @@
 	path = home/.vim/bundle/jspc.vim
 	url = https://github.com/othree/jspc.vim.git
 	ignore = untracked
+[submodule "home/.config/i3/i3blocks-contrib"]
+	ignore = untracked

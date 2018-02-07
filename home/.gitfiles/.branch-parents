@@ -116,3 +116,7 @@ debugging/white-label-project-halfords was branched from: feature/white-label-pr
 rebased/white-label-project-halfords was branched from: debugging/white-label-project-halfords
 feature/update-website-messaging was branched from: master
 feature/add-hme-to-nginx-conf-halfords was branched from: feature/white-label-project-halfords
+broken-ssl-and-routes was branched from: master
+rollback-server-changes was branched from: master
+testing/promise-validation was branched from: master
+test-intermediate was branched from: test

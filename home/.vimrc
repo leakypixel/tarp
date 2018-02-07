@@ -185,14 +185,14 @@ set ssop-=folds      " do not store folds
 "" ALE settings
 " After this is configured, :ALEFix will try and fix your JS code with ESLint.
 let g:ale_fixers = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'prettier-eslint'],
 \}
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'prettier-eslint'],
 \}
 
 "" Config for JSX
-let g:ale_linters = {'jsx': ['stylelint', 'eslint'], 'tsx': ['typescript-eslint-parser']}
+let g:ale_linters = {'jsx': ['stylelint', 'eslint', 'prettier-eslint'], 'tsx': ['typescript-eslint-parser']}
 let g:ale_linter_aliases = {'jsx': 'css'}
 augroup FiletypeGroup
     autocmd!

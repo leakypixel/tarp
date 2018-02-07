@@ -35,6 +35,9 @@
   l = log --oneline --abbrev-commit --branches=* --graph --decorate --color
   up = !git fetch origin && git rebase origin/master
   wtf = blame
+  sync = !git pull && git push
+  sy = !git pull && git push
+  ssy = !git stash && git pull && git push && git stash pop
 
 [core]
   editor = vim

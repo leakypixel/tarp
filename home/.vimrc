@@ -1,5 +1,4 @@
 "" All the usual stuff - no compatible, turn some nice to haves on
-"" set nocompatible - not actually needed as .vimrc presence turns this on automatically
 syntax on
 set background=dark
 set list
@@ -33,7 +32,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-
 "" While we're talking about splits...
 set splitright " Default to opening a split to the right instead of the left
 set splitbelow " Default to opening a split below instead of above
@@ -55,14 +53,13 @@ noremap <leader>+ :resize +5<cr>
 noremap <leader>- :resize -5<cr>
 noremap <leader>l :lopen<cr>
 noremap <leader>n :lnext<cr>
-noremap <leader>c :SyntasticCheck<cr>
 noremap <leader>y :'<,'>%w !xclip<cr>
 noremap <leader>Y :%w !xclip<cr>
 noremap <leader>S :call MakeSession()<cr>
 map <C-n> :NERDTreeToggle<CR>
 map <C-f> :CtrlPMixed<CR>
 set pastetoggle=<f5>
-
+nnoremap <F6> :call SpellCheck()<cr>
 "" Switch between double-space soft tabs and hard tabs
 noremap <leader>T :%s/  /\t/gi<cr>
 noremap <leader>t :%s/\t/  /gi<cr>
@@ -92,7 +89,6 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'w0rp/ale'
 Plugin 'chrisbra/Colorizer'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'othree/jspc.vim'
 call vundle#end()
 
 "" Editorconfig plugin setup
@@ -128,6 +124,7 @@ set shiftwidth=2
 set expandtab
 "" set textwidth=80
 "" set wrapmargin=2
+au BufRead,BufNewFile *.md setlocal textwidth=80
 
 "" Always display status line, but not mode
 set laststatus=2
@@ -149,22 +146,6 @@ let g:airline_theme='base16_flat'
 "" Ignore some common non-dev directories/files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
 
-"" Setup for JS
-"" Use eslint formatter for JS
-autocmd FileType javascript setlocal equalprg=eslint-pretty
-autocmd FileType javascript setlocal omnifunc=jspc#omni
-
-"" Setup for go
-"" Use gofmt
-autocmd FileType go setlocal equalprg=gofmt
-
-"" Use python JSONTool for JSON
-autocmd FileType json setlocal equalprg=python\ -m\ json.tool
-
-"" Setup for SCSS
-"" Use sass-convert to format
-autocmd FileType scss setlocal equalprg=sass-convert\ -F\ scss\ -T\ scss\ -s
-
 "" Setup for HTML
 "" Use HTMLTidy to format
 autocmd FileType html setlocal equalprg=tidy\ -ashtml\ -i\ -q\ --tidy-mark\ no\ --show-body-only\ auto
@@ -182,25 +163,27 @@ command Bd bp\|bd \#
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
 
-"" ALE settings
-" After this is configured, :ALEFix will try and fix your JS code with ESLint.
-let g:ale_fixers = {
-\   'javascript': ['eslint', 'prettier-eslint'],
-\}
-let g:ale_linters = {
-\   'javascript': ['eslint', 'prettier-eslint'],
-\}
-
 "" Config for JSX
-let g:ale_linters = {'jsx': ['stylelint', 'eslint', 'prettier-eslint'], 'tsx': ['typescript-eslint-parser']}
-let g:ale_linter_aliases = {'jsx': 'css'}
 augroup FiletypeGroup
     autocmd!
     au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 augroup END
 
+"" ALE config
+let g:ale_linters = {
+\   'javascript.jsx': ['prettier_eslint', 'eslint'],
+\   'javascript': [ 'prettier_eslint', 'eslint']
+\}
+let g:ale_linter_aliases = {'jsx': 'css'}
+
 " Fix files automatically on save.
 let g:ale_fix_on_save = 1
+" Put this in vimrc or a plugin file of your own.
+" After this is configured, :ALEFix will try and fix your JS code with ESLint.
+let g:ale_fixers = {
+\   'javascript': ['prettier_eslint', 'remove_trailing_lines', 'trim_whitespace'],
+\   'javascript.jsx': ['prettier_eslint', 'remove_trailing_lines', 'trim_whitespace'],
+\}
 
 " Enable completion where available.
 let g:ale_completion_enabled = 1
@@ -244,6 +227,11 @@ function! LoadSession()
   else
     echo "No session loaded."
   endif
+endfunction
+
+function! SpellCheck()
+  exe 'setlocal spell! spell?'
+  exec 'highlight SpellBad ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00'
 endfunction
 
 au VimEnter * nested :call LoadSession()

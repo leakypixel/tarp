@@ -51,11 +51,11 @@
                "x": 0,
                "y": 22
             },
-            "name": "Google Hangouts – fletchertm@gmail.com",
             "percent": 0.333333333333333,
             "swallows": [
                {
-                 "title": "^.*Google\\ Hangouts.*$"
+                 "title": "^.*Hangouts.*$",
+                 "instance": "^crx.*$"
                }
             ],
             "type": "con"

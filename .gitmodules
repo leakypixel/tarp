@@ -62,5 +62,6 @@
 	url = https://github.com/othree/jspc.vim.git
 	ignore = untracked
 [submodule "home/.config/i3/i3blocks-contrib"]
+	path = home/.config/i3/i3blocks-contrib
 	url = https://github.com/vivien/i3blocks-contrib.git
 	ignore = untracked

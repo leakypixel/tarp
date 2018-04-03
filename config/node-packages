@@ -7,3 +7,4 @@ eslint-plugin-import@latest
 eslint-plugin-jsx-a11y@latest
 eslint-config-airbnb@latest
 eslint-pretty
+prettier-eslint

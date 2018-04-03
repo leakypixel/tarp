@@ -1,0 +1,176 @@
+[colors]
+background = #222
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #ff5c57
+
+[bar/gerry]
+width = 100%
+height = 28
+radius = 0
+fixed-center = false
+bottom = true
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 3
+line-color = #f00
+border-size = 6
+border-color = transparent
+padding-left = 0
+padding-right = 2
+module-margin-left = 2
+module-margin-right = 2
+font-0 = NotoSans:pixelsize=11;1
+font-1 = FontAwesome:pixelsize=16;-2
+font-2 = siji:pixelsize=10;1
+modules-left = i3
+modules-center = xwindow
+modules-right = filesystem xbacklight volume memory cpu temperature wlan eth battery date
+tray-position = right
+tray-padding = 0
+tray-detached = false
+wm-restack = i3
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+format-mounted-prefix-foreground = ${colors.foreground-alt}
+format-mounted-prefix = "ROOT "
+label-mounted = %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+override-redirect = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-unfocused = %index%
+label-unfocused-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = colors.alert
+label-urgent-padding = 2
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = "BL "
+label = %percentage%%
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "CPU "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #f90000
+label = %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "MEM "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #4bffdc
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+format-prefix = "WLAN "
+format-prefix-foreground = ${colors.foreground-alt}
+format-connected = <label-connected>
+format-connected-underline = #9f78e1
+label-connected = %essid% %downspeed%/%upspeed% %local_ip%
+format-disconnected =
+
+[module/eth]
+type = internal/network
+interface = enp3s0f1
+interval = 3.0
+format-connected-underline = #55aa55
+format-connected-prefix = "ETH "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %downspeed%/%upspeed% %local_ip%
+format-disconnected =
+
+[module/date]
+type = internal/date
+interval = 5
+date = " %Y-%m-%d"
+time = %H:%M
+time-alt = %H:%M:%S
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #0a6cf5
+label = %date% %time%
+
+[module/volume]
+type = internal/volume
+format-volume-prefix = "VOL "
+format-volume-foreground = ${colors.foreground-alt}
+label-volume = %percentage%%
+label-volume-foreground = ${root.foreground}
+label-muted = sound muted
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP0
+full-at = 99
+label-charging-prefix = BAT
+label-charging = BAT ⇡ %percentage%%
+label-discharging-prefix = BAT
+label-discharging = BAT ⇣ %percentage%%
+label-full = BAT - %percentage%%
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 1
+warn-temperature = 60
+format = <label>
+format-underline = #f50a4d
+format-warn = <label-warn>
+format-warn-underline = ${self.format-underline}
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.secondary}
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 4
+margin-bottom = 4

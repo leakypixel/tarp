@@ -11,13 +11,17 @@
 set $TERMINAL="termite"
 set $mod Mod4 
 
+
+gaps inner 4
+gaps outer 0
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango: Waree 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Noto Sans 11
+#font pango:Noto Sans 11
+font pango:NotoSans 11
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -41,9 +45,6 @@ bindsym $mod+Return exec termite
 # start text pad
 bindsym $mod+p exec mousepad
 
-# start single-pane browser
-bindsym $mod+bracketleft exec surf
-
 # start filemanager
 bindsym $mod+bracketright exec pcmanfm
 
@@ -61,7 +62,7 @@ bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn noto-mono-11"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans 10'"
 
 # change focus
 bindsym $mod+j focus left
@@ -171,12 +172,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Flat theme
-set $bg-color            #3498DB
-set $inactive-bg-color   #657d8e
-set $text-color          #2C3E50
-set $inactive-text-color #95A5A6
-set $urgent-bg-color     #2ecc71
-set $indicator-color     #34495E
+set $bg-color            #222222
+set $inactive-bg-color   #666666
+set $text-color          #dfdfdf
+set $inactive-text-color #dfdfdf
+set $urgent-bg-color     #ff5c57
+set $indicator-color     #5af78e
 set $urgent-indicator-color  #E74C3C
 set $urgent-workspace-color  #2c3e50
 set $statusline-color        #E0E0E0
@@ -189,26 +190,9 @@ client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-co
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-indicator-color
 client.placeholder      $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator-color
 client.background       $bg-color
-# bar
-bar {
-  mode hide
-  hidden_state hide
-  modifier $mod
-  status_command i3status
-  colors {
-    background $text-color
-    separator $inactive-text-color
-    statusline $statusline-color
-    #                  border             background         text
-    focused_workspace  $bg-color          $bg-color          $text-color
-    active_workspace   $inactive-bg-color $inactive-bg-color $urgent-workspace-color
-    inactive_workspace $indicator-color   $indicator-color   $inactive-text-color
-    urgent_workspace   $urgent-bg-color   $urgent-bg-color   $urgent-workspace-color
-  }
-}
 
 # Hide borders where appropriate
-hide_edge_borders smart
+#hide_edge_borders smart
 
 # Leave fullscreen when a popup/floating window occurs
 popup_during_fullscreen leave_fullscreen
@@ -221,12 +205,25 @@ exec --no-startup-id "i3-msg 'workspace number 1; append_layout /home/leakypixel
 exec --no-startup-id "i3-msg 'workspace number 2; append_layout /home/leakypixel/.config/i3/workspaces/2.json'"
 exec --no-startup-id "i3-msg 'workspace number 3; append_layout /home/leakypixel/.config/i3/workspaces/3.json'"
 
+bar {
+    status_command    polybar -r gerry
+    output	      primary
+    workspace_buttons no
+    tray_output       none
+    position	      top
+    mode 	      hide
+    modifier	      none
+}
+
+
+
 # Start applets
 exec --no-startup-id connman-gtk
 exec --no-startup-id pa-applet
+#exec --no-startup-id polybar -r gerry &
 
 # Start compton compostior
-exec --no-startup-id compton -CGb
+exec --no-startup-id compton -b
 
 # Set the background
 exec --no-startup-id feh --no-fehbg --bg-fill --randomize ~/.config/wallpaper/*

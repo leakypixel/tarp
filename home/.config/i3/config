@@ -34,7 +34,8 @@ font pango:NotoSans 11
 floating_modifier $mod
 
 # Screenshot
-bindsym --release Print exec scrot -s '/home/leakypixel/images/screenshots/%Y-%m-%d_%H:%M:%S.png'
+bindsym --release Print exec maim -uos "/home/leakypixel/images/screenshots/$(date +%s).png"
+bindsym --release Shift+Print exec "maim -uos | xclip -selection clipboard -t image/png"
 
 # Don't show title bar
 for_window [class="^.*"] border pixel 3

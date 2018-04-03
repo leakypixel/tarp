@@ -1,6 +1,6 @@
 "" All the usual stuff - no compatible, turn some nice to haves on
 syntax on
-set background=dark
+set background=light
 set list
 set term=xterm
 set nu
@@ -85,7 +85,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-commentary'
-Plugin 'chriskempson/base16-vim'
 Plugin 'w0rp/ale'
 Plugin 'chrisbra/Colorizer'
 Plugin 'sheerun/vim-polyglot'
@@ -105,7 +104,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 "" Turn Limelight on for hyper-focused editing
-autocmd VimEnter * Limelight
+"autocmd VimEnter * Limelight
 " Color name (:help gui-colors) or RGB color
 "let g:limelight_conceal_guifg = 'DarkGray'
 "let g:limelight_conceal_guifg = '#777777'
@@ -141,7 +140,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 "" Set the airline theme
-let g:airline_theme='base16_flat'
+let g:airline_theme='tomorrow'
 
 "" Ignore some common non-dev directories/files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
@@ -196,8 +195,7 @@ let g:ale_sign_warning = '?'
 let g:airline#extensions#ale#enabled = 1
 
 "" Set colourscheme and colours on
-let base16colorspace=256
-colorscheme base16-default-dark
+colorscheme Tomorrow-Night
 
 filetype off
 filetype plugin indent on

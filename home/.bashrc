@@ -37,12 +37,6 @@ shopt -s globstar
 # Colours on
 export TERM=screen-256color
 
-# If we're not already tmuxed, be tmuxed
-#if [ -z "$TMUX" ]; then
-  # Connect to a tmux session if one already exists, otherwise make a new one (set in tmux config).
-#  exec tmux attach
-#fi
-
 # Set vim as the editor for just about everything
 export VISUAL="vim"
 export EDITOR="vim"
@@ -88,9 +82,6 @@ source /usr/share/nvm/init-nvm.sh
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/home/leakypixel/.local/bin"
 
-# Fuck (best-guess last incorrect command, pip install thefuck)
-alias fuck='$(thefuck $(fc -ln -1))'
-
 # Marking of directories, and jumping to them - script from http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 if [ -f $HOME/.bash/mark-jump.sh ]; then
   source $HOME/.bash/mark-jump.sh
@@ -113,4 +104,4 @@ fi
 
 # Add ntfy auto notify on long command complete
 eval "$(ntfy shell-integration)"
-export AUTO_NTFY_DONE_IGNORE="vim screen meld"
+export AUTO_NTFY_DONE_IGNORE="ssh vim screen"

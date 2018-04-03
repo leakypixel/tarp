@@ -1,31 +1,111 @@
-separator_block_width=14
+#separator_block_width=14
+#markup=pango
+#
+#[disk-root]
+#label=
+#command=/usr/lib/i3blocks/disk /
+#interval=30
+#color=#1793D1
+#
+#[disk-home]
+#command=/usr/lib/i3blocks/disk $HOME
+#label=&#xf120;
+#interval=30
+#color=#859900
+#
+#[battery]
+#command=~/.config/i3/i3blocks-contrib/battery BAT0
+#label=⚡
+#interval=30
+#
+#[load]
+#label= 
+#command=/usr/lib/i3blocks/load_average
+#interval=10
+#color=#6c71c4
+#
+#[time]
+#label=
+#command=date '+%a %m-%d-%y %l:%M:%S %p'
+#interval=5
+#color=#50C878
 
-[disk-root]
-label=:
-command=/usr/lib/i3blocks/disk /
-interval=30
-color=#1793D1
+# i3status configuration file.
+# see "man i3status" for documentation.
 
-[disk-home]
-label=:
-command=/usr/lib/i3blocks/disk $HOME
-interval=30
-color=#859900
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
 
-[battery]
-command=~/.config/i3/i3blocks-contrib/battery BAT0
-label=BAT
-label=⚡
-interval=30
+general {
+        colors = true
+        interval = 5
+}
 
-[load]
-label= 
-command=/usr/lib/i3blocks/load_average
-interval=10
-color=#6c71c4
+order += "disk /"
+order += "disk /Data"
+# order += "wireless wlan0"
+# order += "ethernet eth0"
+order += "battery 0"
+order += "cpu_temperature 0"
+order += "cpu_usage"
+order += "volume master"
+order += "tztime local"
 
-[time]
-label=
-command=date '+%a %m-%d-%y %l:%M:%S %p'
-interval=5
-color=#50C878
+wireless wlan0 {
+        format_up = "W: (%quality at %essid) %ip"
+        format_down = "W: down"
+}
+
+ethernet eth0 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+battery 0 {
+        format = "%status %percentage %remaining"
+}
+
+run_watch DHCP {
+        pidfile = "/var/run/dhclient*.pid"
+}
+
+run_watch VPN {
+        pidfile = "/var/run/vpnc/pid"
+}
+
+tztime local {
+        format = " %a, %B %d  %I:%M %p "
+}
+
+cpu_temperature 0 {
+        format = "%degrees °C"
+	max_threshold = 70
+}
+
+cpu_usage {
+	format = "%usage"
+}
+
+load {
+        format = "%1min"
+}
+
+disk "/" {
+        format = "/  : %used/%total "
+}
+
+disk "/Data" {
+        format = "/Data: %used/%total "
+}
+
+
+volume master {
+       format = "vol: %volume"
+       format_muted = "vol: muted (%volume)"
+       device = "default"
+       mixer = "Master"
+       mixer_idx = 0
+}

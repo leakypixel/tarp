@@ -1,0 +1,13 @@
+rofi.color-enabled: true
+rofi.modi: combi,run
+rofi.terminal: termite
+rofi.ssh-command: {terminal} -e "{ssh-client} {host}"
+rofi.run-shell-command: {terminal} -e "{cmd}"
+rofi.sidebar-mode:  false
+rofi.separator-style: solid
+rofi.hide-scrollbar:  true
+rofi.dpi: 96
+rofi.show-icons:  true
+rofi.drun-icon-theme: Numix Circle Arc
+rofi.font: Noto Sans Regular 11
+rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi

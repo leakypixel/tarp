@@ -227,7 +227,7 @@ exec --no-startup-id pa-applet
 exec --no-startup-id compton -b
 
 # Set the background
-exec --no-startup-id feh --no-fehbg --bg-fill --randomize ~/.config/wallpaper/*
+exec --no-startup-id feh --no-fehbg --bg-fill --randomize ~/.config/wallpaper/* &
 
 # Start apps
 exec --no-startup-id "termite"

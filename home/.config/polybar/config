@@ -36,7 +36,7 @@ wm-restack = i3
 
 [module/xwindow]
 type = internal/xwindow
-label = %title%
+label = %title:0:60:...%
 
 [module/filesystem]
 type = internal/fs

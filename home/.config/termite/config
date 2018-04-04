@@ -11,19 +11,19 @@ color0 = #282a36
 color8 = #686868
 
 # DarkRed + Red
-color1 = #ff5c57
+color1 = #f90000
 color9 = #ff5c57
 
 # DarkGreen + Green
-color2 = #5af78e
+color2 = #55AA55
 color10 = #5af78e
 
 # DarkYellow + Yellow
-color3 = #f3f99d
+color3 = #FFB52A
 color11 = #f3f99d
 
 # DarkBlue + Blue
-color4 = #57c7ff
+color4 = #0A6Cf5
 color12 = #57c7ff
 
 # DarkMagenta + Magenta
@@ -31,7 +31,7 @@ color5 = #ff6ac1
 color13 = #ff6ac1
 
 # DarkCyan + Cyan (both
-color6 = #9aedfe
+color6 = #4bFFDC
 color14 = #9aedfe
 
 # LightGrey + White

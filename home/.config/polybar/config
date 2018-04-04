@@ -159,7 +159,7 @@ label-full = BAT - %percentage%%
 [module/temperature]
 type = internal/temperature
 thermal-zone = 1
-warn-temperature = 60
+warn-temperature = 80
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format = <label>
@@ -167,6 +167,8 @@ format-underline = #f50a4d
 format-warn = <label-warn>
 format-warn-underline = ${self.format-underline}
 label = %temperature%
+format-warn-prefix = " "
+format-warn-prefix-foreground = ${colors.foreground-alt}
 label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
 

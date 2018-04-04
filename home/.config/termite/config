@@ -7,7 +7,7 @@ scrollback_lines = 10000
 background = rgba(42,42,42,1)
 
 # Black + DarkGrey
-color0 = #282a36
+color0 = #686868
 color8 = #686868
 
 # DarkRed + Red
@@ -15,15 +15,15 @@ color1 = #f90000
 color9 = #ff5c57
 
 # DarkGreen + Green
-color2 = #55AA55
+color2 = #5af78e
 color10 = #5af78e
 
 # DarkYellow + Yellow
-color3 = #FFB52A
+color3 = #f3f99d
 color11 = #f3f99d
 
 # DarkBlue + Blue
-color4 = #0A6Cf5
+color4 = #57c7ff
 color12 = #57c7ff
 
 # DarkMagenta + Magenta
@@ -31,7 +31,7 @@ color5 = #ff6ac1
 color13 = #ff6ac1
 
 # DarkCyan + Cyan (both
-color6 = #4bFFDC
+color6 = #9aedfe
 color14 = #9aedfe
 
 # LightGrey + White

@@ -24,7 +24,7 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 2
 font-0 = NotoSans:pixelsize=11;1
-font-1 = FontAwesome:pixelsize=16;-2
+font-1 = FontAwesome:pixelsize=11;0
 font-2 = siji:pixelsize=10;1
 modules-left = i3
 modules-center = xwindow
@@ -44,7 +44,7 @@ interval = 25
 
 mount-0 = /
 format-mounted-prefix-foreground = ${colors.foreground-alt}
-format-mounted-prefix = "ROOT "
+format-mounted-prefix = " "
 label-mounted = %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
@@ -58,7 +58,7 @@ override-redirect = true
 ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;
-ws-icon-default =
+ws-icon-default = 
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
@@ -68,17 +68,15 @@ label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 label-unfocused = %icon% %index%
 label-unfocused-padding = 2
-label-urgent = %index%!
-label-urgent-background = colors.alert
+label-urgent = %icon% %index%
+label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 [module/xbacklight]
 type = internal/xbacklight
-
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix = "BL "
+format-prefix = " "
 label = %percentage%%
-
 bar-width = 10
 bar-indicator = |
 bar-indicator-foreground = #ff
@@ -93,7 +91,7 @@ bar-empty-foreground = ${colors.foreground-alt}
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "CPU "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage%%
@@ -101,7 +99,7 @@ label = %percentage%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "MEM "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%%
@@ -110,7 +108,7 @@ label = %percentage_used%%
 type = internal/network
 interface = wlp2s0
 interval = 3.0
-format-prefix = "WLAN "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-connected = <label-connected>
 format-connected-underline = #9f78e1
@@ -122,7 +120,7 @@ type = internal/network
 interface = enp3s0f1
 interval = 3.0
 format-connected-underline = #55aa55
-format-connected-prefix = "ETH "
+format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %downspeed%/%upspeed% %local_ip%
 format-disconnected =
@@ -139,27 +137,31 @@ label = %date% %time%
 
 [module/volume]
 type = internal/volume
-format-volume-prefix = "VOL "
+format-volume-prefix = " "
 format-volume-foreground = ${colors.foreground-alt}
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
-label-muted = sound muted
+label-muted = 
 
 [module/battery]
 type = internal/battery
 battery = BAT0
 adapter = ADP0
 full-at = 99
-label-charging-prefix = BAT
-label-charging = BAT ⇡ %percentage%%
-label-discharging-prefix = BAT
-label-discharging = BAT ⇣ %percentage%%
+format-charging-prefix-foreground = ${colors.foreground-alt}
+format-charging-prefix = " "
+label-charging = %percentage%%
+format-discharging-prefix-foreground = ${colors.foreground-alt}
+format-discharging-prefix = " "
+label-discharging = %percentage%%
 label-full = BAT - %percentage%%
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 1
 warn-temperature = 60
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
 format = <label>
 format-underline = #f50a4d
 format-warn = <label-warn>

@@ -1,6 +1,5 @@
 [options]
 font = Noto Mono 11
-#font = Monospace 11
 scrollback_lines = 10000
 
 [colors]
@@ -35,6 +34,6 @@ color6 = #9aedfe
 color14 = #9aedfe
 
 # LightGrey + White
-color7= #eff0eb
+color7 = #f1f1f0
 color15 = #f1f1f0
 

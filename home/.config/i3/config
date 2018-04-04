@@ -241,7 +241,7 @@ exec --no-startup-id "discord"
 exec --no-startup-id "slack"
 
 # Name workspaces
-exec --no-startup-id i3-msg rename workspace 1 to "1: terminal"
-exec --no-startup-id i3-msg rename workspace 2 to "2: www"
-exec --no-startup-id i3-msg rename workspace 3 to "3: comms"
+#exec --no-startup-id i3-msg rename workspace 1 to "1: terminal"
+#exec --no-startup-id i3-msg rename workspace 2 to "2: www"
+#exec --no-startup-id i3-msg rename workspace 3 to "3: comms"
 

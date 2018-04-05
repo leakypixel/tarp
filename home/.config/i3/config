@@ -12,7 +12,7 @@ set $TERMINAL="termite"
 set $mod Mod4 
 
 
-gaps inner 4
+gaps inner 5
 gaps outer 0
 
 smart_gaps on

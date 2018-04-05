@@ -112,7 +112,7 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-connected = <label-connected>
 format-connected-underline = #9f78e1
-label-connected = %essid%  %downspeed%   %upspeed% %local_ip%
+label-connected = %essid%  %downspeed%   %upspeed% %local_ip%
 format-disconnected =
 
 [module/eth]
@@ -122,7 +122,7 @@ interval = 3.0
 format-connected-underline = #55aa55
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected =  %downspeed%   %upspeed% %local_ip%
+label-connected =  %downspeed%   %upspeed% %local_ip%
 format-disconnected =
 
 [module/date]

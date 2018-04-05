@@ -36,15 +36,11 @@ wm-restack = i3
 
 [module/prs]
 type = custom/script
-; Available tokens:
-;   %counter%
-; Command to be executed (using "/usr/bin/env sh -c [command]")
 exec = /home/leakypixel/bash-scripts/check-jira-prs.sh
-; Seconds to sleep between updates
-; Default: 2 (0 if `tail = true`)
 interval = 90
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #0a6cf5
 
 [module/xwindow]
 type = internal/xwindow
@@ -53,7 +49,6 @@ label = %title:0:60:...%
 [module/filesystem]
 type = internal/fs
 interval = 25
-
 mount-0 = /
 format-mounted-prefix-foreground = ${colors.foreground-alt}
 format-mounted-prefix = " "
@@ -101,6 +96,7 @@ bar-fill-foreground = #9f78e1
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
+format-underline = #0a6cf5
 
 [module/cpu]
 type = internal/cpu
@@ -146,7 +142,6 @@ date = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
 label = %date% %time%
 
 [module/volume]
@@ -156,12 +151,16 @@ format-volume-foreground = ${colors.foreground-alt}
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 label-muted = 
+format-volume-underline = #0a6cf5
+format-muted-underline = #0a6cf5
 
 [module/battery]
 type = internal/battery
 battery = BAT0
 adapter = ADP0
 full-at = 99
+format-charging-underline = #55aa55
+format-discharging-underline = #55aa55
 format-charging-prefix-foreground = ${colors.foreground-alt}
 format-charging-prefix = " "
 label-charging = %percentage%%

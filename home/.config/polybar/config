@@ -37,7 +37,7 @@ wm-restack = i3
 [module/prs]
 type = custom/script
 exec = /home/leakypixel/bash-scripts/check-jira-prs.sh
-interval = 90
+interval = 30
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5

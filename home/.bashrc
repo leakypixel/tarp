@@ -82,6 +82,9 @@ source /usr/share/nvm/init-nvm.sh
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/home/leakypixel/.local/bin"
 
+# Bash scripts in path
+export PATH="$PATH:/home/leakypixel/bash-scripts"
+
 # Marking of directories, and jumping to them - script from http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 if [ -f $HOME/.bash/mark-jump.sh ]; then
   source $HOME/.bash/mark-jump.sh

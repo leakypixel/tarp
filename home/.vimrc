@@ -182,6 +182,7 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier_eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'javascript.jsx': ['prettier_eslint', 'remove_trailing_lines', 'trim_whitespace'],
+\   'json': ['jq', 'prettier', 'trim_whitespace'],
 \}
 
 " Enable completion where available.

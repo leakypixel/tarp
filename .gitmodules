@@ -65,3 +65,7 @@
 	path = home/.config/i3/i3blocks-contrib
 	url = https://github.com/vivien/i3blocks-contrib.git
 	ignore = untracked
+[submodule "home/.vim/bundle/istanbul.vim"]
+	path = home/.vim/bundle/istanbul.vim
+	url = https://github.com/retorillo/istanbul.vim.git
+	ignore = untracked

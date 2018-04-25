@@ -63,6 +63,7 @@ nnoremap <F6> :call SpellCheck()<cr>
 "" Switch between double-space soft tabs and hard tabs
 noremap <leader>T :%s/  /\t/gi<cr>
 noremap <leader>t :%s/\t/  /gi<cr>
+nnoremap S diw"0P
 
 "" remove whitespace
 map <leader>s :%s/\s\+$//<CR>

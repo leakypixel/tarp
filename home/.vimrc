@@ -171,19 +171,22 @@ augroup END
 
 "" ALE config
 let g:ale_linters = {
-\   'javascript.jsx': ['prettier_eslint', 'eslint'],
-\   'javascript': [ 'prettier_eslint', 'eslint']
+\   'javascript.jsx': ['eslint'],
+\   'javascript': ['eslint'],
+\   'js': ['eslint'],
+\   'python': ['yapf', 'pylint'],
 \}
-let g:ale_linter_aliases = {'jsx': 'css'}
+""let g:ale_linter_aliases = {'jsx': 'css'}
 
 " Fix files automatically on save.
 let g:ale_fix_on_save = 1
 " Put this in vimrc or a plugin file of your own.
 " After this is configured, :ALEFix will try and fix your JS code with ESLint.
 let g:ale_fixers = {
-\   'javascript': ['prettier_eslint', 'remove_trailing_lines', 'trim_whitespace'],
-\   'javascript.jsx': ['prettier_eslint', 'remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
+\   'javascript.jsx': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'json': ['jq', 'prettier', 'trim_whitespace'],
+\   'python': ['yapf'],
 \}
 
 " Enable completion where available.

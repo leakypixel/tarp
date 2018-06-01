@@ -27,7 +27,7 @@ alias c='cless'
 alias jsh='jshint **/*.js'
 alias ufm='git stash && git checkout master && git pull && git checkout - && git rebase master'
 alias upd='git stash && git checkout master && git pull && git fetch --prune && bash ~/bash-scripts/clean-branches-that-dont-exist-on-remote.sh'
-
+alias dc='docker-compose'
 # Restart vagrant box
 alias rs='j box && sudo vagrant ssh -c "sudo service tomcat7 restart" && cd -'
 

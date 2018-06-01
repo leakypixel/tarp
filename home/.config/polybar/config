@@ -28,7 +28,7 @@ font-1 = FontAwesome:pixelsize=11;0
 font-2 = siji:pixelsize=10;1
 modules-left = i3
 modules-center = xwindow
-modules-right = prs xbacklight volume filesystem memory cpu temperature wlan eth battery date
+modules-right = xbacklight volume filesystem memory cpu temperature wlan eth battery date
 tray-position = right
 tray-padding = 0
 tray-detached = false

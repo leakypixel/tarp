@@ -25,28 +25,14 @@
       }
     ],
     "class-methods-use-this": "error",
-    "complexity": [
-      "error",
-      2
-    ],
+    "complexity": ["error", 3],
     "consistent-return": "error",
     "dot-notation": "error",
-    "eqeqeq": [
-      "error"
-    ],
-    "func-call-spacing": [
-      "error",
-      "never"
-    ],
+    "eqeqeq": ["error"],
+    "func-call-spacing": ["error", "never"],
     "guard-for-in": "error",
-    "indent": [
-      "error",
-          2
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
     "no-else-return": "error",
     "no-eval": "error",
     "no-extend-native": "error",
@@ -65,45 +51,35 @@
     "no-self-compare": "error",
     "no-unneeded-ternary": [
       "error",
-          {
-            "defaultAssignment": false
-          }
+      {
+        "defaultAssignment": false
+      }
     ],
     "no-unsafe-negation": "error",
     "no-unused-labels": "error",
     "no-unused-vars": [
       "error",
-          {
-            "vars": "local"
-          }
+      {
+        "vars": "local"
+      }
     ],
     "no-useless-call": "error",
     "no-useless-computed-key": "error",
     "no-useless-concat": "error",
-    "quotes": [
-      "error",
-      "double"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
     "use-isnan": "error",
     "valid-typeof": [
       "error",
-          {
-            "requireStringLiterals": true
-          }
+      {
+        "requireStringLiterals": true
+      }
     ],
     "vars-on-top": "error",
-    "wrap-iife": [
-      "error",
-      "inside"
-    ],
-    "yoda": "error"
+    "wrap-iife": ["error", "inside"],
+    "yoda": "error",
+    "import/unambiguous": 0,
+    "comma-dangle": ["error", "always-multiline"]
   },
-  "plugins": [
-    "react",
-    "import"
-  ]
+  "plugins": ["react", "import"]
 }

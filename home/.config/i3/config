@@ -221,12 +221,12 @@ bar {
 
 
 # Start applets
-exec --no-startup-id connman-gtk
-exec --no-startup-id pa-applet
+exec --no-startup-id connman-gtk &
+exec --no-startup-id pa-applet &
 #exec --no-startup-id polybar -r gerry &
 
 # Start compton compostior
-exec --no-startup-id compton -b
+exec --no-startup-id compton -b &
 
 # Set the background
 exec --no-startup-id feh --no-fehbg --bg-fill --randomize ~/.config/wallpaper/* &
@@ -239,6 +239,7 @@ exec --no-startup-id "termite"
 exec --no-startup-id "google-chrome-stable"
 exec --no-startup-id "discord"
 exec --no-startup-id "slack"
+exec --no-startup-id "whatsie"
 
 # Name workspaces
 #exec --no-startup-id i3-msg rename workspace 1 to "1: terminal"

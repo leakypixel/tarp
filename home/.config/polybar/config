@@ -116,7 +116,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wlan0
 interval = 3.0
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
@@ -127,7 +127,7 @@ format-disconnected =
 
 [module/eth]
 type = internal/network
-interface = enp3s0f1
+interface = enp0s31f6
 interval = 3.0
 format-connected-underline = #55aa55
 format-connected-prefix = " "

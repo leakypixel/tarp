@@ -116,7 +116,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlan0
+interface = wlp4s0
 interval = 3.0
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}

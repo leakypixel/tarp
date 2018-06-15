@@ -4,6 +4,7 @@ scrollback_lines = 10000
 
 [colors]
 background = rgba(42,42,42,1)
+cursor = #9f41ec
 
 # Black + DarkGrey
 color0 = #686868

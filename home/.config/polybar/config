@@ -28,7 +28,7 @@ font-1 = FontAwesome:pixelsize=11;0
 font-2 = siji:pixelsize=10;1
 modules-left = i3
 modules-center = xwindow
-modules-right = xbacklight volume filesystem memory cpu temperature wlan eth battery date
+modules-right = xbacklight volume filesystem memory cpu temperature wlan wlan0 eth battery date
 tray-position = right
 tray-padding = 0
 tray-detached = false
@@ -117,6 +117,17 @@ label = %percentage_used%%
 [module/wlan]
 type = internal/network
 interface = wlp4s0
+interval = 3.0
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-connected = <label-connected>
+format-connected-underline = #9f78e1
+label-connected = %essid%  %downspeed%   %upspeed% %local_ip%
+format-disconnected =
+
+[module/wlan0]
+type = internal/network
+interface = wlan0
 interval = 3.0
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}

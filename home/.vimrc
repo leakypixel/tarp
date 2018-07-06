@@ -174,7 +174,7 @@ let g:ale_linters = {
 \   'javascript.jsx': ['eslint'],
 \   'javascript': ['eslint'],
 \   'js': ['eslint'],
-\   'python': ['yapf', 'pylint'],
+\   'python': ['pylint'],
 \}
 ""let g:ale_linter_aliases = {'jsx': 'css'}
 
@@ -186,7 +186,7 @@ let g:ale_fixers = {
 \   'javascript': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'javascript.jsx': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'json': ['jq', 'prettier', 'trim_whitespace'],
-\   'python': ['yapf'],
+\   'python': ['yapf', 'black'],
 \}
 
 " Enable completion where available.

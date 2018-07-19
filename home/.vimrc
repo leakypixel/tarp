@@ -186,7 +186,7 @@ let g:ale_fixers = {
 \   'javascript': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'javascript.jsx': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'json': ['jq', 'prettier', 'trim_whitespace'],
-\   'python': ['yapf', 'black'],
+\   'python': ['yapf'],
 \}
 
 " Enable completion where available.

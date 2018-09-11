@@ -1,5 +1,5 @@
 rofi.color-enabled: true
-rofi.modi: combi,run,window,ssh
+rofi.modi: combi,run,window,ssh,calc
 rofi.terminal: termite
 rofi.ssh-command: {terminal} -e "{ssh-client} {host}"
 rofi.run-shell-command: {terminal} -e "{cmd}"

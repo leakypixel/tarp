@@ -12,7 +12,7 @@ set $TERMINAL="termite"
 set $mod Mod4 
 
 
-gaps inner 5
+gaps inner 6
 gaps outer 0
 
 smart_gaps on
@@ -40,7 +40,7 @@ bindsym --release Print exec maim -uos "/home/leakypixel/images/screenshots/$(da
 bindsym --release Shift+Print exec "maim -uos | xclip -selection clipboard -t image/png"
 
 # Don't show title bar
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 2
 
 # start a terminal
 bindsym $mod+Return exec termite
@@ -177,7 +177,6 @@ bindsym $mod+r mode "resize"
 # Flat theme
 set $bg-color            #ffb52a
 set $inactive-bg-color   #b6851b
-set $inactive-bg-color   #c38f1d
 set $text-color          #222222
 set $inactive-text-color #333333
 set $urgent-bg-color     #ff5c57
@@ -227,7 +226,7 @@ exec --no-startup-id pa-applet &
 #exec --no-startup-id polybar -r gerry &
 
 # Start compton compostior
-exec --no-startup-id compton -b &
+exec --no-startup-id compton -b --config ~/.config/compton.conf &
 
 # Set the background
 exec --no-startup-id feh --no-fehbg --bg-fill --randomize ~/.config/wallpaper/* &

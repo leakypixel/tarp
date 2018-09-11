@@ -40,8 +40,8 @@ set splitbelow " Default to opening a split below instead of above
 noremap ) :bnext<cr>
 noremap ( :bprevious<cr>
 noremap <leader>q :copen<cr>
-noremap <leader>p :cprevious<cr>
-noremap <leader>n :cnext<cr>
+noremap <leader>p :ALEPrevious<cr>
+noremap <leader>n :ALENext<cr>
 noremap <leader>d :bdelete<cr>
 noremap <leader>w :w<cr>
 noremap <leader>x :w<cr>:bd<cr>
@@ -52,7 +52,6 @@ noremap - :vertical resize -5<cr>
 noremap <leader>+ :resize +5<cr>
 noremap <leader>- :resize -5<cr>
 noremap <leader>l :lopen<cr>
-noremap <leader>n :lnext<cr>
 noremap <leader>y :'<,'>%w !xclip<cr>
 noremap <leader>Y :%w !xclip<cr>
 noremap <leader>S :call MakeSession()<cr>
@@ -148,7 +147,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
 
 "" Setup for HTML
 "" Use HTMLTidy to format
-autocmd FileType html setlocal equalprg=tidy\ -ashtml\ -i\ -q\ --tidy-mark\ no\ --show-body-only\ auto
+autocmd FileType html setlocal equalprg=tidy\ -config\ ~/.tidy-config
 
 " Remap shift key failure
 command! W :w
@@ -175,17 +174,17 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'js': ['eslint'],
 \   'python': ['pylint'],
+\   'html': ['tidy'],
 \}
 ""let g:ale_linter_aliases = {'jsx': 'css'}
 
 " Fix files automatically on save.
 let g:ale_fix_on_save = 1
-" Put this in vimrc or a plugin file of your own.
-" After this is configured, :ALEFix will try and fix your JS code with ESLint.
 let g:ale_fixers = {
 \   'javascript': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'javascript.jsx': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'json': ['jq', 'prettier', 'trim_whitespace'],
+\   'html': ['remove_trailing_lines', 'trim_whitespace', 'tidy'],
 \   'python': ['yapf'],
 \}
 
@@ -195,6 +194,9 @@ let g:ale_completion_enabled = 1
 " Set ALE characters
 let g:ale_sign_error = '!'
 let g:ale_sign_warning = '?'
+
+" Set HTML tidy options
+let g:ale_html_tidy_options = '-config ~/.tidy-config'
 
 " Turn on ALE + Airline integration
 let g:airline#extensions#ale#enabled = 1

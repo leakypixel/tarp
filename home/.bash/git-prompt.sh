@@ -17,7 +17,7 @@ function set_git_prompt {
 
   #PS1="\u@\h \w \$([[ \$? != 0 ]] && echo \":( \")\$ "
   #PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
-  PS1="\[$Reset\]\[$On_IYellow$Black\]\A \u\[$Reset\]\[$Blue\] \W \[$Reset$Cyan\]\$(__git_ps1 '(%s)')\[$Yellow\]\[$Reset\] \$ "
+  PS1="\[$Reset\]\[$On_IYellow$Black\]\u\[$Reset\]\[$Blue\] \W \[$Reset$Cyan\]\$(__git_ps1 '(%s)')\[$Yellow\]\[$Reset\] \$ "
 }
 
 # Now test if we already have git completion and prompt scripts, if not then try a few likely places and get them if needs be.

@@ -11,7 +11,8 @@
   "percent": 1,
   "swallows": [
     {
-      "class": "^Claws\\-mail$"
+      "class": "^Google\\-chrome$",
+      "window_role": "^browser$"
     }
   ],
   "type": "con"

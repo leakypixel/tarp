@@ -11,7 +11,7 @@
   "percent": 1,
   "swallows": [
     {
-      "class": "^Claws\\-mail$"
+      "class": "^Evolution$"
     }
   ],
   "type": "con"

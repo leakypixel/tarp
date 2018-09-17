@@ -225,6 +225,7 @@ bar {
 # Start applets
 exec --no-startup-id connman-gtk &
 exec --no-startup-id pa-applet &
+exec --no-startup-id secret-tool lookup keepass pwdb.kdbx  | keepassxc --pw-stdin /home/leakypixel/.config/keepassxc/pwdb.kdbx &
 #exec --no-startup-id polybar -r gerry &
 
 # Start compton compostior
@@ -243,7 +244,7 @@ exec --no-startup-id "firefox"
 exec --no-startup-id "discord"
 exec --no-startup-id "slack"
 exec --no-startup-id "whatsie"
-exec --no-startup-id "claws-mail"
+exec --no-startup-id "evolution"
 
 # Name workspaces
 #exec --no-startup-id i3-msg rename workspace 1 to "1: terminal"

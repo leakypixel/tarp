@@ -13,7 +13,7 @@ alias fast='bash ~/bash-scripts/set-high-priority.sh'
 alias brn='~/bash-scripts/bulk-rename.sh'
 
 # Some nicer aliases for frequent commands
-alias sp='vim ~/notes/scratchpad-$(date +"%m-%d-%Y-%T")'
+alias sp='vim ~/notes/scratchpads/scratchpad-$(date +"%m-%d-%Y-%T")'
 alias please='sudo'
 alias s='sudo'
 alias j='jump'

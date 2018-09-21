@@ -38,6 +38,7 @@
   sync = !git pull && git push
   sy = !git pull && git push
   ssy = !git stash && git pull && git push && git stash pop
+  whoops = !git add -A && git commit --amend --no-edit && git push -f
 
 [core]
   editor = vim

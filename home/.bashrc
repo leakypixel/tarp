@@ -108,3 +108,11 @@ fi
 # Add ntfy auto notify on long command complete
 eval "$(ntfy shell-integration)"
 export AUTO_NTFY_DONE_IGNORE="ssh vim screen dc docker-compose"
+
+# Start ssh-agent if not started, grab variables if it is
+#if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+#    ssh-agent > ~/.ssh-agent-cookie
+#fi
+#if [[ "$SSH_AGENT_PID" == "" ]]; then
+#    eval "$(<~/.ssh-agent-cookie)"
+#fi

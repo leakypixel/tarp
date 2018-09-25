@@ -12,3 +12,12 @@ rmsession () { rm "$HOME/.vim/sessions$PWD/session.vim" && echo "CWD vim session
 
 # Run in current dir npm bin
 npm-do () { (PATH=$(npm bin):$PATH; eval $@;) }
+
+# Run a command on all my pis via ssh
+allpis () { 
+  pis="bathroom-pi bedroom-pi back-room-pi hallway-pi main-room-pi"
+  for host in ${pis[@]}; do
+    ssh pi@$host "$1" &
+  done
+  wait
+}

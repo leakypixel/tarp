@@ -52,7 +52,7 @@ bindsym $mod+p exec mousepad
 bindsym $mod+bracketright exec pcmanfm
 
 # lock the screen
-bindsym $mod+g exec dm-tool lock
+bindsym $mod+l exec dm-tool switch-to-greeter
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -68,24 +68,12 @@ bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 bindsym $mod+d exec --no-startup-id rofi -show combi
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up

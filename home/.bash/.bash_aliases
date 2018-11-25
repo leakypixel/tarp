@@ -14,7 +14,7 @@ alias brn='~/bash-scripts/bulk-rename.sh'
 
 # Some nicer aliases for frequent commands
 alias notes='vim ~/notes/'
-alias sp='vim ~/notes/scratchpads/scratchpad-$(date +"%m-%d-%Y-%T")'
+alias sp='vim ~/notes/scratchpads/scratchpad-$(date +"%d-%m-%Y-%T").md'
 alias please='sudo'
 alias s='sudo'
 alias j='jump'

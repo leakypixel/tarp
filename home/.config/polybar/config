@@ -33,6 +33,7 @@ tray-position = right
 tray-padding = 0
 tray-detached = false
 wm-restack = i3
+monitor = ${env:MONITOR:eDP-1}
 
 [module/prs]
 type = custom/script

@@ -35,7 +35,9 @@ shopt -s globstar
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Colours on
-export TERM=screen-256color
+#export TERM=screen-256color
+#export TERM=vt100
+export TERM=xterm
 
 # Set vim as the editor for just about everything
 export VISUAL="vim"
@@ -64,12 +66,12 @@ export GOPATH=$HOME/dev/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # RVM/Ruby
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/.gem/ruby/2.2.0/bin"
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#export PATH="$PATH:$HOME/.gem/ruby/2.2.0/bin"
 
 # Android
-export PATH=${PATH}:$HOME/android-sdk-linux/tools
-export PATH=${PATH}:$HOME/android-sdk-linux/platform-tools
+#export PATH=${PATH}:$HOME/android-sdk-linux/tools
+#export PATH=${PATH}:$HOME/android-sdk-linux/platform-tools
 
 # NodeJS/NPM
 export PATH="$PATH:/usr/bin/npm"
@@ -110,9 +112,9 @@ eval "$(ntfy shell-integration)"
 export AUTO_NTFY_DONE_IGNORE="ssh vim screen dc docker-compose"
 
 # Start ssh-agent if not started, grab variables if it is
-#if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-#    ssh-agent > ~/.ssh-agent-cookie
-#fi
-#if [[ "$SSH_AGENT_PID" == "" ]]; then
-#    eval "$(<~/.ssh-agent-cookie)"
-#fi
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-cookie
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-cookie)" > /dev/null
+fi

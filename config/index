@@ -7,7 +7,6 @@ bash-scripts
 .profile
 .selected_editor
 .vimrc
-.Xresources
 .eslintrc.json
 .config/libfm
 .config/pcmanfm

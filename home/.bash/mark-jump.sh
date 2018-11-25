@@ -1,3 +1,4 @@
+#!/bin/bash
 # Marking of directories, and jumping to them - script from http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 export MARKPATH=$HOME/.marks
 function jump { 

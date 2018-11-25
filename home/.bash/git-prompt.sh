@@ -1,3 +1,4 @@
+#!/bin/bash
 # Set up PS1 with git prompt etc.
 # Various variables you might want for your PS1 prompt
 Time12h="\T"

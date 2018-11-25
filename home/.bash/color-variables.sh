@@ -1,3 +1,4 @@
+#!/bin/bash
 # Colour variables, from arch wiki color bash prompt: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 # Modified regular colours to use shell defaults.
 # Double quotes enable $color variable expansion and the \[ \] escapes around them make them not count as character positions so the cursor position is not wrong.

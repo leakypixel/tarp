@@ -1,3 +1,4 @@
+#!/bin/bash
 # Make a directory and cd into it
 mkcd () { mkdir "$@" && cd "$@"; }
 

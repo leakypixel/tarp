@@ -1,3 +1,4 @@
+#!/bin/bash
 # Git scripts
 alias create='bash ~/bash-scripts/git-create-branch.sh'
 alias delete='bash ~/bash-scripts/git-delete-branch.sh'

@@ -1,3 +1,4 @@
+#!/bin/bash
 # Git completion
 
 function set_git_completion {

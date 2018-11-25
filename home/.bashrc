@@ -5,9 +5,9 @@ case $- in
 esac
 
 # Set UTF-8
-export LC_ALL="en_GB.UTF-8"
-export LANG="en_GB.UTF-8"
-export LANGUAGE="en_GB.UTF-8"
+#export LC_ALL="en_GB.UTF-8"
+#export LANG="en_GB.UTF-8"
+#export LANGUAGE="en_GB.UTF-8"
 
 # Set history location
 export HISTFILE=$HOME/.bash/.bash_history
@@ -20,8 +20,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=100000
+HISTFILESIZE=200000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -34,7 +34,7 @@ shopt -s globstar
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Colours on
+# Colours on, set termtype
 #export TERM=screen-256color
 #export TERM=vt100
 export TERM=xterm
@@ -47,9 +47,9 @@ export DIFFTOOL="vim"
 set -o vi
 
 # enable color support of ls
-if [ -x /usr/bin/dircolors ]; then
-  test -r $HOME/.dircolors && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
-fi
+#if [ -x /usr/bin/dircolors ]; then
+#  test -r $HOME/.dircolors && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
+#fi
 
 # Alias definitions.
 if [ -f $HOME/.bash/.bash_aliases ]; then
@@ -75,13 +75,11 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # NodeJS/NPM
 export PATH="$PATH:/usr/bin/npm"
-export PATH=/home/leakypixel/.node/bin:$PATH
 
 # Load NVM for node version management
 source /usr/share/nvm/init-nvm.sh
 
 # Binaries in path
-export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/home/leakypixel/.local/bin"
 
 # Bash scripts in path

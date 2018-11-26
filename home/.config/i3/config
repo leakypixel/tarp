@@ -196,7 +196,7 @@ exec --no-startup-id "i3-msg 'workspace number 1; append_layout /home/leakypixel
 exec --no-startup-id "i3-msg 'workspace number 2; append_layout /home/leakypixel/.config/i3/workspaces/2.json'"
 exec --no-startup-id "i3-msg 'workspace number 3; append_layout /home/leakypixel/.config/i3/workspaces/3.json'"
 exec --no-startup-id "i3-msg 'workspace number 4; append_layout /home/leakypixel/.config/i3/workspaces/4.json'"
-#exec --no-startup-id "i3-msg 'workspace number 5; append_layout /home/leakypixel/.config/i3/workspaces/5.json'"
+exec --no-startup-id "i3-msg 'workspace number 5; append_layout /home/leakypixel/.config/i3/workspaces/5.json'"
 
 #bar {
 #    status_command    polybar -r gerry
@@ -227,7 +227,7 @@ exec --no-startup-id "termite"
 exec --no-startup-id "termite"
 exec --no-startup-id "termite"
 exec --no-startup-id "termite"
-#exec --no-startup-id "google-chrome-stable"
+exec --no-startup-id "google-chrome-stable"
 exec --no-startup-id "firefox"
 #exec --no-startup-id "discord"
 exec --no-startup-id "slack"

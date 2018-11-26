@@ -7,6 +7,7 @@ bash-scripts
 .profile
 .selected_editor
 .vimrc
+.pam_environment
 .eslintrc.json
 .config/libfm
 .config/pcmanfm
@@ -16,3 +17,4 @@ bash-scripts
 .config/termite
 .config/dunst
 .config/wallpaper
+.config/systemd

@@ -15,3 +15,8 @@ if [ -n "$BASH_VERSION" ]; then
 	. "$HOME/.bashrc"
     fi
 fi
+
+# Temporary timezone setting
+if [ -f "$HOME/.timezone" ]; then
+  .  "$HOME/.timezone"
+fi

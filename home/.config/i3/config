@@ -8,7 +8,7 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-set $TERMINAL="termite"
+set $TERMINAL "termite"
 set $mod Mod4 
 
 
@@ -198,15 +198,15 @@ exec --no-startup-id "i3-msg 'workspace number 3; append_layout /home/leakypixel
 exec --no-startup-id "i3-msg 'workspace number 4; append_layout /home/leakypixel/.config/i3/workspaces/4.json'"
 #exec --no-startup-id "i3-msg 'workspace number 5; append_layout /home/leakypixel/.config/i3/workspaces/5.json'"
 
-bar {
-    status_command    polybar -r gerry
-    output	      primary
-    workspace_buttons no
-    tray_output       none
-    position	      top
-    mode 	      hide
-    modifier	      none
-}
+#bar {
+#    status_command    polybar -r gerry
+#    output	      primary
+#    workspace_buttons no
+#    tray_output       none
+#    position	      top
+#    mode 	      hide
+#    modifier	      none
+#}
 
 
 
@@ -214,7 +214,7 @@ bar {
 exec --no-startup-id connman-gtk &
 exec --no-startup-id pa-applet &
 exec --no-startup-id secret-tool lookup keepass pwdb.kdbx  | keepassxc --pw-stdin /home/leakypixel/.config/keepassxc/pwdb.kdbx &
-#exec --no-startup-id polybar -r gerry &
+exec --no-startup-id polybar -r gerry &
 
 # Start compton compostior
 exec --no-startup-id compton -b --config ~/.config/compton.conf &

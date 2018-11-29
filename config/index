@@ -1,6 +1,6 @@
 .vim
 .bash
-bash-scripts
+scripts
 .bashrc
 .gitconfig
 .gitfiles

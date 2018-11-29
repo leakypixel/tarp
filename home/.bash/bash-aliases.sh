@@ -6,7 +6,6 @@ alias bac='bash ~/bash-scripts/git-branch-and-commit-changes.sh'
 
 # Some nicer aliases for frequent commands
 alias notes='vim ~/notes/'
-alias sp='vim ~/notes/scratchpads/scratchpad-$(date +"%d-%m-%Y-%T").md'
 alias please='sudo'
 alias s='sudo'
 alias j='jump'

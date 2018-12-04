@@ -102,9 +102,6 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
 # switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -198,23 +195,11 @@ exec --no-startup-id "i3-msg 'workspace number 3; append_layout /home/leakypixel
 exec --no-startup-id "i3-msg 'workspace number 4; append_layout /home/leakypixel/.config/i3/workspaces/4.json'"
 exec --no-startup-id "i3-msg 'workspace number 5; append_layout /home/leakypixel/.config/i3/workspaces/5.json'"
 
-#bar {
-#    status_command    polybar -r gerry
-#    output	      primary
-#    workspace_buttons no
-#    tray_output       none
-#    position	      top
-#    mode 	      hide
-#    modifier	      none
-#}
-
-
-
 # Start applets
 exec --no-startup-id connman-gtk &
 exec --no-startup-id pa-applet &
 exec --no-startup-id secret-tool lookup keepass pwdb.kdbx  | keepassxc --pw-stdin /home/leakypixel/.config/keepassxc/pwdb.kdbx &
-exec --no-startup-id polybar -r gerry &
+exec --no-startup-id polybar -r gerry
 
 # Start compton compostior
 exec --no-startup-id compton -b --config ~/.config/compton.conf &
@@ -227,15 +212,9 @@ exec --no-startup-id "termite"
 exec --no-startup-id "termite"
 exec --no-startup-id "termite"
 exec --no-startup-id "termite"
-exec --no-startup-id "google-chrome-stable"
+#exec --no-startup-id "google-chrome-stable"
 exec --no-startup-id "firefox"
 #exec --no-startup-id "discord"
-exec --no-startup-id "slack"
+#exec --no-startup-id "slack"
 #exec --no-startup-id "whatsie"
 exec --no-startup-id "evolution"
-
-# Name workspaces
-#exec --no-startup-id i3-msg rename workspace 1 to "1: terminal"
-#exec --no-startup-id i3-msg rename workspace 2 to "2: www"
-#exec --no-startup-id i3-msg rename workspace 3 to "3: comms"
-

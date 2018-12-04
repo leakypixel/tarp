@@ -16,5 +16,4 @@ scripts
 .config/rofi
 .config/termite
 .config/dunst
-.config/wallpaper
 .config/systemd

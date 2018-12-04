@@ -28,20 +28,11 @@ font-1 = FontAwesome:pixelsize=11;0
 font-2 = siji:pixelsize=10;1
 modules-left = i3
 modules-center = xwindow
-modules-right = xbacklight volume filesystem memory cpu temperature wlan wlan0 eth battery date
+modules-right = volume filesystem memory cpu temperature wlan eth battery date
 tray-position = right
 tray-padding = 0
 tray-detached = false
-wm-restack = i3
 monitor = ${env:MONITOR:eDP-1}
-
-[module/prs]
-type = custom/script
-exec = /home/leakypixel/bash-scripts/check-jira-prs.sh
-interval = 30
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
 
 [module/xwindow]
 type = internal/xwindow
@@ -62,9 +53,6 @@ label-unmounted-foreground = ${colors.foreground-alt}
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-override-redirect = true
 ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;
@@ -82,23 +70,6 @@ label-unfocused-padding = 2
 label-urgent = %icon% %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
-
-[module/xbacklight]
-type = internal/xbacklight
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix = " "
-label = %percentage%%
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
 
 [module/cpu]
 type = internal/cpu
@@ -127,17 +98,6 @@ format-connected-underline = #9f78e1
 label-connected = %essid%  %downspeed%   %upspeed% %local_ip%
 format-disconnected =
 
-[module/wlan0]
-type = internal/network
-interface = wlan0
-interval = 3.0
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-connected = <label-connected>
-format-connected-underline = #9f78e1
-label-connected = %essid%  %downspeed%   %upspeed% %local_ip%
-format-disconnected =
-
 [module/eth]
 type = internal/network
 interface = enp0s31f6
@@ -158,7 +118,7 @@ format-prefix-foreground = ${colors.foreground-alt}
 label = %date% %time%
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 format-volume-prefix = " "
 format-volume-foreground = ${colors.foreground-alt}
 label-volume = %percentage%%
@@ -194,10 +154,10 @@ format = <label>
 format-underline = #f50a4d
 format-warn = <label-warn>
 format-warn-underline = ${self.format-underline}
-label = %temperature%
+label = %temperature-c%
 format-warn-prefix = " "
 format-warn-prefix-foreground = ${colors.foreground-alt}
-label-warn = %temperature%
+label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
 [settings]

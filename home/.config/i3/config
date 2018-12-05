@@ -11,7 +11,6 @@
 set $TERMINAL "termite"
 set $mod Mod4 
 
-
 gaps inner 6
 gaps outer 0
 
@@ -40,7 +39,7 @@ bindsym --release Print exec maim -uos "/home/leakypixel/images/screenshots/$(da
 bindsym --release Shift+Print exec "maim -uos | xclip -selection clipboard -t image/png"
 
 # Don't show title bar
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 4
 
 # start a terminal
 bindsym $mod+Return exec termite
@@ -161,9 +160,9 @@ bindsym $mod+r mode "resize"
 
 # Flat theme
 set $bg-color            #ffb52a
-set $inactive-bg-color   #b6851b
 set $text-color          #222222
-set $inactive-text-color #333333
+set $inactive-bg-color   #2a2a2a
+set $inactive-text-color #c3c3c3
 set $urgent-bg-color     #ff5c57
 set $indicator-color     #5af78e
 set $urgent-indicator-color  #E74C3C
@@ -171,12 +170,12 @@ set $urgent-workspace-color  #2c3e50
 set $statusline-color        #E0E0E0
 
 # window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          $bg-color
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color
-client.placeholder      $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
+#                       border                background         text                 indicator
+client.focused          $bg-color             $bg-color          $text-color          $bg-color
+client.unfocused        $inactive-bg-color    $inactive-bg-color $inactive-text-color $text-color
+client.focused_inactive $inactive-text-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
+client.urgent           $urgent-bg-color      $urgent-bg-color   $text-color          $urgent-bg-color
+client.placeholder      $inactive-bg-color    $inactive-bg-color $inactive-text-color $inactive-bg-color
 client.background       $bg-color
 
 # Hide borders where appropriate

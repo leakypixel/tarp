@@ -17,26 +17,29 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
-border-size = 6
+border-top-size = 3
+border-bottom-size = 6
+border-left-size = 6
+border-right-size = 6
 border-color = transparent
 padding-left = 0
 padding-right = 2
 module-margin-left = 2
 module-margin-right = 2
-font-0 = NotoSans:pixelsize=11;1
-font-1 = FontAwesome:pixelsize=11;0
+font-0 = NotoSans:pixelsize=12;0
+font-1 = FontAwesome:pixelsize=12;1
 font-2 = siji:pixelsize=10;1
 modules-left = i3
 modules-center = xwindow
 modules-right = volume filesystem memory cpu temperature wlan eth battery date
 tray-position = right
-tray-padding = 0
+tray-padding = 2
 tray-detached = false
 monitor = ${env:MONITOR:eDP-1}
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:80:...%
+label = %title:0:72:...%
 
 [module/filesystem]
 type = internal/fs

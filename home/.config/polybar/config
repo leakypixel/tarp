@@ -17,7 +17,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
-border-top-size = 3
+border-top-size = 6
 border-bottom-size = 6
 border-left-size = 6
 border-right-size = 6
@@ -35,7 +35,6 @@ modules-right = volume filesystem memory cpu temperature wlan eth battery date
 tray-position = right
 tray-padding = 2
 tray-detached = false
-monitor = ${env:MONITOR:eDP-1}
 
 [module/xwindow]
 type = internal/xwindow

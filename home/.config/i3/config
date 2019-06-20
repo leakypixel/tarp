@@ -22,7 +22,7 @@ smart_gaps on
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:Noto Sans 11
-font pango:NotoSans 11
+font pango:Noto Sans 12
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -55,6 +55,11 @@ bindsym $mod+l exec dm-tool switch-to-greeter
 
 # kill focused window
 bindsym $mod+Shift+q kill
+
+# select monitor layout
+bindsym $mod+F2 exec /home/leakypixel/.screenlayout/laptop-screen-only.sh
+bindsym $mod+F3 exec /home/leakypixel/.screenlayout/hdmi-only.sh
+bindsym $mod+F4 exec /home/leakypixel/.screenlayout/docked.sh
 
 # Rename a workspace
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
@@ -195,25 +200,26 @@ exec --no-startup-id "i3-msg 'workspace number 4; append_layout /home/leakypixel
 exec --no-startup-id "i3-msg 'workspace number 5; append_layout /home/leakypixel/.config/i3/workspaces/5.json'"
 
 # Start applets
-exec --no-startup-id connman-gtk &
-exec --no-startup-id pa-applet &
-exec --no-startup-id secret-tool lookup keepass pwdb.kdbx  | keepassxc --pw-stdin /home/leakypixel/.config/keepassxc/pwdb.kdbx &
-exec --no-startup-id polybar -r gerry
+exec --no-startup-id "connman-gtk"
+exec --no-startup-id "pa-applet"
+exec --no-startup-id "polybar -r gerry"
 
 # Start compton compostior
-exec --no-startup-id compton -b --config ~/.config/compton.conf &
+exec --no-startup-id "compton -b --config ~/.config/compton.conf"
 
 # Set the background
-exec --no-startup-id feh --no-fehbg --bg-fill --randomize ~/.config/wallpaper/* &
+exec --no-startup-id "feh --no-fehbg --bg-fill --randomize ~/.config/wallpaper/*"
 
 # Start apps
 exec --no-startup-id "termite"
 exec --no-startup-id "termite"
 exec --no-startup-id "termite"
 exec --no-startup-id "termite"
+exec --no-startup-id "termite -e \"vim /home/leakypixel/notes/daily.md\""
 #exec --no-startup-id "google-chrome-stable"
 exec --no-startup-id "firefox"
 #exec --no-startup-id "discord"
 #exec --no-startup-id "slack"
 #exec --no-startup-id "whatsie"
 exec --no-startup-id "evolution"
+exec --no-startup-id "secret-tool lookup keepass pwdb.kdbx  | keepassxc --pw-stdin /home/leakypixel/.config/keepassxc/pwdb.kdbx"

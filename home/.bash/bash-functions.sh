@@ -18,8 +18,9 @@ function sp {
   scratchpad="scratchpad-$(date +"%d-%m-%Y-%T").md"
   scratchpath="$HOME/notes/scratchpads/"
   vim "$scratchpath$scratchpad"
-  read -rp $'Rename (n or name)?\n' choice
+  read -rp $'Rename (n, d or name)?\n' choice
   case "$choice" in
+    d|D ) rm "$scratchpath$scratchpad";;
     n|N ) echo "$scratchpad";;
     * ) mv "$scratchpath$scratchpad" "$scratchpath$choice" && echo "$scratchpath$choice";;
   esac

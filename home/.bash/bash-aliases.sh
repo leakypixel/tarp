@@ -1,11 +1,12 @@
 #!/bin/bash
 # Git scripts
-alias create='bash ~/bash-scripts/git-create-branch.sh'
-alias delete='bash ~/bash-scripts/git-delete-branch.sh'
-alias bac='bash ~/bash-scripts/git-branch-and-commit-changes.sh'
+alias create='git-create-branch'
+alias delete='git-delete-branch'
+alias bac='git-branch-and-commit-changes'
 
 # Some nicer aliases for frequent commands
 alias notes='vim ~/notes/'
+alias daily='vim ~/notes/daily.md'
 alias please='sudo'
 alias s='sudo'
 alias j='jump'
@@ -18,7 +19,7 @@ alias owf='vim $(git status -s | grep -Po "(?<=^[ A-Z?][ A-Z?] ).*$")'
 
 
 # Kill all docker containers that're up
-alias dk='~/bash-scripts/bring-all-docker-machines-down.sh'
+alias dk='~/scripts/bring-all-docker-machines-down'
 
 # grep aliases to turn on colour
 alias grep='grep --color=auto'

@@ -16,7 +16,7 @@ shopt -s globstar
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Colours on, set termtype
-export TERM=xterm
+export TERM=xterm-color
 
 for module in "$HOME"/.bash/*.sh; do
   . "$module"

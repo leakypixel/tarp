@@ -121,8 +121,8 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
-"" set textwidth=80
-"" set wrapmargin=2
+set textwidth=80
+set wrapmargin=2
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
 "" Always display status line, but not mode
@@ -184,6 +184,7 @@ let g:ale_fixers = {
 \   'javascript': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'javascript.jsx': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'json': ['jq', 'prettier', 'trim_whitespace'],
+\   'css': ['prettier', 'trim_whitespace'],
 \   'html': ['remove_trailing_lines', 'trim_whitespace', 'tidy'],
 \   'python': ['yapf'],
 \}

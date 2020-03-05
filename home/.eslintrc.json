@@ -25,7 +25,7 @@
       }
     ],
     "class-methods-use-this": "error",
-    "complexity": ["error", 3],
+    "complexity": ["error", 4],
     "consistent-return": "error",
     "dot-notation": "error",
     "eqeqeq": ["error"],
@@ -81,5 +81,5 @@
     "import/unambiguous": 0,
     "comma-dangle": ["error", "always-multiline"]
   },
-  "plugins": ["react", "import"]
+  "plugins": ["react", "import", "jest"]
 }

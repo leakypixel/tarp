@@ -1,6 +1,6 @@
 "" All the usual stuff - no compatible, turn some nice to haves on
 syntax on
-set background=light
+set background=dark
 set list
 set term=xterm
 set nu
@@ -183,9 +183,12 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'javascript.jsx': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
+\   'vue': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
+\   'typescript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+\   'html.handlebars': ['remove_trailing_lines', 'trim_whitespace'],
 \   'json': ['jq', 'prettier', 'trim_whitespace'],
 \   'css': ['prettier', 'trim_whitespace'],
-\   'html': ['remove_trailing_lines', 'trim_whitespace', 'tidy'],
+\   'html': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['yapf'],
 \}
 

@@ -39,6 +39,7 @@
   sy = !git pull && git push
   ssy = !git stash && git pull && git push && git stash pop
   whoops = !git add -A && git commit --amend --no-edit && git push -f
+  mm = !git checkout master && git pull && git merge - && git push
 
 [core]
   editor = vim

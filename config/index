@@ -8,6 +8,8 @@
 .vimrc
 .pam_environment
 .eslintrc.json
+.gtkrc-2.0
+.Xresources
 .config/libfm
 .config/pcmanfm
 .config/i3

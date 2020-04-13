@@ -6,7 +6,7 @@ mkcd () { mkdir "$@" && cd "$@"; }
 cless () { /usr/bin/src-hilite-lesspipe.sh "$@" | less -R; }
 
 # Open all matching files in vim
-vomit () { vim $(grep -rl "$1" "$2"); }
+vomit () { vim $(grep -rl --exclude-dir={node_modules,.git} "$1" "$2"); }
 
 # Delete saved vim session
 rmsession () { rm "$HOME/.vim/sessions$PWD/session.vim" && echo "CWD vim session deleted."; }

@@ -183,6 +183,7 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'javascript.jsx': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
+\   'typescriptreact': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'vue': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'typescript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
 \   'html.handlebars': ['remove_trailing_lines', 'trim_whitespace'],

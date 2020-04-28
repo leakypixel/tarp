@@ -69,3 +69,7 @@
 	path = home/.vim/bundle/istanbul.vim
 	url = https://github.com/retorillo/istanbul.vim.git
 	ignore = untracked
+[submodule "home/.vim/bundle/vimwiki"]
+	path = home/.vim/bundle/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
+	ignore = untracked

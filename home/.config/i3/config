@@ -197,27 +197,7 @@ exec --no-startup-id "i3-msg 'workspace number 1; append_layout /home/leakypixel
 exec --no-startup-id "i3-msg 'workspace number 2; append_layout /home/leakypixel/.config/i3/workspaces/2.json'"
 exec --no-startup-id "i3-msg 'workspace number 3; append_layout /home/leakypixel/.config/i3/workspaces/3.json'"
 exec --no-startup-id "i3-msg 'workspace number 4; append_layout /home/leakypixel/.config/i3/workspaces/4.json'"
-exec --no-startup-id "i3-msg 'workspace number 5; append_layout /home/leakypixel/.config/i3/workspaces/5.json'"
 
-# Start applets
-exec --no-startup-id "connman-gtk"
-exec --no-startup-id "pa-applet"
-exec --no-startup-id "polybar -r gerry"
-
-# Start compton compostior
-exec --no-startup-id "compton -b --config ~/.config/compton.conf"
-
-# Set the background
-exec --no-startup-id "feh --no-fehbg --bg-fill --randomize ~/.config/wallpaper/*"
-
-# Start apps
-exec --no-startup-id "termite"
-exec --no-startup-id "termite"
-exec --no-startup-id "termite"
-exec --no-startup-id "termite"
-exec --no-startup-id "firefox"
-exec --no-startup-id "evolution"
-exec --no-startup-id "secret-tool lookup keepass pwdb.kdbx  | keepassxc --pw-stdin /home/leakypixel/.config/keepassxc/pwdb.kdbx"
 # Swap mode
 mode "swap" {
 	# switch to workspace
@@ -249,3 +229,26 @@ mode "swap" {
 }
 
 bindsym $mod+Shift+i mark --add "swapee"; mode "swap"
+
+# Start applets
+exec --no-startup-id "connman-gtk"
+exec --no-startup-id "pa-applet"
+exec --no-startup-id "polybar -r gerry"
+
+# Start compton compostior
+exec --no-startup-id "compton -b --config ~/.config/compton.conf"
+
+# Set the background
+exec --no-startup-id "feh --no-fehbg --bg-fill --randomize ~/.config/wallpaper/*"
+
+# Start apps
+exec --no-startup-id "termite"
+exec --no-startup-id "termite"
+exec --no-startup-id "termite"
+exec --no-startup-id "termite"
+exec --no-startup-id "firefox"
+exec --no-startup-id "evolution"
+exec --no-startup-id "secret-tool lookup keepass pwdb.kdbx  | keepassxc --pw-stdin /home/leakypixel/.config/keepassxc/pwdb.kdbx"
+exec --no-startup-id "whatsapp-nativefier"
+exec --no-startup-id "slack"
+exec --no-startup-id "signal-desktop"

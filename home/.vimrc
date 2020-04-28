@@ -88,6 +88,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'w0rp/ale'
 Plugin 'chrisbra/Colorizer'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'vimwiki/vimwiki'
 call vundle#end()
 
 "" Editorconfig plugin setup
@@ -205,6 +206,10 @@ let g:ale_html_tidy_options = '-config ~/.tidy-config'
 
 " Turn on ALE + Airline integration
 let g:airline#extensions#ale#enabled = 1
+
+"" VimWiki
+let g:vimwiki_list = [{'path': '~/notes/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 "" Set colourscheme and colours on
 colorscheme Tomorrow-Night

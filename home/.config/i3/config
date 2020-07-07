@@ -50,6 +50,9 @@ bindsym $mod+p exec mousepad
 # start filemanager
 bindsym $mod+bracketright exec pcmanfm
 
+# display image
+bindsym $mod+o exec "feh --randomize ~/.config/wallpaper"
+
 # lock the screen
 bindsym $mod+l exec dm-tool switch-to-greeter
 
@@ -242,13 +245,13 @@ exec --no-startup-id "compton -b --config ~/.config/compton.conf"
 exec --no-startup-id "feh --no-fehbg --bg-fill --randomize ~/.config/wallpaper/*"
 
 # Start apps
-exec --no-startup-id "termite"
-exec --no-startup-id "termite"
-exec --no-startup-id "termite"
-exec --no-startup-id "termite"
-exec --no-startup-id "firefox"
-exec --no-startup-id "evolution"
-exec --no-startup-id "secret-tool lookup keepass pwdb.kdbx  | keepassxc --pw-stdin /home/leakypixel/.config/keepassxc/pwdb.kdbx"
-exec --no-startup-id "whatsapp-nativefier"
-exec --no-startup-id "slack"
-exec --no-startup-id "signal-desktop"
+exec --no-startup-id i3-msg 'workspace 1; exec --no-startup-id "termite"'
+exec --no-startup-id i3-msg 'workspace 1; exec --no-startup-id "termite"'
+exec --no-startup-id i3-msg 'workspace 1; exec --no-startup-id "termite"'
+exec --no-startup-id i3-msg 'workspace 1; exec --no-startup-id "termite"'
+exec --no-startup-id i3-msg 'workspace 2; exec --no-startup-id "firefox"'
+exec --no-startup-id i3-msg 'workspace 3; exec --no-startup-id "whatsapp-nativefier"'
+exec --no-startup-id i3-msg 'workspace 3; exec --no-startup-id "slack"'
+exec --no-startup-id i3-msg 'workspace 3; exec --no-startup-id "signal-desktop"'
+exec --no-startup-id i3-msg 'workspace 4; exec --no-startup-id "evolution"'
+exec --no-startup-id i3-msg 'workspace 4; exec --no-startup-id "secret-tool lookup keepass pwdb.kdbx  | keepassxc --pw-stdin /home/leakypixel/.config/keepassxc/pwdb.kdbx"'

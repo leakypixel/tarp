@@ -191,6 +191,8 @@ let g:ale_fixers = {
 \   'json': ['jq', 'prettier', 'trim_whitespace'],
 \   'css': ['prettier', 'trim_whitespace'],
 \   'html': ['remove_trailing_lines', 'trim_whitespace'],
+\   'yaml': ['remove_trailing_lines', 'trim_whitespace'],
+\   'yaml.ansible': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['yapf'],
 \}
 

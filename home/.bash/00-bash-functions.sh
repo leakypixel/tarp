@@ -16,7 +16,7 @@ npm-do () { (PATH=$(npm bin):$PATH; eval $@;) }
 
 function sp { 
   scratchpad="scratchpad-$(date +"%d-%m-%Y-%T").md"
-  scratchpath="$HOME/notes/scratchpads/"
+  scratchpath="$HOME/notes_private/scratchpads/"
   vim "$scratchpath$scratchpad"
   read -rp $'Rename (n, d or name)?\n' choice
   case "$choice" in

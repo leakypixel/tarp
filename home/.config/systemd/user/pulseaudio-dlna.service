@@ -1,0 +1,15 @@
+[Unit]
+Description=PulseAudio-DLNA Service
+
+[Install]
+WantedBy=default.target
+
+[Service]
+Type=simple
+PrivateTmp=true
+ExecStart=/usr/bin/pulseaudio-dlna  --disable-device-stop
+
+## References
+# https://github.com/masmu/pulseaudio-dlna
+# https://wiki.archlinux.org/index.php/Systemd/User
+# https://gist.github.com/HarlemSquirrel/a3e838f76ac1becb95591897c460a968

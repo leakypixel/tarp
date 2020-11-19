@@ -40,7 +40,7 @@
   ssy = !git stash && git pull && git push && git stash pop
   whoops = !git add -A && git commit --amend --no-edit && git push -f
   mm = !git checkout $GIT_REPO_MAIN_BRANCH && git pull && git merge - && git push
-  rb = !git checkout $GIT_REPO_WORKING_BRANCH && git pull && git co - && git rebase $GIT_REPO_WORKING_BRANCH
+  rb = !git checkout $GIT_REPO_WORKING_BRANCH && git pull && git checkout - && git rebase $GIT_REPO_WORKING_BRANCH
 
 [core]
   editor = vim

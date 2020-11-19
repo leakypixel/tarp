@@ -122,7 +122,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
-set textwidth=80
+set textwidth=0
 set wrapmargin=2
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
@@ -193,6 +193,7 @@ let g:ale_fixers = {
 \   'html': ['remove_trailing_lines', 'trim_whitespace'],
 \   'yaml': ['remove_trailing_lines', 'trim_whitespace'],
 \   'yaml.ansible': ['remove_trailing_lines', 'trim_whitespace'],
+\   'sh': ['remove_trailing_lines', 'trim_whitespace', 'shfmt'],
 \   'python': ['yapf'],
 \}
 

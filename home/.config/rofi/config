@@ -10,4 +10,4 @@ rofi.dpi: 96
 rofi.show-icons: false
 rofi.drun-icon-theme: Suru++
 rofi.font: Hack Nerd Font Mono 12
-rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi
+rofi.theme: /home/leakypixel/.local/share/rofi/themes/minimal.rasi

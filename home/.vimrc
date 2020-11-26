@@ -89,6 +89,7 @@ Plugin 'w0rp/ale'
 Plugin 'chrisbra/Colorizer'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'vimwiki/vimwiki'
+Plugin 'dikiaap/minimalist'
 call vundle#end()
 
 "" Editorconfig plugin setup
@@ -141,7 +142,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 "" Set the airline theme
-let g:airline_theme='tomorrow'
+"" let g:airline_theme='tomorrow'
 
 "" Ignore some common non-dev directories/files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
@@ -215,7 +216,11 @@ let g:vimwiki_list = [{'path': '~/notes/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 "" Set colourscheme and colours on
-colorscheme Tomorrow-Night
+colorscheme minimalist
+
+let g:airline_theme='minimalist'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 filetype off
 filetype plugin indent on

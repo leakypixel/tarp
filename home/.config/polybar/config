@@ -1,43 +1,42 @@
 [colors]
-background = #222
-background-alt = #444
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #ff5c57
+background = #1B123A
+background-alt = #d657c5
+foreground = #f3f4f5
+foreground-alt = #F20EF7
+primary = #48cfcb
+secondary = #F20EF7
+tertiary = #F20EF7
+tertiary-alt = #a26af9
+alert = #ffffff
 
 [bar/gerry]
 width = 100%
-height = 28
-radius = 0
+height = 38
+radius = 1
 fixed-center = false
 bottom = true
-background = ${colors.background}
-foreground = ${colors.foreground}
-line-size = 3
-line-color = #f00
-border-top-size = 6
-border-bottom-size = 6
-border-left-size = 6
-border-right-size = 6
+background = ${colors.foreground}
+foreground = ${colors.background}
+border-top-size = 4
+border-bottom-size = 10
+border-left-size = 10
+border-right-size = 10
 border-color = transparent
 padding-left = 0
-padding-right = 2
+padding-right = 1
 module-margin-left = 2
-module-margin-right = 2
-font-0 = NotoSans:pixelsize=12;0
-font-1 = FontAwesome:pixelsize=12;1
+module-margin-right = 1
+font-0 = MononokiNerdFontMono:pixelsize=11;0
+font-1 = MononokiNerdFontMono:pixelsize=18;0
 font-2 = siji:pixelsize=10;1
 modules-left = i3
 modules-center = xwindow
-modules-right = volume filesystem memory cpu temperature wlan eth battery date
-tray-position = right
+modules-right = volume filesystem memory cpu wlan eth date
+#tray-position = right
 tray-padding = 2
 tray-detached = false
-tray-background = ${colors.background}
+tray-background = ${colors.background-alt}
 wm-restack = i3 
-override-redirect = false
 
 [module/xwindow]
 type = internal/xwindow
@@ -47,59 +46,54 @@ label = %title:0:72:...%
 type = internal/fs
 interval = 25
 mount-0 = /
-format-mounted-prefix-foreground = ${colors.foreground-alt}
-format-mounted-prefix = " "
-format-mounted-underline = #4bffdc
-format-unmounted-underline = #4bffdc
-label-mounted = %percentage_used%%
+format-mounted-prefix-foreground = ${colors.background}
+format-mounted-prefix = "%{T2}%{T-}"
+label-mounted = " %percentage_used%%"
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-default = 
-label-mode-padding = 2
+ws-icon-0 = 1;%{T2}%{T-}
+ws-icon-1 = 2;%{T2}%{T-}
+ws-icon-2 = 3;%{T2}%{T-}
+ws-icon-3 = 4;%{T2}%{T-}
+ws-icon-default = %{T2}%{T-}
+label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 label-focused = %icon% %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 1
 label-unfocused = %icon% %index%
-label-unfocused-padding = 2
+label-unfocused-padding = 1
 label-urgent = %icon% %index%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f50a4d
-label = %percentage%%
+format-prefix = "%{T2}%{T-}"
+format-prefix-foreground = ${colors.background}
+label = " %percentage%%"
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
-label = %percentage_used%%
+format-prefix = "%{T2}%{T-}"
+format-prefix-foreground = ${colors.background}
+label = " %percentage_used%%"
 
 [module/wlan]
 type = internal/network
 interface = wlan0
 interval = 3.0
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-connected = <label-connected>
-format-connected-underline = #9f78e1
+format-prefix = "%{T2}%{T-}"
+format-prefix-foreground = ${colors.background}
+format-connected = " <label-connected>"
 label-connected = %essid%  %downspeed%   %upspeed% %local_ip%
 format-disconnected =
 
@@ -107,60 +101,52 @@ format-disconnected =
 type = internal/network
 interface = enp60s0u1u4
 interval = 3.0
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected =  %downspeed%   %upspeed% %local_ip%
+format-connected-prefix = "%{T2}%{T-}"
+format-connected-prefix-foreground = ${colors.background}
+label-connected = "  %downspeed%   %upspeed% %local_ip%"
 format-disconnected =
 
 [module/date]
 type = internal/date
 interval = 5
-date = " %Y-%m-%d"
+date = "%Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 format-prefix-foreground = ${colors.foreground-alt}
-label = %date% %time%
+label = "%date% %time%"
 
 [module/volume]
 type = internal/alsa
-format-volume-prefix = " "
-format-volume-foreground = ${colors.foreground-alt}
-label-volume = %percentage%%
+format-volume-prefix = "%{T2}%{T-}"
+format-volume-foreground = ${colors.background}
+label-volume = " %percentage%%"
 label-volume-foreground = ${root.foreground}
-label-muted = 
-format-volume-underline = #0a6cf5
-format-muted-underline = #0a6cf5
+label-muted = "%{T2}%{T-}"
+label-muted-foreground = ${colors.background}
 
 [module/battery]
 type = internal/battery
 battery = BAT0
 adapter = ADP0
 full-at = 99
-format-charging-underline = #55aa55
-format-discharging-underline = #55aa55
 format-charging-prefix-foreground = ${colors.foreground-alt}
-format-charging-prefix = " "
+format-charging-prefix = "%{T2} %{T-}"
 label-charging = %percentage%%
 format-discharging-prefix-foreground = ${colors.foreground-alt}
-format-discharging-prefix = " "
+format-discharging-prefix = "%{T2} %{T-}"
 label-discharging = %percentage%%
 label-full = %percentage%%
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-prefix = " "
+format-full-prefix = "%{T2} %{T-}"
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 1
 warn-temperature = 80
-format-prefix = " "
+format-prefix = "%{T2} %{T-}"
 format-prefix-foreground = ${colors.foreground-alt}
-format = <label>
-format-underline = #f50a4d
-format-warn = <label-warn>
-format-warn-underline = ${self.format-underline}
 label = %temperature-c%
-format-warn-prefix = " "
+format-warn-prefix = "%{T2} %{T-}"
 format-warn-prefix-foreground = ${colors.foreground-alt}
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
@@ -168,6 +154,6 @@ label-warn-foreground = ${colors.secondary}
 [settings]
 screenchange-reload = true
 
-[global/wm]
-margin-top = 4
-margin-bottom = 4
+##[global/wm]
+##margin-top = 4
+##margin-bottom = 4

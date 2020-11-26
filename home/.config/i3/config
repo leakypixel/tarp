@@ -11,7 +11,7 @@
 set $TERMINAL "termite"
 set $mod Mod4 
 
-gaps inner 6
+gaps inner 8
 gaps outer 0
 
 smart_gaps on
@@ -22,7 +22,7 @@ smart_gaps on
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:Noto Sans 11
-font pango:Noto Sans 12
+font pango:Mononoki Nerd Font Mono 12
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -37,6 +37,7 @@ floating_modifier $mod
 # Screenshot
 bindsym --release Print exec maim -uos "/home/leakypixel/images/screenshots/$(date +%s).png"
 bindsym --release Shift+Print exec "maim -uos | xclip -selection clipboard -t image/png"
+
 
 # Don't show title bar
 for_window [class="^.*"] border pixel 4
@@ -166,25 +167,21 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Flat theme
-set $bg-color            #ffb52a
-set $text-color          #222222
-set $inactive-bg-color   #2a2a2a
-set $inactive-text-color #c3c3c3
-set $urgent-bg-color     #ff5c57
-set $indicator-color     #5af78e
-set $urgent-indicator-color  #E74C3C
-set $urgent-workspace-color  #2c3e50
-set $statusline-color        #E0E0E0
+#primary colorscheme
+set $CL_PRI #d657c5
+set $CL_SEC #151A13
+set $CL_TXTS #fefefe
+set $CL_TXT #CBD5DF
+set $CL_FG  #ffffff
+set $CL_BG  #000000
+set $CL_ALT #db2020
+set $CL_GREEN #32a51d
 
-# window colors
-#                       border                background         text                 indicator
-client.focused          $bg-color             $bg-color          $text-color          $bg-color
-client.unfocused        $inactive-bg-color    $inactive-bg-color $inactive-text-color $text-color
-client.focused_inactive $inactive-text-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
-client.urgent           $urgent-bg-color      $urgent-bg-color   $text-color          $urgent-bg-color
-client.placeholder      $inactive-bg-color    $inactive-bg-color $inactive-text-color $inactive-bg-color
-client.background       $bg-color
+#class                  border   background   text     indicator   child_border
+client.focused          $CL_PRI   $CL_PRI     $CL_TXTS $CL_PRI    $CL_PRI
+client.focused_inactive $CL_SEC   $CL_BG      $CL_TXT  $CL_PRI    $CL_SEC
+client.unfocused        $CL_SEC   $CL_BG      $CL_TXT  $CL_PRI    $CL_SEC
+client.urgent           $CL_ALT   $CL_ALT     $CL_ALT  $CL_ALT    $CL_ALT
 
 # Hide borders where appropriate
 hide_edge_borders smart
@@ -237,6 +234,7 @@ bindsym $mod+Shift+i mark --add "swapee"; mode "swap"
 exec --no-startup-id "connman-gtk"
 exec --no-startup-id "pa-applet"
 exec --no-startup-id "polybar -r gerry"
+exec --no-startup-id "xfce4-power-manager"
 
 # Start compton compostior
 exec --no-startup-id "picom -b --config ~/.config/picom.conf"

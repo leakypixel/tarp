@@ -77,3 +77,7 @@
 	path = home/.vim/bundle/minimalist
 	url = https://github.com/dikiaap/minimalist.git
 	ignore = untracked
+[submodule "home/.vim/bundle/vim-hexcolor"]
+	path = home/.vim/bundle/vim-hexcolor
+	url = https://github.com/etdev/vim-hexcolor.git
+	ignore = untracked

@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+## Author  : Aditya Shakya
+## Mail    : adi1090x@gmail.com
+## Github  : @adi1090x
+## Twitter : @adi1090x
+
+rofi_command="rofi -theme /home/leakypixel/.config/rofi/theme.rasi"
+mpc_command="mpc --host jack.avalon.lpapi.io"
+
+# Gets the current status of mpd (for us to parse it later on)
+echo $mpc_command
+status="$($mpc_command status)"
+# Defines the Play / Pause option content
+if [[ $status == *"[playing]"* ]]; then
+  play_pause="  Pause"
+else
+  play_pause="  Play"
+fi
+active=""
+urgent=""
+
+# Display if repeat mode is on / off
+tog_repeat="  Repeat"
+if [[ $status == *"repeat: on"* ]]; then
+  active="-a 4"
+elif [[ $status == *"repeat: off"* ]]; then
+  urgent="-u 4"
+else
+  tog_repeat=" Parsing error"
+fi
+
+# Display if random mode is on / off
+tog_random="  Random"
+if [[ $status == *"random: on"* ]]; then
+  [ -n "$active" ] && active+=",5" || active="-a 5"
+elif [[ $status == *"random: off"* ]]; then
+  [ -n "$urgent" ] && urgent+=",5" || urgent="-u 5"
+else
+  tog_random=" Parsing error"
+fi
+stop="  Stop"
+next="  Next"
+previous="  Previous"
+
+# Variable passed to rofi
+options="$previous\n$play_pause\n$stop\n$next\n$tog_repeat\n$tog_random"
+
+# Get the current playing song
+current=$($mpc_command -f "%title% - %artist%" current)
+# If mpd isn't running it will return an empty string, we don't want to display that
+if [[ -z "$current" ]]; then
+  current="-"
+fi
+
+# Spawn the mpd menu with the "Play / Pause" entry selected by default
+chosen="$(echo -e "$options" | $rofi_command -p "  $current" -dmenu $active $urgent -selected-row 1)"
+case $chosen in
+$previous)
+  $mpc_command -q prev && sleep 1
+  notify-send -u low -t 1800 " $($mpc_command current)"
+  ;;
+$play_pause)
+  $mpc_command -q toggle && sleep 1
+  notify-send -u low -t 1800 " $($mpc_command current)"
+  ;;
+$stop)
+  $mpc_command -q stop
+  ;;
+$next)
+  $mpc_command -q next && sleep 1
+  notify-send -u low -t 1800 " $($mpc_command current)"
+  ;;
+$tog_repeat)
+  $mpc_command -q repeat
+  ;;
+$tog_random)
+  $mpc_command -q random
+  ;;
+esac

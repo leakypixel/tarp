@@ -1,8 +1,32 @@
 /* based on leofa theme */
 
+configuration {
+    columns:            1;
+    bw:               0;
+    location:             0;
+    padding:             0;
+    fixed-num-lines:         true;
+    show-icons:           false;
+    sidebar-mode:           true;
+    separator-style:         "none";
+    hide-scrollbar:         true;
+    fullscreen:           false;
+    fake-transparency:         false;
+    scroll-method:           0;
+    click-to-exit:           true;
+    show-match:           false;
+    combi-hide-mode-prefix:     false;
+    display-window:         "";
+    display-windowcd:         "";
+    display-run:           "";
+    display-ssh:           "";
+    display-drun:           "";
+    display-combi:           "";
+}
+
 * {
   foreground:                  rgb(186,193,202);
-  background:                  rgb(35,38,49);
+  background:                  #090b0f;
   background-color:            #1E1E1E;
   separatorcolor:              rgb(19,21,23);
 
@@ -23,7 +47,7 @@
   selected-normal-background:  #d657c5;
   selected-urgent-background:  rgb(165,66,66);
   alternate-active-background: rgb(75,81,96);
-  alternate-normal-background: rgb(64,69,82);
+  alternate-normal-background: 131419;
   alternate-urgent-background: rgb(75,81,96);
 
   spacing:                     0;
@@ -32,7 +56,8 @@
 #window {
   background-color: @background;
   border:           0;
-  padding:          5px;
+  padding:          8px;
+  border-radius: 2px;
 }
 
 #mainbox {

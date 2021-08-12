@@ -90,6 +90,7 @@ Plugin 'chrisbra/Colorizer'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'vimwiki/vimwiki'
 Plugin 'dikiaap/minimalist'
+Plugin 'etdev/vim-hexcolor'
 call vundle#end()
 
 "" Editorconfig plugin setup

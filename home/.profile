@@ -8,15 +8,11 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+echo running profile
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
-
-# Temporary timezone setting
-if [ -f "$HOME/.timezone" ]; then
-  .  "$HOME/.timezone"
+  # include .bashrc if it exists
+  if [ -f "$HOME/.bashrc" ]; then
+    source "$HOME/.bashrc"
+  fi
 fi

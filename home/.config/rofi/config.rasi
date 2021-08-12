@@ -1,0 +1,31 @@
+configuration {
+	modi: "combi,run,window,ssh,calc";
+	lines: 5;
+	columns: 1;
+	font: "Mononoki Nerd Font Mono 12";
+	bw: 0;
+	location: 0;
+	padding: 0;
+	fixed-num-lines: true;
+	show-icons: false;
+	terminal: "termite";
+	ssh-command: "{terminal} -e "{ssh-client} {host}"";
+	run-shell-command: "{terminal} -e "{cmd}"";
+	sidebar-mode: true;
+	separator-style: "none";
+	hide-scrollbar: true;
+	fullscreen: false;
+	fake-transparency: false;
+	dpi: 96;
+	scroll-method: 0;
+	click-to-exit: true;
+	show-match: false;
+	theme: "/home/leakypixel/.config/rofi/theme.rasi";
+	combi-hide-mode-prefix: false;
+	display-window: "";
+	display-windowcd: "";
+	display-run: "";
+	display-ssh: "";
+	display-drun: "";
+	display-combi: "";
+}

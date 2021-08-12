@@ -1,7 +1,7 @@
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+*i*) ;;
+*) return ;;
 esac
 
 # check the window size after each command and, if necessary,
@@ -18,7 +18,8 @@ shopt -s globstar
 # Colours on, set termtype
 export TERM=xterm-color
 
-for module in "$HOME"/.bash/*.sh; do
-  . "$module"
+unset PROMPT_COMMAND
+for module in $(find "$HOME/.bash/" -name "*.sh" -type f | sort); do
+  source "$module"
 done
 unset module

@@ -7,7 +7,7 @@ primary = #48cfcb
 secondary = #F20EF7
 tertiary = #F20EF7
 tertiary-alt = #a26af9
-alert =  #ef4648
+alert =  #F09846
 
 [bar/gerry]
 width = 100%
@@ -56,10 +56,11 @@ format-warn-prefix-background = ${colors.alert}
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
-ws-icon-0 = 1;%{T2}%{T-}
-ws-icon-1 = 2;%{T2}%{T-}
-ws-icon-2 = 3;%{T2}%{T-}
-ws-icon-3 = 4;%{T2}%{T-}
+ws-icon-0 = 0;%{T2}%{T-}
+ws-icon-1 = 1;%{T2}%{T-}
+ws-icon-2 = 2;%{T2}%{T-}
+ws-icon-3 = 3;%{T2}%{T-}
+ws-icon-4 = 4;%{T2}%{T-}
 ws-icon-default = %{T2}%{T-}
 label-mode-padding = 1
 label-mode-foreground = #000

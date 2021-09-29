@@ -124,9 +124,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
-set textwidth=0
 set wrapmargin=2
-au BufRead,BufNewFile *.md setlocal textwidth=80
 
 "" Always display status line, but not mode
 set laststatus=2
@@ -184,7 +182,7 @@ let g:ale_linters = {
 " Fix files automatically on save.
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
-\   'javascript': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier_eslint', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'javascript.jsx': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'typescriptreact': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'vue': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
@@ -258,4 +256,5 @@ function! SpellCheck()
   exec 'highlight SpellBad ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00'
 endfunction
 
+set textwidth=120
 au VimEnter * nested :call LoadSession()

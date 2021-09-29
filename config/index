@@ -19,3 +19,4 @@
 .config/dunst
 .config/systemd
 .config/user-dirs.dirs
+.config/picom.conf

@@ -26,7 +26,7 @@ configuration {
 
 * {
   foreground:                  rgb(186,193,202);
-  background:                  #090b0f;
+  background:                  #1e1e1e;
   background-color:            #1E1E1E;
   separatorcolor:              rgb(19,21,23);
 
@@ -34,7 +34,7 @@ configuration {
   normal-foreground:           @foreground;
   urgent-foreground:           rgb(204,102,102);
   selected-active-foreground:  rgb(249,249,249);
-  selected-normal-foreground:  rgb(249,249,249);
+  selected-normal-foreground:  rgb(249,249,211);
   selected-urgent-foreground:  rgb(249,249,249);
   alternate-active-foreground: @active-foreground;
   alternate-normal-foreground: @foreground;
@@ -51,11 +51,14 @@ configuration {
   alternate-urgent-background: rgb(75,81,96);
 
   spacing:                     0;
+
+  text-color: #8ca0aa;
 }
 
 #window {
   background-color: @background;
-  border:           0;
+  border:           2px;
+  border-color: #d657c5;
   padding:          8px;
   border-radius: 2px;
 }
@@ -150,6 +153,8 @@ configuration {
 #button {
   spacing:    0;
   text-color: @normal-foreground;
+  padding: 2;
+  text-align: center;
 }
 
 #button.selected {

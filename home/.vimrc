@@ -1,6 +1,5 @@
 "" All the usual stuff - no compatible, turn some nice to haves on
 syntax on
-set background=dark
 set list
 set term=xterm
 set nu
@@ -42,7 +41,8 @@ noremap ( :bprevious<cr>
 noremap <leader>q :copen<cr>
 noremap <leader>p :ALEPrevious<cr>
 noremap <leader>n :ALENext<cr>
-noremap <leader>d :bdelete<cr>
+noremap <leader>d :ALEGoToDefinition<cr>
+noremap <leader>e :ALEDetail<cr>
 noremap <leader>w :w<cr>
 noremap <leader>x :w<cr>:bd<cr>
 noremap <leader>v :vsp<cr>
@@ -86,11 +86,11 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-commentary'
 Plugin 'w0rp/ale'
-Plugin 'chrisbra/Colorizer'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'vimwiki/vimwiki'
-Plugin 'dikiaap/minimalist'
-Plugin 'etdev/vim-hexcolor'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'sainnhe/edge'
+
 call vundle#end()
 
 "" Editorconfig plugin setup
@@ -173,6 +173,7 @@ augroup END
 let g:ale_linters = {
 \   'javascript.jsx': ['eslint'],
 \   'javascript': ['eslint'],
+\   'typescript': ['eslint', 'tsserver'],
 \   'js': ['eslint'],
 \   'python': ['pylint'],
 \   'html': ['tidy'],
@@ -186,7 +187,7 @@ let g:ale_fixers = {
 \   'javascript.jsx': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'typescriptreact': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'vue': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
-\   'typescript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+\   'typescript': ['prettier_eslint', 'prettier', 'remove_trailing_lines', 'trim_whitespace'],
 \   'html.handlebars': ['remove_trailing_lines', 'trim_whitespace'],
 \   'json': ['jq', 'prettier', 'trim_whitespace'],
 \   'css': ['prettier', 'trim_whitespace'],
@@ -215,9 +216,13 @@ let g:vimwiki_list = [{'path': '~/notes/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 "" Set colourscheme and colours on
-colorscheme minimalist
-
-let g:airline_theme='minimalist'
+let g:edge_style = 'aura'
+let g:edge_enable_italic = 1
+let g:edge_diagnostic_text_highlight = 1
+colorscheme edge
+set background=dark
+set termguicolors
+let g:airline_theme='edge'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 

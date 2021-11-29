@@ -15,7 +15,7 @@
 .config/i3
 .config/polybar
 .config/rofi
-.config/termite
+.config/alacritty
 .config/dunst
 .config/systemd
 .config/user-dirs.dirs

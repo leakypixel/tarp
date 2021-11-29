@@ -6,46 +6,84 @@
 !!!Xft.rgba: rgb
 !
 !!!Xft.dpi: 145
-Xft.antialias: true
-Xft.hinting: true
-Xft.rgba: rgb
-Xft.autohint: false
-Xft.hintstyle: hintslight
-Xft.lcdfilter: lcddefault
+!Xft.antialias: true
+!Xft.hinting: true
+!Xft.rgba: rgb
+!Xft.autohint: false
+!Xft.hintstyle: hintslight
+!Xft.lcdfilter: lcddefault
+!
+!! special
+!*.foreground:   #ffffff
+!*.background:   #000000
+!*.cursorColor:  #ffffff
+!
+!! black
+!*.color0:       #053fba
+!*.color8:       #9fc4d9
+!
+!! red
+!*.color1:       #8f9ed7
+!*.color9:       #a888db
+!
+!! green
+!*.color2:       #4979db
+!*.color10:      #9664d3
+!
+!! yellow
+!*.color3:       #0f58ce
+!*.color11:      #8649cb
+!
+!! blue
+!*.color4:       #8ab2fc
+!*.color12:      #6e31c2
+!
+!! magenta
+!*.color5:       #227cd0
+!*.color13:      #c251bd
+!
+!! cyan
+!*.color6:       #52a1dc
+!*.color14:      #9e32c6
+!
+!! white
+!*.color7:       #71b5de
+!*.color15:      #d65ad6
+! Author:     Sainnhepark
+! Email:      sainnhe@gmail.com
+! URL:        https://github.com/sainnhe/edge/
+! License:    MIT && Anti-996
 
-! special
-*.foreground:   #ffffff
-*.background:   #000000
-*.cursorColor:  #ffffff
+#define white #c5cdd9
+#define black #2b2d37
+#define grey #88909f
+#define red #ec7279
+#define green #a0c980
+#define cyan #5dbbc1
+#define yellow #deb974
+#define blue #6cb6eb
+#define magenta #d38aea
 
-! black
-*.color0:       #053fba
-*.color8:       #9fc4d9
+*.foreground:   white
+*.background:   black
+*.cursorColor:  white
+*fading: 35
+*fadeColor: grey
 
-! red
-*.color1:       #8f9ed7
-*.color9:       #a888db
+*.color0: black
+*.color1: red
+*.color2: green
+*.color3: yellow
+*.color4: blue
+*.color5: magenta
+*.color6: cyan
+*.color7: white
+*.color8: black
+*.color9: red
+*.color10: green
+*.color11: yellow
+*.color12: blue
+*.color13: magenta
+*.color14: cyan
+*.color15: white
 
-! green
-*.color2:       #4979db
-*.color10:      #9664d3
-
-! yellow
-*.color3:       #0f58ce
-*.color11:      #8649cb
-
-! blue
-*.color4:       #8ab2fc
-*.color12:      #6e31c2
-
-! magenta
-*.color5:       #227cd0
-*.color13:      #c251bd
-
-! cyan
-*.color6:       #52a1dc
-*.color14:      #9e32c6
-
-! white
-*.color7:       #71b5de
-*.color15:      #d65ad6

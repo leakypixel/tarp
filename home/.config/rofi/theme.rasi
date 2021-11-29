@@ -1,29 +1,3 @@
-/* based on leofa theme */
-
-configuration {
-    columns:            1;
-    bw:               0;
-    location:             0;
-    padding:             0;
-    fixed-num-lines:         true;
-    show-icons:           false;
-    sidebar-mode:           true;
-    separator-style:         "none";
-    hide-scrollbar:         true;
-    fullscreen:           false;
-    fake-transparency:         false;
-    scroll-method:           0;
-    click-to-exit:           true;
-    show-match:           false;
-    combi-hide-mode-prefix:     false;
-    display-window:         "";
-    display-windowcd:         "";
-    display-run:           "";
-    display-ssh:           "";
-    display-drun:           "";
-    display-combi:           "";
-}
-
 * {
   foreground:                  rgb(186,193,202);
   background:                  #1e1e1e;

@@ -20,7 +20,6 @@ configuration {
 	scroll-method: 0;
 	click-to-exit: true;
 	show-match: false;
-	theme: "/home/leakypixel/.config/rofi/theme.rasi";
 	combi-hide-mode-prefix: false;
 	display-window: "";
 	display-windowcd: "";
@@ -29,3 +28,4 @@ configuration {
 	display-drun: "";
 	display-combi: "";
 }
+@theme "/home/leakypixel/.config/rofi/theme.rasi"

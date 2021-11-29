@@ -8,7 +8,7 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-set $TERMINAL "termite"
+set $TERMINAL "alacritty"
 set $mod Mod4 
 
 gaps inner 8
@@ -42,7 +42,7 @@ bindsym --release Shift+Print exec "maim -uos | xclip -selection clipboard -t im
 for_window [class="^.*"] border pixel 4
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec alacritty
 
 # start text pad
 bindsym $mod+p exec mousepad
@@ -113,6 +113,10 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+
+# dunst
+bindsym Control+Shift+space exec "dunstctl close-all"
+bindsym Control+space exec "dunstctl close"
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -259,10 +263,10 @@ exec --no-startup-id "picom -b --config ~/.config/picom.conf"
 exec --no-startup-id "feh --no-fehbg --bg-fill --randomize ~/.config/wallpaper/*"
 
 # Start apps
-exec --no-startup-id i3-msg 'workspace number 1; exec --no-startup-id "termite"'
-exec --no-startup-id i3-msg 'workspace number 1; exec --no-startup-id "termite"'
-exec --no-startup-id i3-msg 'workspace number 1; exec --no-startup-id "termite"'
-exec --no-startup-id i3-msg 'workspace number 1; exec --no-startup-id "termite"'
+exec --no-startup-id i3-msg 'workspace number 1; exec --no-startup-id "alacritty"'
+exec --no-startup-id i3-msg 'workspace number 1; exec --no-startup-id "alacritty"'
+exec --no-startup-id i3-msg 'workspace number 1; exec --no-startup-id "alacritty"'
+exec --no-startup-id i3-msg 'workspace number 1; exec --no-startup-id "alacritty"'
 exec --no-startup-id i3-msg 'workspace number 2; exec --no-startup-id "firefox"'
 exec --no-startup-id i3-msg 'workspace number 3; exec --no-startup-id "whatsapp-nativefier"'
 exec --no-startup-id i3-msg 'workspace number 3; exec --no-startup-id "slack"'

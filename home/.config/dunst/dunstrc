@@ -10,6 +10,7 @@
     word_wrap = yes
     ignore_newline = no
     geometry = "480x5-10-65"
+    origin = bottom-right
     transparency = 0
     idle_threshold = 120
     monitor = 0

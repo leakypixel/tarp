@@ -81,3 +81,11 @@
 	path = home/.vim/bundle/vim-hexcolor
 	url = https://github.com/etdev/vim-hexcolor.git
 	ignore = untracked
+[submodule "home/.vim/bundle/papercolor-theme"]
+	path = home/.vim/bundle/papercolor-theme
+	url = https://github.com/NLKNguyen/papercolor-theme.git
+	ignore = untracked
+[submodule "home/.vim/bundle/edge"]
+	path = home/.vim/bundle/edge
+	url = https://github.com/sainnhe/edge.git
+	ignore = untracked

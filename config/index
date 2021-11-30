@@ -10,6 +10,7 @@
 .eslintrc.json
 .gtkrc-2.0
 .Xresources
+.xbindkeysrc
 .config/libfm
 .config/pcmanfm
 .config/i3

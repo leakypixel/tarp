@@ -1,5 +1,5 @@
 configuration {
-	modi: "combi,run,window,ssh,calc";
+	modi: "combi,run,window,ssh,calc,web:~/.config/rofi/scripts/applet_websearch,ex:~/.config/rofi/scripts/applet_example";
 	lines: 5;
 	columns: 1;
 	font: "Mononoki Nerd Font Mono 12";
@@ -8,7 +8,7 @@ configuration {
 	padding: 0;
 	fixed-num-lines: true;
 	show-icons: false;
-	terminal: "termite";
+	terminal: "alacritty";
 	ssh-command: "{terminal} -e "{ssh-client} {host}"";
 	run-shell-command: "{terminal} -e "{cmd}"";
 	sidebar-mode: true;

@@ -40,17 +40,19 @@ URLS=(
 # List for rofi
 gen_list() {
   for i in "${!URLS[@]}"; do
-    echo "$i"
+    echo -en "$i\0info\x1f$i\n"
   done
 }
-
+global tester
 main() {
   # Pass the list to rofi
-  platform=$( (gen_list) | rofi -dmenu -matching fuzzy -no-custom -location 0 -p "Search > ")
-
+  platform=$1
+  query=$2
+  if [[ "$ROFI_RETV" == 1 ]]; then
+    tester=$1
+  fi
   if [[ -n "$platform" ]]; then
-    query=$( (echo) | rofi -dmenu -matching fuzzy -location 0 -p "Query > ")
-
+    echo -en "\0prompt\x1f$platform\n\0meta\x1f$platform\n\0info\x1f$platform\nplat$platform inf$ROFI_INFO retv$ROFI_RETV @$@ tester$tester"
     if [[ -n "$query" ]]; then
       url=${URLS[$platform]}$query
       xdg-open "$url"
@@ -59,10 +61,10 @@ main() {
     fi
 
   else
-    exit
+    gen_list
   fi
 }
 
-main
+main "$1" "$2"
 
 exit 0

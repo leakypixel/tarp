@@ -77,7 +77,6 @@ call vundle#begin()
 
 "" Plugins
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'junegunn/limelight.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
@@ -88,7 +87,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'w0rp/ale'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'vimwiki/vimwiki'
-Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'sainnhe/edge'
 
 call vundle#end()

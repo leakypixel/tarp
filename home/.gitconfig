@@ -1,6 +1,7 @@
 [user]
   email = hi@leakypixel.net
   name = Craig Fletcher
+	signingkey = 7DBF7D65
 
 [push]
   default = upstream
@@ -49,6 +50,7 @@
 
 [commit]
   template = ~/.gitfiles/.gitmessage
+	gpgsign = true
 
 [diff]
   algorithm = patience
@@ -61,3 +63,5 @@
   helper = store
 [pull]
 	rebase = true
+[gpg]
+	program = gpg2

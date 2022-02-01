@@ -4,6 +4,7 @@
 .gitconfig
 .gitfiles
 .profile
+.profile.d
 .selected_editor
 .vimrc
 .pam_environment

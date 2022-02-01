@@ -9,6 +9,13 @@
 #umask 022
 
 echo running profile
+#export WINIT_X11_SCALE_FACTOR=1.66
+# general stuff
+for module in $(find "$HOME/.profile.d/" -name "*.sh" -type f | sort); do
+  source "$module"
+done
+unset module
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
   # include .bashrc if it exists

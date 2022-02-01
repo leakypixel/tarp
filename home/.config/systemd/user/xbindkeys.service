@@ -1,0 +1,12 @@
+[Unit]
+Description=bind hotkeys
+After=graphical.target
+After=display-manager.service
+
+[Service]
+ExecStart=/usr/bin/xbindkeys -n -f %h/.xbindkeysrc
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

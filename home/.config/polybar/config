@@ -1,6 +1,6 @@
 [colors]
 white = #c5cdd9
-black = #2b2d37
+black = #1B1D22
 grey = #88909f
 red = #ec7279
 green = #a0c980
@@ -93,6 +93,7 @@ label-unfocused = %icon% %index%
 label-unfocused-padding = 1
 label-urgent = %icon% %index%
 label-urgent-background = ${colors.alert}
+label-urgent-foreground = ${colors.foreground-alt}
 label-urgent-padding = 1
 
 [module/cpu]

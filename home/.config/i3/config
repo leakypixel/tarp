@@ -269,18 +269,17 @@ exec --no-startup-id i3-msg 'workspace number 4; exec --no-startup-id "evolution
 exec --no-startup-id i3-msg 'workspace number 4; exec --no-startup-id "secret-tool lookup keepass pwdb.kdbx  | keepassxc --pw-stdin /home/leakypixel/.config/keepassxc/pwdb.kdbx"'
 exec --no-startup-id i3-msg 'workspace number 0; exec --no-startup-id "stalonetray"'
 exec --no-startup-id i3-msg 'workspace number 0; exec --no-startup-id "pavucontrol"'
+exec --no-startup-id i3-msg 'workspace number 0; exec --no-startup-id "keepassxc"'
 
 
 # Window rules
-for_window [title="Junction"] floating enable
+for_window [class="re.sonny.Junction"] floating enable
 for_window [class="stalonetray"] floating disable
-for_window [class="Firefox"] move to workspace number 2
+for_window [class="firefox"] move to workspace number 2
 for_window [class="^whatsapp\\-nativefier*"] move to workspace number 3
 assign [class="Slack"] workspace number 3
 assign [class="^Signal$"] workspace number 3
-assign [class="^telegram-desktop$"] workspace number 3
 assign [class="^Evolution$"] workspace number 4
 assign [instance="pavucontrol"] workspace number 0
 assign [instance="^stalonetray$"] workspace number 0
-assign [class="^surf$"] workspace number 0
-for_window [class="keepass*"] move to scratchpad
+for_window [class="KeePassXC"] move to scratchpad

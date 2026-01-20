@@ -16,10 +16,15 @@ alias xclip='xclip -selection c'
 alias ufm='git stash && git checkout master && git pull && git checkout - && git rebase master'
 alias dc='docker-compose'
 alias owf='vim $(git status -s | grep -Po "(?<=^[ A-Z?][ A-Z?] ).*$")'
-
+alias ohf='vim $(git diff-tree --no-commit-id --name-only -r HEAD)'
+alias rmnm='rm -rf node_modules **/node_modules'
+alias md2doc='npx rhedyn -c ~/.rhedyn/document.config.js'
 
 # Kill all docker containers that're up
 alias dk='~/scripts/bring-all-docker-machines-down'
+
+# app start script
+alias st='. ~/scripts/start-app'
 
 # grep aliases to turn on colour
 alias grep='grep --color=auto'

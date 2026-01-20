@@ -66,8 +66,8 @@
     "no-useless-call": "error",
     "no-useless-computed-key": "error",
     "no-useless-concat": "error",
-    "quotes": ["error", "double"],
-    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
     "use-isnan": "error",
     "valid-typeof": [
       "error",

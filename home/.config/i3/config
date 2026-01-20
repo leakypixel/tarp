@@ -111,6 +111,7 @@ bindsym $mod+e layout toggle split
 # dunst
 bindsym Control+Shift+space exec "dunstctl close-all"
 bindsym Control+space exec "dunstctl close"
+bindsym Control+` exec "dunstctl set-paused toggle"
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -249,6 +250,11 @@ bindsym $mod+Shift+i mark --add "swapee"; mode "swap"
 # Start applets
 exec --no-startup-id "polybar -r gerry"
 exec --no-startup-id "xfce4-power-manager"
+exec --no-startup-id "dbus-update-activation-environment --all"
+exec --no-startup-id i3-msg 'workspace number 0; exec --no-startup-id "stalonetray"'
+exec --no-startup-id "snixembed &"
+exec --no-startup-id "go-hass-agent run"
+exec --no-startup-id i3-msg 'workspace number 0; exec --no-startup-id "pavucontrol"'
 
 # Start compton compostior
 exec --no-startup-id "picom -b --config ~/.config/picom.conf"
@@ -263,13 +269,11 @@ exec --no-startup-id i3-msg 'workspace number 1; exec --no-startup-id "alacritty
 exec --no-startup-id i3-msg 'workspace number 1; exec --no-startup-id "alacritty"'
 exec --no-startup-id i3-msg 'workspace number 2; exec --no-startup-id "firefox"'
 exec --no-startup-id i3-msg 'workspace number 3; exec --no-startup-id "whatsapp-nativefier"'
-exec --no-startup-id i3-msg 'workspace number 3; exec --no-startup-id "slack"'
-exec --no-startup-id i3-msg 'workspace number 3; exec --no-startup-id "signal-desktop"'
+#exec --no-startup-id i3-msg 'workspace number 3; exec --no-startup-id "slack"'
+#exec --no-startup-id i3-msg 'workspace number 3; exec --no-startup-id "signal-desktop"'
 exec --no-startup-id i3-msg 'workspace number 4; exec --no-startup-id "evolution"'
-exec --no-startup-id i3-msg 'workspace number 4; exec --no-startup-id "secret-tool lookup keepass pwdb.kdbx  | keepassxc --pw-stdin /home/leakypixel/.config/keepassxc/pwdb.kdbx"'
-exec --no-startup-id i3-msg 'workspace number 0; exec --no-startup-id "stalonetray"'
-exec --no-startup-id i3-msg 'workspace number 0; exec --no-startup-id "pavucontrol"'
-exec --no-startup-id i3-msg 'workspace number 0; exec --no-startup-id "keepassxc"'
+exec --no-startup-id i3-msg 'workspace number 4; exec --no-startup-id "secret-tool lookup keepass pwdb.kdbx  | flatpak run org.keepassxc.KeePassXC --pw-stdin /home/leakypixel/.config/keepassxc/pwdb.kdbx"'
+#exec --no-startup-id i3-msg 'workspace number 0; exec --no-startup-id "keepassxc"'
 
 
 # Window rules

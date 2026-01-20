@@ -1,0 +1,10 @@
+[Unit]
+Description="Get manchester airport security waiting times"
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=30min
+Unit=man-times.service
+
+[Install]
+WantedBy=default.target

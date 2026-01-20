@@ -27,6 +27,7 @@
     max_icon_size = 32
     frame_width = 0
     class = Dunst
+    show_indicators = true
 
 [shortcuts]
     close = ctrl+space

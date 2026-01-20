@@ -89,3 +89,83 @@
 	path = home/.vim/bundle/edge
 	url = https://github.com/sainnhe/edge.git
 	ignore = untracked
+[submodule "home/.vim/plugged/edge"]
+	path = home/.vim/plugged/edge
+	url = https://github.com/sainnhe/edge.git
+	ignore = untracked
+[submodule "home/.vim/plugged/editorconfig-vim"]
+	path = home/.vim/plugged/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
+	ignore = untracked
+[submodule "home/.vim/plugged/vim-vsnip-integ"]
+	path = home/.vim/plugged/vim-vsnip-integ
+	url = https://github.com/hrsh7th/vim-vsnip-integ.git
+	ignore = untracked
+[submodule "home/.vim/plugged/asyncomplete.vim"]
+	path = home/.vim/plugged/asyncomplete.vim
+	url = https://github.com/prabirshrestha/asyncomplete.vim.git
+	ignore = untracked
+[submodule "home/.vim/plugged/ale"]
+	path = home/.vim/plugged/ale
+	url = https://github.com/dense-analysis/ale.git
+	ignore = untracked
+[submodule "home/.vim/plugged/vim-airline"]
+	path = home/.vim/plugged/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+	ignore = untracked
+[submodule "home/.vim/plugged/asyncomplete-lsp.vim"]
+	path = home/.vim/plugged/asyncomplete-lsp.vim
+	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim.git
+	ignore = untracked
+[submodule "home/.vim/plugged/vim-commentary"]
+	path = home/.vim/plugged/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+	ignore = untracked
+[submodule "home/.vim/plugged/vim-jsx-pretty"]
+	path = home/.vim/plugged/vim-jsx-pretty
+	url = https://github.com/maxmellon/vim-jsx-pretty.git
+	ignore = untracked
+[submodule "home/.vim/plugged/vim-lsp"]
+	path = home/.vim/plugged/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp.git
+	ignore = untracked
+[submodule "home/.vim/plugged/vim-javascript"]
+	path = home/.vim/plugged/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+	ignore = untracked
+[submodule "home/.vim/plugged/vim-vsnip"]
+	path = home/.vim/plugged/vim-vsnip
+	url = https://github.com/hrsh7th/vim-vsnip.git
+	ignore = untracked
+[submodule "home/.vim/plugged/fzf.vim"]
+	path = home/.vim/plugged/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+	ignore = untracked
+[submodule "home/.vim/plugged/vim-airline-themes"]
+	path = home/.vim/plugged/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
+	ignore = untracked
+[submodule "home/.vim/plugged/typescript-vim"]
+	path = home/.vim/plugged/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
+	ignore = untracked
+[submodule "home/.vim/plugged/nerdtree"]
+	path = home/.vim/plugged/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+	ignore = untracked
+[submodule "home/.vim/plugged/vim-lsp-settings"]
+	path = home/.vim/plugged/vim-lsp-settings
+	url = https://github.com/mattn/vim-lsp-settings.git
+	ignore = untracked
+[submodule "home/.vim/plugged/fzf"]
+	path = home/.vim/plugged/fzf
+	url = https://github.com/junegunn/fzf.git
+	ignore = untracked
+[submodule "home/.vim/plugged/vim-obsession"]
+	path = home/.vim/plugged/vim-obsession
+	url = https://github.com/tpope/vim-obsession.git
+	ignore = untracked
+[submodule "home/.vim/plugged/vim-fugitive"]
+	path = home/.vim/plugged/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+	ignore = untracked

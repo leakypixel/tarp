@@ -1,263 +1,307 @@
-"" All the usual stuff - no compatible, turn some nice to haves on
+" ==========================================================
+" Basics / sane defaults
+" ==========================================================
+set nocompatible
 syntax on
-set list
-set term=xterm
-set nu
-set viminfo=""
+filetype plugin indent on
 
-"" Stop VIM creating files everywhere
-set nobackup
-set nowritebackup
-set noswapfile
-
-"" Hide closed buffers
+set number
 set hidden
+set splitright
+set splitbelow
+set signcolumn=yes
+set updatetime=300
+set timeoutlen=500
 
-"" Explicitly turn on 256 colour
-set t_Co=256
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set wildmenu
+set wildmode=longest:full,full
 
-"" Show the end of line char as a ¬, so it's nice and visible
-set listchars=eol:¬,tab:»·
+" Colors
+if has('termguicolors')
+  set termguicolors
+endif
+set background=dark
 
-" Yank from the cursor to the end of the line, to be consistent with C and D.
-nnoremap Y y$
+" Visible whitespace
+set list
+set listchars=eol:¬,tab:»·,trail:·,nbsp:␣
 
-"" Set leader to space so it can be hit by either hand
-let mapleader = "\<Space>"
-
-"" Set hjkl split movement to shorter combinations
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-"" While we're talking about splits...
-set splitright " Default to opening a split to the right instead of the left
-set splitbelow " Default to opening a split below instead of above
-
-"" Set custom keybindings
-noremap ) :bnext<cr>
-noremap ( :bprevious<cr>
-noremap <leader>q :copen<cr>
-noremap <leader>p :ALEPrevious<cr>
-noremap <leader>n :ALENext<cr>
-noremap <leader>d :ALEGoToDefinition<cr>
-noremap <leader>e :ALEDetail<cr>
-noremap <leader>w :w<cr>
-noremap <leader>x :w<cr>:bd<cr>
-noremap <leader>v :vsp<cr>
-noremap <leader>h :sp<cr>
-noremap + :vertical resize +5<cr>
-noremap - :vertical resize -5<cr>
-noremap <leader>+ :resize +5<cr>
-noremap <leader>- :resize -5<cr>
-noremap <leader>l :lopen<cr>
-noremap <leader>y :'<,'>%w !xclip<cr>
-noremap <leader>Y :%w !xclip<cr>
-noremap <leader>S :call MakeSession()<cr>
-map <C-n> :NERDTreeToggle<CR>
-map <C-f> :CtrlPMixed<CR>
-set pastetoggle=<f5>
-nnoremap <F6> :call SpellCheck()<cr>
-"" Switch between double-space soft tabs and hard tabs
-noremap <leader>T :%s/  /\t/gi<cr>
-noremap <leader>t :%s/\t/  /gi<cr>
-nnoremap S diw"0P
-
-"" remove whitespace
-map <leader>s :%s/\s\+$//<CR>
-
-"" Autoformat
-map <leader>f ggVGG=
-
-"" Vundle plugins
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-"" Plugins
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-obsession'
-Plugin 'tpope/vim-commentary'
-Plugin 'w0rp/ale'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'vimwiki/vimwiki'
-Plugin 'sainnhe/edge'
-
-call vundle#end()
-
-"" Editorconfig plugin setup
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-
-"" Have fugitive grep open quickfix when run
-autocmd QuickFixCmdPost *grep* cwindow
-
-"" CtrlP options for massive (read: java-like) projects
-let g:ctrlp_max_files=0
-let g:ctrlp_max_depth=40
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:10'
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-"" Turn Limelight on for hyper-focused editing
-"autocmd VimEnter * Limelight
-" Color name (:help gui-colors) or RGB color
-"let g:limelight_conceal_guifg = 'DarkGray'
-"let g:limelight_conceal_guifg = '#777777'
-
-"" Have NerdTree open in active split, like vim's native dir browser
-let NERDTreeHijackNetrw=1
-
-"" Set tab widths, line length, etc.
+" Tabs (TS/JS/React defaults)
 set autoindent
 set smartindent
-let s:tabwidth=2
-set incsearch
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+
+set textwidth=120
 set wrapmargin=2
 
-"" Always display status line, but not mode
-set laststatus=2
-set noshowmode
+" Don’t create swap/backup files everywhere
+set nobackup
+set nowritebackup
+set noswapfile
 
-"" Set wildmode
-set wildmenu
-set wildmode=longest:full,full
+" Clipboard (Linux/WSL usually)
+if has('clipboard')
+  set clipboard=unnamedplus
+endif
 
-"" Let airline use powerline fonts
-let g:airline_powerline_fonts = 1
+" ==========================================================
+" Leader + mappings
+" ==========================================================
+let mapleader="\<Space>"
 
-"" Turn on tabline
-let g:airline#extensions#tabline#enabled = 1
+nnoremap Y y$
 
-"" Set the airline theme
-"" let g:airline_theme='tomorrow'
+" Split movement
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-j> <C-w>j
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-l> <C-w>l
 
-"" Ignore some common non-dev directories/files
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
+" Buffers
+nnoremap <silent> ) :bnext<CR>
+nnoremap <silent> ( :bprevious<CR>
 
-"" Setup for HTML
-"" Use HTMLTidy to format
-autocmd FileType html setlocal equalprg=tidy\ -config\ ~/.tidy-config
+" Quickfix / loclist
+nnoremap <silent> <leader>q :copen<CR>
+nnoremap <silent> <leader>l :lopen<CR>
 
-" Remap shift key failure
-command! W :w
-command! Wq :wq
-command! E :e
-command! Q :q
+" Save / close buffer
+nnoremap <silent> <leader>w :w<CR>
+nnoremap <silent> <leader>x :w<CR>:bdelete<CR>
 
-" Delete buffer without deleting split
-command Bd bp\|bd \#
+" Splits
+nnoremap <silent> <leader>v :vsplit<CR>
+nnoremap <silent> <leader>h :split<CR>
 
-"" Don't store problematic options in saved sessions
-set ssop-=options    " do not store global and local values in a session
-set ssop-=folds      " do not store folds
+" Resize
+nnoremap <silent> + :vertical resize +5<CR>
+nnoremap <silent> - :vertical resize -5<CR>
+nnoremap <silent> <leader>+ :resize +5<CR>
+nnoremap <silent> <leader>- :resize -5<CR>
 
-"" Config for JSX
-augroup FiletypeGroup
-    autocmd!
-    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+set pastetoggle=<F5>
+
+" Your quote-wrap mapping (kept)
+nnoremap S diw"0P
+
+" Trim whitespace manually (still handy)
+nnoremap <silent> <leader>s :keeppatterns %s/\s\+$//e<CR>
+
+" ==========================================================
+" Autocmds
+" ==========================================================
+augroup MyAutoCmds
+  autocmd!
+  " Trim trailing whitespace on save (best practice)
+  autocmd BufWritePre * keeppatterns %s/\s\+$//e
+
+  " Quickfix after grep
+  autocmd QuickFixCmdPost *grep* cwindow
+
+  " HTML tidy (if installed)
+  autocmd FileType html if executable('tidy') | setlocal equalprg=tidy\ -config\ ~/.tidy-config | endif
 augroup END
 
-"" ALE config
-let g:ale_linters = {
-\   'javascript.jsx': ['eslint'],
-\   'javascript': ['eslint'],
-\   'typescript': ['eslint', 'tsserver'],
-\   'js': ['eslint'],
-\   'python': ['pylint'],
-\   'html': ['tidy'],
-\}
-""let g:ale_linter_aliases = {'jsx': 'css'}
+" ==========================================================
+" Commands (kept)
+" ==========================================================
+command! W  :w
+command! Wq :wq
+command! E  :e
+command! Q  :q
+command! Bd bp|bd #
 
-" Fix files automatically on save.
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-\   'javascript': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
-\   'javascript.jsx': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
-\   'typescriptreact': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
-\   'vue': ['prettier_eslint', 'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
-\   'typescript': ['prettier_eslint', 'prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\   'html.handlebars': ['remove_trailing_lines', 'trim_whitespace'],
-\   'json': ['jq', 'prettier', 'trim_whitespace'],
-\   'css': ['prettier', 'trim_whitespace'],
-\   'html': ['remove_trailing_lines', 'trim_whitespace'],
-\   'yaml': ['remove_trailing_lines', 'trim_whitespace'],
-\   'yaml.ansible': ['remove_trailing_lines', 'trim_whitespace'],
-\   'sh': ['remove_trailing_lines', 'trim_whitespace', 'shfmt'],
-\   'python': ['yapf'],
-\}
+" ==========================================================
+" Sessions (kept, but made safer with fnameescape)
+" ==========================================================
+set sessionoptions-=options
+set sessionoptions-=folds
 
-" Enable completion where available.
-let g:ale_completion_enabled = 1
+function! MakeSession() abort
+  let l:sessiondir = expand('~/.vim/sessions') . getcwd()
+  if !isdirectory(l:sessiondir)
+    call mkdir(l:sessiondir, 'p')
+  endif
+  let l:sessionfile = l:sessiondir . '/session.vim'
+  execute 'mksession!' fnameescape(l:sessionfile)
+  echo 'Saved session: ' . l:sessionfile
+endfunction
 
-" Set ALE characters
-let g:ale_sign_error = '!'
-let g:ale_sign_warning = '?'
+function! LoadSession() abort
+  let l:sessiondir = expand('~/.vim/sessions') . getcwd()
+  let l:sessionfile = l:sessiondir . '/session.vim'
+  if filereadable(l:sessionfile)
+    execute 'source' fnameescape(l:sessionfile)
+  endif
+endfunction
 
-" Set HTML tidy options
-let g:ale_html_tidy_options = '-config ~/.tidy-config'
+nnoremap <silent> <leader>S :call MakeSession()<CR>
+autocmd VimEnter * nested call LoadSession()
 
-" Turn on ALE + Airline integration
-let g:airline#extensions#ale#enabled = 1
+" ==========================================================
+" Plugins (vim-plug)
+" ==========================================================
+" Install vim-plug once:
+"   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-"" VimWiki
-let g:vimwiki_list = [{'path': '~/notes/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+call plug#begin()
 
-"" Set colourscheme and colours on
+" Syntax / ftplugins (TS/JS/React)
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'leafgarland/typescript-vim'
+
+" LSP (Vim)
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+" Completion UI for vim-lsp
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+" Optional but nice: snippets
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+
+" Lint/fix (keep your ALE workflow)
+Plug 'dense-analysis/ale'
+
+" Finder + tree + git + statusline + theme
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-obsession'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'sainnhe/edge'
+
+call plug#end()
+
+" ==========================================================
+" fzf / NERDTree
+" ==========================================================
+nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <leader>rg :Rg<CR>
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeHijackNetrw = 1
+
+" ==========================================================
+" Airline + theme
+" ==========================================================
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'edge'
+
 let g:edge_style = 'aura'
 let g:edge_enable_italic = 1
 let g:edge_diagnostic_text_highlight = 1
 colorscheme edge
-set background=dark
-set termguicolors
-let g:airline_theme='edge'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
 
-filetype off
-filetype plugin indent on
+highlight Comment cterm=italic gui=italic
 
-"" Make comments italic
-highlight Comment cterm=italic
+" ==========================================================
+" EditorConfig exclusions (kept)
+" ==========================================================
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-"" Make a new session using ~/.vim/sessions to avoid accidentally including a
-"" session.vim in a project
-function! MakeSession()
-  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
-  if (filewritable(b:sessiondir) != 2)
-    exe 'silent !mkdir -p ' b:sessiondir
-    redraw!
+" ==========================================================
+" ALE (use for eslint/prettier + fixes; let vim-lsp do language features)
+" ==========================================================
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 0   " completion comes from asyncomplete+LSP
+
+let g:ale_linters = {
+\ 'javascript': ['eslint'],
+\ 'javascriptreact': ['eslint'],
+\ 'typescript': ['eslint'],
+\ 'typescriptreact': ['eslint'],
+\}
+
+let g:ale_fixers = {
+\ 'javascript': ['eslint', 'prettier', 'remove_trailing_lines', 'trim_whitespace'],
+\ 'javascriptreact': ['eslint', 'prettier', 'remove_trailing_lines', 'trim_whitespace'],
+\ 'typescript': ['eslint', 'prettier', 'remove_trailing_lines', 'trim_whitespace'],
+\ 'typescriptreact': ['eslint', 'prettier', 'remove_trailing_lines', 'trim_whitespace'],
+\ 'json': ['prettier', 'trim_whitespace'],
+\ 'css': ['prettier', 'trim_whitespace'],
+\ 'scss': ['prettier', 'trim_whitespace'],
+\ 'yaml': ['prettier', 'trim_whitespace'],
+\ 'markdown': ['prettier', 'trim_whitespace'],
+\}
+
+let g:ale_sign_error = '!'
+let g:ale_sign_warning = '?'
+
+" Keep your ALE navigation bindings
+nnoremap <silent> <leader>p :ALEPrevious<CR>
+nnoremap <silent> <leader>n :ALENext<CR>
+nnoremap <silent> <leader>e :ALEDetail<CR>
+
+" ==========================================================
+" vim-lsp + asyncomplete wiring
+" ==========================================================
+" Avoid double-diagnostics (we’re using ALE for eslint diagnostics)
+let g:lsp_diagnostics_enabled = 0
+let g:lsp_signs_enabled = 0
+let g:lsp_virtual_text_enabled = 0
+
+" asyncomplete behaviour
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_popup_delay = 200
+
+let g:lsp_settings_filetype_typescript = ['typescript-language-server']
+let g:lsp_settings_filetype_typescriptreact = ['typescript-language-server']
+
+augroup LspAsyncomplete
+  autocmd!
+  autocmd User lsp_setup call s:SetupLspCompletion()
+augroup END
+
+function! s:SetupLspCompletion() abort
+  " asyncomplete core must exist
+  if !exists('*asyncomplete#register_source')
+    return
   endif
-  let b:filename = b:sessiondir . '/session.vim'
-  exe "mksession! " . b:filename
-  echo "Saved session."
-endfunction
 
-" Loads a session if it exists
-function! LoadSession()
-  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
-  let b:sessionfile = b:sessiondir . "/session.vim"
-  if (filereadable(b:sessionfile))
-    exe 'source ' b:sessionfile
-  else
-    echo "No session loaded."
+  " asyncomplete-lsp source must exist
+  if !exists('*asyncomplete#sources#lsp#get_source_options')
+    return
   endif
+
+  call asyncomplete#register_source(
+        \ asyncomplete#sources#lsp#get_source_options({
+        \   'name': 'lsp',
+        \   'whitelist': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'],
+        \   'completor': function('asyncomplete#sources#lsp#completor'),
+        \ }))
 endfunction
 
-function! SpellCheck()
-  exe 'setlocal spell! spell?'
-  exec 'highlight SpellBad ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00'
-endfunction
 
-set textwidth=120
-au VimEnter * nested :call LoadSession()
+" Completion keybinds (TAB cycles when popup is visible)
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
+
+" LSP keybinds (muscle-memory friendly)
+nnoremap <silent> gd :LspDefinition<CR>
+nnoremap <silent> gr :LspReferences<CR>
+nnoremap <silent> gi :LspImplementation<CR>
+nnoremap <silent> gy :LspTypeDefinition<CR>
+nnoremap <silent> K  :LspHover<CR>
+nnoremap <silent> <leader>rn :LspRename<CR>
+nnoremap <silent> <leader>ca :LspCodeAction<CR>
+
+" Prefer formatting via eslint/prettier (ALEFix)
+nnoremap <silent> <leader>f :ALEFix<CR>
+

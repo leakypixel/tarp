@@ -1,61 +1,10 @@
-!!!Xft.autohint: 0
-!!!Xft.lcdfilter: lcddefault
-!!!Xft.hintstyle: hintslight
-!!!Xft.hinting: 1
-!!!Xft.antialias: 1
-!!!Xft.rgba: rgb
-!
-!!!Xft.dpi: 145
-!Xft.antialias: true
-!Xft.hinting: true
-!Xft.rgba: rgb
-!Xft.autohint: false
-!Xft.hintstyle: hintslight
-!Xft.lcdfilter: lcddefault
-!
-!! special
-!*.foreground:   #ffffff
-!*.background:   #000000
-!*.cursorColor:  #ffffff
-!
-!! black
-!*.color0:       #053fba
-!*.color8:       #9fc4d9
-!
-!! red
-!*.color1:       #8f9ed7
-!*.color9:       #a888db
-!
-!! green
-!*.color2:       #4979db
-!*.color10:      #9664d3
-!
-!! yellow
-!*.color3:       #0f58ce
-!*.color11:      #8649cb
-!
-!! blue
-!*.color4:       #8ab2fc
-!*.color12:      #6e31c2
-!
-!! magenta
-!*.color5:       #227cd0
-!*.color13:      #c251bd
-!
-!! cyan
-!*.color6:       #52a1dc
-!*.color14:      #9e32c6
-!
-!! white
-!*.color7:       #71b5de
-!*.color15:      #d65ad6
 ! Author:     Sainnhepark
-! Email:      sainnhe@gmail.com
+! Email:      i@sainnhe.dev
 ! URL:        https://github.com/sainnhe/edge/
 ! License:    MIT && Anti-996
 
 #define white #c5cdd9
-#define black #2b2d37
+#define black #2b2d3a
 #define grey #88909f
 #define red #ec7279
 #define green #a0c980
@@ -86,4 +35,3 @@
 *.color13: magenta
 *.color14: cyan
 *.color15: white
-

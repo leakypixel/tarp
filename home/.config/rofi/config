@@ -1,14 +1,14 @@
 rofi.color-enabled: true
-rofi.modi: combi,run,window,ssh,calc
-rofi.terminal: termite
+rofi.modi: combi,drun,run,window,ssh,calc,websearch:~/.config/rofi/scripts/applet_websearch
+rofi.terminal: alacritty
 rofi.ssh-command: {terminal} -e "{ssh-client} {host}"
 rofi.run-shell-command: {terminal} -e "{cmd}"
-rofi.sidebar-mode:  false
+rofi.sidebar-mode: false
 rofi.separator-style: solid
-rofi.hide-scrollbar:  true
+rofi.hide-scrollbar: true
 rofi.dpi: 96
 rofi.show-icons: true
 rofi.drun-icon-theme: Suru++
 rofi.font: Mononoki Nerd Font Mono 12
-rofi.theme: /home/leakypixel/.config/rofi/theme.rasi
+rofi.theme: ~/.config/rofi/theme.rasi
 rofi.lines: 5

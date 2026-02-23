@@ -1,7 +1,7 @@
 {
   "env": {
     "browser": true,
-    "es6": true,
+    "es2022": true,
     "node": true
   },
   "extends": [
@@ -11,9 +11,14 @@
   ],
   "parserOptions": {
     "sourceType": "module",
-    "ecmaVersion": 6,
+    "ecmaVersion": "latest",
     "ecmaFeatures": {
       "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
     }
   },
   "rules": {
@@ -79,7 +84,9 @@
     "wrap-iife": ["error", "inside"],
     "yoda": "error",
     "import/unambiguous": 0,
-    "comma-dangle": ["error", "always-multiline"]
+    "comma-dangle": ["error", "always-multiline"],
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off"
   },
   "plugins": ["react", "import", "jest"]
 }

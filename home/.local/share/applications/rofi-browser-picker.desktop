@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Rofi Browser Picker
+Comment=Choose which browser opens links
+Exec=rofi-browser-picker %u
+TryExec=rofi-browser-picker
+Terminal=false
+NoDisplay=true
+StartupNotify=false
+MimeType=x-scheme-handler/http;x-scheme-handler/https;
+Categories=Network;WebBrowser;

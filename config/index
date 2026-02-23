@@ -7,7 +7,6 @@
 .profile.d
 .selected_editor
 .vimrc
-.pam_environment
 .eslintrc.json
 .gtkrc-2.0
 .Xresources
@@ -22,3 +21,5 @@
 .config/systemd
 .config/user-dirs.dirs
 .config/picom.conf
+.local/bin/rofi-browser-picker
+.local/share/applications/rofi-browser-picker.desktop

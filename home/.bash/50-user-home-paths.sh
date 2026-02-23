@@ -5,7 +5,7 @@
 #fi
 
 # Binaries in path
-export PATH="$PATH:/home/leakypixel/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Scripts in path
-export PATH="$PATH:/home/leakypixel/scripts"
+export PATH="$PATH:$HOME/scripts"

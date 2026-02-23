@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+target="${1:-}"
+theme="$HOME/.config/rofi/theme.rasi"
+
+rofi_cmd=(rofi -dmenu -i -p "Open link with")
+if [ -f "$theme" ]; then
+  rofi_cmd+=(-theme "$theme")
+fi
+
+desktop_dirs=(
+  "$HOME/.local/share/applications"
+  "/usr/local/share/applications"
+  "/usr/share/applications"
+  "/var/lib/flatpak/exports/share/applications"
+  "$HOME/.local/share/flatpak/exports/share/applications"
+)
+
+declare -A seen_ids=()
+declare -a names=()
+declare -a ids=()
+
+for dir in "${desktop_dirs[@]}"; do
+  [ -d "$dir" ] || continue
+
+  while IFS= read -r -d '' desktop_file; do
+    id="$(basename "$desktop_file")"
+
+    [ "$id" = "rofi-browser-picker.desktop" ] && continue
+    [[ "$id" == *-settings.desktop ]] && continue
+    [ -n "${seen_ids[$id]:-}" ] && continue
+    grep -Eq '^NoDisplay=true' "$desktop_file" && continue
+    grep -Eq '^Hidden=true' "$desktop_file" && continue
+    grep -Eq '^Categories=.*WebBrowser' "$desktop_file" || continue
+
+    name="$(sed -n 's/^Name=//p' "$desktop_file" | head -n 1)"
+    [ -z "$name" ] && name="${id%.desktop}"
+
+    seen_ids["$id"]=1
+    names+=("$name")
+    ids+=("$id")
+  done < <(find "$dir" -maxdepth 1 -type f -name '*.desktop' -print0)
+done
+
+if [ "${#ids[@]}" -eq 0 ]; then
+  notify-send -u normal -t 3000 "Browser picker" "No browsers detected"
+  exit 1
+fi
+
+declare -A name_counts=()
+for name in "${names[@]}"; do
+  name_counts["$name"]=$(( ${name_counts["$name"]:-0} + 1 ))
+done
+
+declare -A label_to_id=()
+declare -a labels=()
+for i in "${!ids[@]}"; do
+  name="${names[$i]}"
+  id="${ids[$i]}"
+
+  if [ "${name_counts[$name]}" -gt 1 ]; then
+    label="$name [${id%.desktop}]"
+  else
+    label="$name"
+  fi
+
+  labels+=("$label")
+  label_to_id["$label"]="$id"
+done
+
+selected_label="$(
+  printf '%s\n' "${labels[@]}" | sort -f | "${rofi_cmd[@]}"
+)"
+[ -z "$selected_label" ] && exit 0
+
+selected_id="${label_to_id[$selected_label]:-}"
+[ -z "$selected_id" ] && exit 1
+
+app_id="${selected_id%.desktop}"
+if [ -n "$target" ]; then
+  gtk-launch "$app_id" "$target" >/dev/null 2>&1 &
+else
+  gtk-launch "$app_id" >/dev/null 2>&1 &
+fi
+
+exit 0

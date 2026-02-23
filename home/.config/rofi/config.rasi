@@ -1,5 +1,5 @@
 configuration {
-	modi: "combi,run,window,ssh,calc,web:~/.config/rofi/scripts/applet_websearch,ex:~/.config/rofi/scripts/applet_example";
+	modi: "combi,drun,run,window,ssh,calc,websearch:~/.config/rofi/scripts/applet_websearch";
 	lines: 5;
 	columns: 1;
 	font: "Mononoki Nerd Font Mono 12";
@@ -7,10 +7,10 @@ configuration {
 	location: 0;
 	padding: 0;
 	fixed-num-lines: true;
-	show-icons: false;
+	show-icons: true;
 	terminal: "alacritty";
-	ssh-command: "{terminal} -e "{ssh-client} {host}"";
-	run-shell-command: "{terminal} -e "{cmd}"";
+	ssh-command: "{terminal} -e '{ssh-client} {host}'";
+	run-shell-command: "{terminal} -e '{cmd}'";
 	sidebar-mode: true;
 	separator-style: "none";
 	hide-scrollbar: true;
@@ -20,12 +20,16 @@ configuration {
 	scroll-method: 0;
 	click-to-exit: true;
 	show-match: false;
-	combi-hide-mode-prefix: false;
-	display-window: "";
-	display-windowcd: "";
-	display-run: "";
-	display-ssh: "";
-	display-drun: "";
-	display-combi: "";
+	combi-hide-mode-prefix: true;
+	combi-display-format: "{text}";
+	combi-modes: "drun,window,run,ssh,calc,websearch";
+	window-format: "{c}: {t}";
+	display-window: "  Windows";
+	display-windowcd: "  Current";
+	display-run: "  Run";
+	display-ssh: "  SSH";
+	display-drun: "  Apps";
+	display-combi: "  Menu";
+	display-websearch: "  Search";
 }
-@theme "/home/leakypixel/.config/rofi/theme.rasi"
+@theme "~/.config/rofi/theme.rasi"

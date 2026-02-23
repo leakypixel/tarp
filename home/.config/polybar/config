@@ -114,7 +114,7 @@ format-warn-prefix-background = ${colors.alert}
 
 [module/wlan]
 type = internal/network
-interface = wlan0
+interface-type = wireless
 interval = 3.0
 format-prefix = "%{T2}%{T-}"
 format-prefix-foreground = ${colors.foreground}
@@ -124,7 +124,7 @@ format-disconnected =
 
 [module/eth]
 type = internal/network
-interface = enp60s0u1u4
+interface-type = wired
 interval = 3.0
 format-connected-prefix = "%{T2}%{T-}"
 format-connected-prefix-foreground = ${colors.foreground}

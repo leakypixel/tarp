@@ -1,7 +1,15 @@
-#!/bin/bash
-directory_list="$HOME/tarp/config/directories"
+#!/usr/bin/env bash
+set -euo pipefail
 
-while read directory; do
-  dir=$(eval echo \"$directory\")
-  mkdir -p $dir
-done<$directory_list
+basedir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+directory_list="$basedir/config/directories"
+
+while IFS= read -r directory || [ -n "$directory" ]; do
+  [ -z "$directory" ] && continue
+  case "$directory" in
+    \#*) continue ;;
+  esac
+
+  dir="${directory//\$HOME/$HOME}"
+  mkdir -p "$dir"
+done <"$directory_list"

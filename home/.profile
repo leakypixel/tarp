@@ -8,12 +8,11 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-echo running profile
 #export WINIT_X11_SCALE_FACTOR=1.66
 # general stuff
-for module in $(find "$HOME/.profile.d/" -name "*.sh" -type f | sort); do
+while IFS= read -r module; do
   source "$module"
-done
+done < <(find "$HOME/.profile.d/" -name "*.sh" -type f | sort)
 unset module
 
 # if running bash

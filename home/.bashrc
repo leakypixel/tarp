@@ -15,11 +15,13 @@ shopt -s globstar
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Colours on, set termtype
-export TERM=xterm-color
+# Let the terminal emulator provide TERM (e.g. alacritty).
+if [ -z "${TERM:-}" ]; then
+  export TERM=xterm-256color
+fi
 
 unset PROMPT_COMMAND
-for module in $(find "$HOME/.bash/" -name "*.sh" -type f | sort); do
+while IFS= read -r module; do
   source "$module"
-done
+done < <(find "$HOME/.bash/" -name "*.sh" -type f | sort)
 unset module

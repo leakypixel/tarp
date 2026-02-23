@@ -4,6 +4,10 @@
 **/Trash/
 **lockfile**
 home/.vim/.netrwhist
+home/.vim/sessions
 home/.bash/.bash_history
 home/.tmux/resurrect/
 home/.dashboard/tasklist
+
+# Local-only secret env vars
+config/local/

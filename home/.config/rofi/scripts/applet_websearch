@@ -1,70 +1,101 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-# -----------------------------------------------------------------------------
-# Info:
-#   author:    Miroslav Vidovic
-#   file:      web-search.sh
-#   created:   24.02.2017.-08:59:54
-#   revision:  ---
-#   version:   1.0
-# -----------------------------------------------------------------------------
-# Requirements:
-#   rofi
-# Description:
-#   Use rofi to search the web.
-# Usage:
-#   web-search.sh
-# -----------------------------------------------------------------------------
-# Script:
-
-declare -A URLS
-
-URLS=(
-  ["duckduckgo"]="https://www.duckduckgo.com/?q="
-  ["yandex"]="https://yandex.ru/yandsearch?text="
-  ["github"]="https://github.com/search?q="
-  ["stackoverflow"]="http://stackoverflow.com/search?q="
-  ["symbolhound"]="http://symbolhound.com/?q="
-  ["searchcode"]="https://searchcode.com/?q="
-  ["openhub"]="https://www.openhub.net/p?ref=homepage&query="
-  ["superuser"]="http://superuser.com/search?q="
-  ["askubuntu"]="http://askubuntu.com/search?q="
-  ["imdb"]="http://www.imdb.com/find?ref_=nv_sr_fn&q="
-  ["rottentomatoes"]="https://www.rottentomatoes.com/search/?search="
-  ["piratebay"]="https://thepiratebay.org/search/"
-  ["youtube"]="https://www.youtube.com/results?search_query="
-  ["vimawesome"]="http://vimawesome.com/?q="
-  ["wikipedia"]="https://en.wikipedia.org/wiki/Special:Search?search="
+declare -A engine_urls=(
+  ["Ask Ubuntu"]="https://askubuntu.com/search?q="
+  ["DuckDuckGo"]="https://duckduckgo.com/?q="
+  ["GitHub"]="https://github.com/search?q="
+  ["IMDb"]="https://www.imdb.com/find?q="
+  ["OpenHub"]="https://www.openhub.net/p?ref=homepage&query="
+  ["Rotten Tomatoes"]="https://www.rottentomatoes.com/search/?search="
+  ["Searchcode"]="https://searchcode.com/?q="
+  ["Stack Overflow"]="https://stackoverflow.com/search?q="
+  ["Super User"]="https://superuser.com/search?q="
+  ["SymbolHound"]="https://symbolhound.com/?q="
+  ["Vim Awesome"]="https://vimawesome.com/?q="
+  ["Wikipedia"]="https://en.wikipedia.org/wiki/Special:Search?search="
+  ["Yandex"]="https://yandex.ru/yandsearch?text="
+  ["YouTube"]="https://www.youtube.com/results?search_query="
+)
+engines=(
+  "Ask Ubuntu"
+  "DuckDuckGo"
+  "GitHub"
+  "IMDb"
+  "OpenHub"
+  "Rotten Tomatoes"
+  "Searchcode"
+  "Stack Overflow"
+  "Super User"
+  "SymbolHound"
+  "Vim Awesome"
+  "Wikipedia"
+  "Yandex"
+  "YouTube"
 )
 
-# List for rofi
-gen_list() {
-  for i in "${!URLS[@]}"; do
-    echo -en "$i\0info\x1f$i\n"
+encode_query() {
+  python3 - "$1" <<'PY'
+import sys
+import urllib.parse
+
+print(urllib.parse.quote_plus(sys.argv[1]))
+PY
+}
+
+print_engine_list() {
+  printf '\0prompt\x1fSearch engine\n'
+  printf '\0message\x1fSelect an engine\n'
+  printf '\0no-custom\x1ftrue\n'
+
+  local engine
+  for engine in "${engines[@]}"; do
+    printf '%s\0info\x1f%s\n' "$engine" "$engine"
   done
 }
-global tester
-main() {
-  # Pass the list to rofi
-  platform=$1
-  query=$2
-  if [[ "$ROFI_RETV" == 1 ]]; then
-    tester=$1
-  fi
-  if [[ -n "$platform" ]]; then
-    echo -en "\0prompt\x1f$platform\n\0meta\x1f$platform\n\0info\x1f$platform\nplat$platform inf$ROFI_INFO retv$ROFI_RETV @$@ tester$tester"
-    if [[ -n "$query" ]]; then
-      url=${URLS[$platform]}$query
-      xdg-open "$url"
-    else
-      exit
-    fi
 
-  else
-    gen_list
-  fi
+print_query_step() {
+  local engine="$1"
+
+  printf '\0prompt\x1f%s\n' "$engine"
+  printf '\0message\x1fType search query and press Enter\n'
+  printf '\0no-custom\x1ffalse\n'
+  printf '\0data\x1f%s\n' "$engine"
+  printf 'Type query and press Enter\0nonselectable\x1ftrue\n'
 }
 
-main "$1" "$2"
+open_search() {
+  local engine="$1"
+  local query="$2"
+
+  [ -z "$query" ] && return 0
+  [ -z "${engine_urls[$engine]:-}" ] && return 0
+
+  local encoded_query
+  encoded_query="$(encode_query "$query")"
+  xdg-open "${engine_urls[$engine]}${encoded_query}" >/dev/null 2>&1 &
+}
+
+case "$ROFI_RETV" in
+0)
+  print_engine_list
+  ;;
+1)
+  selected_engine="${ROFI_INFO:-${1:-}}"
+  if [ -n "${engine_urls[$selected_engine]:-}" ]; then
+    print_query_step "$selected_engine"
+  else
+    print_engine_list
+  fi
+  ;;
+2)
+  selected_engine="${ROFI_DATA:-}"
+  query="${1:-}"
+  open_search "$selected_engine" "$query"
+  ;;
+*)
+  print_engine_list
+  ;;
+esac
 
 exit 0

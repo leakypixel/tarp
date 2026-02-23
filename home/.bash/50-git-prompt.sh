@@ -10,7 +10,7 @@ NewLine="\n"
 Jobs="\j"
 
 # Function to actually set the prompt, called below once we've sourced our git prompt script.
-function set_git_prompt {
+set_git_prompt() {
   # Git bash prompt
   GIT_PS1_SHOWSTASHSTATE=true
   GIT_PS1_SHOWDIRTYSTATE=true
@@ -18,25 +18,33 @@ function set_git_prompt {
 
   #PS1="\u@\h \w \$([[ \$? != 0 ]] && echo \":( \")\$ "
   #PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
-  PS1="\[$Reset\]\[$On_IYellow$Black\]\u\[$Reset\]\[$Blue\] \W \[$Reset$Cyan\]\$(__git_ps1 '(%s)' &)\[$Yellow\]\[$Reset\] \$ "
+  PS1="\[$Reset\]\[$On_IYellow$Black\]\u\[$Reset\]\[$Blue\] \W \[$Reset$Cyan\]\$(__git_ps1 '(%s)')\[$Yellow\]\[$Reset\] \$ "
 }
 
-# Now test if we already have git completion and prompt scripts, if not then try a few likely places and get them if needs be.
-# Git prompt
-if [ -z __git_ps1 ]; then
-  set_git_prompt
-else
-  if [ -f /usr/share/git/completion/git-prompt.sh ]; then
-    source /usr/share/git/completion/git-prompt.sh
-    set_git_prompt
-  else
-    sudo mkdir -p /usr/share/git/completion
-    sudo wget -O /usr/share/git/completion/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-    if [ -f /usr/share/git/completion/git-prompt.sh ]; then
-      source /usr/share/git/completion/git-prompt.sh
-      set_git_prompt
-    else
-      echo "Could not load git prompt :("
+# Try local install first, then system install.
+_git_prompt_script=""
+if ! declare -F __git_ps1 >/dev/null 2>&1; then
+  for candidate in \
+    "$HOME/.local/share/tarp/git/git-prompt.sh" \
+    "/usr/share/git/completion/git-prompt.sh"
+  do
+    if [ -f "$candidate" ]; then
+      _git_prompt_script="$candidate"
+      break
     fi
+  done
+
+  if [ -n "$_git_prompt_script" ]; then
+    # shellcheck source=/dev/null
+    source "$_git_prompt_script"
   fi
 fi
+
+if declare -F __git_ps1 >/dev/null 2>&1; then
+  set_git_prompt
+else
+  echo "git-prompt.sh not found. Run: $HOME/tarp/scripts/install-git-bash-tools.sh"
+  PS1="\u@\h \W \$ "
+fi
+
+unset _git_prompt_script

@@ -2,4 +2,4 @@
 Description="Get manchester airport security waiting times"
 
 [Service]
-ExecStart=/home/leakypixel/scripts/get-manchester-airport-waiting-times
+ExecStart=%h/scripts/get-manchester-airport-waiting-times

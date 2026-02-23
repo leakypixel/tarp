@@ -1,5 +1,5 @@
 [global]
-    font = "Mononoki Nerd Font Mono 12"
+    font = "Mononoki Nerd Font Mono 12, Noto Sans 12, Noto Color Emoji 12, Noto Emoji 12"
     markup = full
     format = "<b>%s</b>\n%b"
     sort = yes

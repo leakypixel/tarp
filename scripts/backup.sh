@@ -1,33 +1,36 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-basedir=$HOME/tarp
-cd $basedir
+basedir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$basedir"
 
-# Add submodules to index
-# Loop through all the non-git directories in my configs
-for i in $(find $basedir/home/ -type d -not -path "**/.git/**" -not -path "**/.git");
-do
-  # Check for a .git directory, if it exists, add it as a submodule
-  gitdir="$i"/.git
-  if [ -d "$gitdir" ]; then
-    echo $gitdir
-    # Get the remote url from the repo
-    remote=$(git --git-dir="$gitdir" remote -v show -n origin | grep "Fetch URL" | grep -ow '[^ ]*\.git$')
-    # Git submodules don't like absolute paths, so strip it down to something git-friendly
-    relpath=$(echo $i | sed 's|'$basedir'/|./|')
-    # Finally, add it using the remote and relative path we generated above
-    echo $i
-    git submodule add $remote $relpath
+# Add nested git repositories under home/ as submodules.
+while IFS= read -r -d '' gitdir; do
+  repo_dir="$(dirname "$gitdir")"
+  relpath="./${repo_dir#"$basedir"/}"
+  submodulepath="${relpath#./}"
 
-    # Nasty looking crap to ignore untracked changes to submodules
-    submodulepath=$(echo $relpath | sed s#\\./##g)
-    git config -f .gitmodules submodule.$submodulepath.ignore untracked
+  remote="$(git -C "$repo_dir" config --get remote.origin.url || true)"
+  if [ -z "$remote" ]; then
+    echo "Skipping $repo_dir (no origin remote)."
+    continue
   fi
-done
+
+  if git config -f .gitmodules --get-regexp '^submodule\..*\.path$' 2>/dev/null | awk '{print $2}' | grep -Fxq "$submodulepath"; then
+    continue
+  fi
+
+  echo "Adding submodule $submodulepath -> $remote"
+  git submodule add "$remote" "$relpath"
+  git config -f .gitmodules "submodule.$submodulepath.ignore" untracked
+done < <(find "$basedir/home" -type d -name .git -print0)
 
 # Push via git
-echo Committing and pushing everything via git...
-cd $basedir
+echo "Committing and pushing everything via git..."
 git add -A
-git commit -m "Auto backup"
-git push origin
+if git diff --cached --quiet; then
+  echo "No changes to commit."
+else
+  git commit -m "Auto backup"
+  git push origin
+fi

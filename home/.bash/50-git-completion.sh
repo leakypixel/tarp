@@ -1,21 +1,30 @@
 #!/bin/bash
 # Git completion
 
-function set_git_completion {
+set_git_completion() {
   # Add git completion to my custom 'g' alias.
-  __git_complete g __git_main
+  if declare -F __git_complete >/dev/null 2>&1; then
+    __git_complete g __git_main
+  fi
 }
 
-if [ -f /usr/share/git/completion/git-completion.bash ]; then
-  source /usr/share/git/completion/git-completion.bash
+_git_completion_script=""
+for candidate in \
+  "$HOME/.local/share/tarp/git/git-completion.bash" \
+  "/usr/share/git/completion/git-completion.bash"
+do
+  if [ -f "$candidate" ]; then
+    _git_completion_script="$candidate"
+    break
+  fi
+done
+
+if [ -n "$_git_completion_script" ]; then
+  # shellcheck source=/dev/null
+  source "$_git_completion_script"
   set_git_completion
 else
-  sudo mkdir -p /usr/share/git/completion
-  sudo wget -O /usr/share/git/completion/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-  if [ -f /usr/share/git/completion/git-completion.bash ]; then
-    source /usr/share/git/completion/git-completion.bash
-    set_git_completion
-  else
-    echo "Could not load git completion :("
-  fi
+  echo "git-completion.bash not found. Run: $HOME/tarp/scripts/install-git-bash-tools.sh"
 fi
+
+unset _git_completion_script

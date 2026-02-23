@@ -35,7 +35,7 @@ font pango:Mononoki Nerd Font Mono 12
 floating_modifier $mod
 
 # Screenshot
-bindsym --release Print exec maim -uos "/home/leakypixel/images/screenshots/$(date +%s).png"
+bindsym --release Print exec maim -uos "${HOME}/images/screenshots/$(date +%s).png"
 bindsym --release Shift+Print exec "maim -uos | xclip -selection clipboard -t image/png"
 
 # Don't show title bar
@@ -51,7 +51,7 @@ bindsym $mod+p exec mousepad
 bindsym $mod+bracketright exec pcmanfm
 
 # randomise background
-bindsym $mod+o exec --no-startup-id "feh --no-fehbg --bg-fill --randomize ~/.config/wallpaper/*"
+bindsym $mod+o exec --no-startup-id "feh --no-fehbg --bg-fill --randomize ${HOME}/.config/wallpaper/*"
 
 # lock the screen
 bindsym $mod+l exec dm-tool switch-to-greeter
@@ -60,9 +60,9 @@ bindsym $mod+l exec dm-tool switch-to-greeter
 bindsym $mod+Shift+q kill
 
 # select monitor layout
-bindsym $mod+F2 exec /home/leakypixel/.screenlayout/laptop-screen-only.sh
-bindsym $mod+F3 exec /home/leakypixel/.screenlayout/hdmi-only.sh
-bindsym $mod+F4 exec /home/leakypixel/.screenlayout/docked.sh
+bindsym $mod+F2 exec ${HOME}/.screenlayout/laptop-screen-only.sh
+bindsym $mod+F3 exec ${HOME}/.screenlayout/hdmi-only.sh
+bindsym $mod+F4 exec ${HOME}/.screenlayout/docked.sh
 
 # Rename a workspace
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
@@ -73,8 +73,6 @@ bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+d exec --no-startup-id rofi -show combi
-bindsym $mod+Control+d exec --no-startup-id ~/.config/rofi/scripts/applet_mpd
-bindsym $mod+Shift+d exec --no-startup-id ~/.config/rofi/scripts/applet_websearch
 
 # change focus
 bindsym $mod+Left focus left
@@ -209,11 +207,11 @@ popup_during_fullscreen leave_fullscreen
 workspace_auto_back_and_forth yes
 
 # Load layouts
-exec --no-startup-id "i3-msg 'workspace number 1; append_layout /home/leakypixel/.config/i3/workspaces/1.json'"
-exec --no-startup-id "i3-msg 'workspace number 2; append_layout /home/leakypixel/.config/i3/workspaces/2.json'"
-exec --no-startup-id "i3-msg 'workspace number 3; append_layout /home/leakypixel/.config/i3/workspaces/3.json'"
-exec --no-startup-id "i3-msg 'workspace number 4; append_layout /home/leakypixel/.config/i3/workspaces/4.json'"
-exec --no-startup-id "i3-msg 'workspace number 0; append_layout /home/leakypixel/.config/i3/workspaces/dashboard.json'"
+exec --no-startup-id i3-msg "workspace number 1; append_layout ${HOME}/.config/i3/workspaces/1.json"
+exec --no-startup-id i3-msg "workspace number 2; append_layout ${HOME}/.config/i3/workspaces/2.json"
+exec --no-startup-id i3-msg "workspace number 3; append_layout ${HOME}/.config/i3/workspaces/3.json"
+exec --no-startup-id i3-msg "workspace number 4; append_layout ${HOME}/.config/i3/workspaces/4.json"
+exec --no-startup-id i3-msg "workspace number 0; append_layout ${HOME}/.config/i3/workspaces/dashboard.json"
 
 # Swap mode
 mode "swap" {
@@ -257,10 +255,10 @@ exec --no-startup-id "go-hass-agent run"
 exec --no-startup-id i3-msg 'workspace number 0; exec --no-startup-id "pavucontrol"'
 
 # Start compton compostior
-exec --no-startup-id "picom -b --config ~/.config/picom.conf"
+exec --no-startup-id "picom -b --config ${HOME}/.config/picom.conf"
 
 # Set the background
-exec --no-startup-id "feh --no-fehbg --bg-fill --randomize ~/.config/wallpaper/*"
+exec --no-startup-id "feh --no-fehbg --bg-fill --randomize ${HOME}/.config/wallpaper/*"
 
 # Start apps
 exec --no-startup-id i3-msg 'workspace number 1; exec --no-startup-id "alacritty"'
@@ -272,7 +270,7 @@ exec --no-startup-id i3-msg 'workspace number 3; exec --no-startup-id "whatsapp-
 #exec --no-startup-id i3-msg 'workspace number 3; exec --no-startup-id "slack"'
 #exec --no-startup-id i3-msg 'workspace number 3; exec --no-startup-id "signal-desktop"'
 exec --no-startup-id i3-msg 'workspace number 4; exec --no-startup-id "evolution"'
-exec --no-startup-id i3-msg 'workspace number 4; exec --no-startup-id "secret-tool lookup keepass pwdb.kdbx  | flatpak run org.keepassxc.KeePassXC --pw-stdin /home/leakypixel/.config/keepassxc/pwdb.kdbx"'
+exec --no-startup-id i3-msg "workspace number 4; exec --no-startup-id 'secret-tool lookup keepass pwdb.kdbx | flatpak run org.keepassxc.KeePassXC --pw-stdin ${HOME}/.config/keepassxc/pwdb.kdbx'"
 #exec --no-startup-id i3-msg 'workspace number 0; exec --no-startup-id "keepassxc"'
 
 

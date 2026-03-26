@@ -10,8 +10,8 @@ __long_job_check() {
     local now=$SECONDS
     local duration=$(( now - __long_job_last_seconds ))
 
-    if (( duration >= LONG_JOB_THRESHOLD )); then
-      ~/scripts/shell-notify "Complete: $(fc -ln -0 | awk '{$1=$1; print}')" complete
+    if (( duration >= LONG_JOB_THRESHOLD )) && [ -x "$HOME/scripts/shell-notify" ]; then
+      "$HOME/scripts/shell-notify" "Complete: $(fc -ln -0 | awk '{$1=$1; print}')" complete
     fi
 
     __long_job_last_seconds=$now

@@ -1,2 +1,2 @@
 #!/bin/bash
-export BROWSER="rofi-browser-picker"
+export BROWSER="browsers"

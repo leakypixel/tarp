@@ -270,7 +270,7 @@ exec --no-startup-id i3-msg 'workspace number 3; exec --no-startup-id "whatsapp-
 #exec --no-startup-id i3-msg 'workspace number 3; exec --no-startup-id "slack"'
 #exec --no-startup-id i3-msg 'workspace number 3; exec --no-startup-id "signal-desktop"'
 exec --no-startup-id i3-msg 'workspace number 4; exec --no-startup-id "evolution"'
-exec --no-startup-id i3-msg "workspace number 4; exec --no-startup-id 'secret-tool lookup keepass pwdb.kdbx | flatpak run org.keepassxc.KeePassXC --pw-stdin ${HOME}/.config/keepassxc/pwdb.kdbx'"
+exec --no-startup-id i3-msg 'workspace number 4; exec --no-startup-id "/home/leakypixel/.local/bin/start-keepassxc-flatpak"'
 #exec --no-startup-id i3-msg 'workspace number 0; exec --no-startup-id "keepassxc"'
 
 

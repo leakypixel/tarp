@@ -1,7 +1,7 @@
 [user]
   email = hi@leakypixel.net
   name = Craig Fletcher
-	signingkey = 7DBF7D65
+	signingkey = 7FC0014B237501360B7E543B19DC3F477DBF7D65
 
 [push]
   default = upstream
@@ -38,10 +38,10 @@
   wtf = blame
   sync = !git pull && git push
   sy = !git pull && git push
-  ssy = !git stash && git pull && git push && git stash pop
+  ssy = "!f() { before=$(git rev-parse -q --verify refs/stash 2>/dev/null || true); git stash push --include-untracked -m auto-ssy >/dev/null || return $?; after=$(git rev-parse -q --verify refs/stash 2>/dev/null || true); created=0; [ -n \"$after\" ] && [ \"$before\" != \"$after\" ] && created=1; git pull && git push; status=$?; if [ $created -eq 1 ]; then git stash pop || status=$?; fi; return $status; }; f"
   whoops = !git add -A && git commit --amend --no-edit && git push -f
-  mm = !git checkout $GIT_REPO_MAIN_BRANCH && git pull && git merge - && git push
-  rb = !git checkout $GIT_REPO_WORKING_BRANCH && git pull && git checkout - && git rebase $GIT_REPO_WORKING_BRANCH
+  mm = "!branch=${MAIN_BRANCH:-master}; git checkout \"$branch\" && git pull && git merge - && git push"
+  rb = "!branch=${MAIN_BRANCH:-master}; git checkout \"$branch\" && git pull && git checkout - && git rebase \"$branch\""
 
 [core]
   editor = vim
@@ -57,11 +57,11 @@
 	tool = vimdiff
 
 [help]
-  autocorrect = -1
+  autocorrect = 0
 
 [credential]
   helper = store
 [pull]
 	rebase = true
 [gpg]
-	program = gpg2
+	program = gpg

@@ -1,5 +1,8 @@
 #!/bin/bash
 # Git scripts
+: "${MAIN_BRANCH:=master}"
+export MAIN_BRANCH
+
 alias create='git-create-branch'
 alias delete='git-delete-branch'
 alias bac='git-branch-and-commit-changes'
@@ -13,7 +16,7 @@ alias j='jump'
 alias g='git'
 alias rl='source ~/.bashrc'
 alias xclip='xclip -selection c'
-alias ufm='git stash && git checkout master && git pull && git checkout - && git rebase master'
+alias ufm='git stash && git checkout "${MAIN_BRANCH:-master}" && git pull && git checkout - && git rebase "${MAIN_BRANCH:-master}"'
 alias dc='docker-compose'
 alias owf='vim $(git status -s | grep -Po "(?<=^[ A-Z?][ A-Z?] ).*$")'
 alias ohf='vim $(git diff-tree --no-commit-id --name-only -r HEAD)'

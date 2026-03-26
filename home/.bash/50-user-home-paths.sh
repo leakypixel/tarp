@@ -4,8 +4,21 @@
 #    PATH="$HOME/bin:$PATH"
 #fi
 
+append_path() {
+  local path_dir="$1"
+
+  [ -d "$path_dir" ] || return 0
+  case ":$PATH:" in
+    *":$path_dir:"*) ;;
+    *) PATH="$PATH:$path_dir" ;;
+  esac
+}
+
 # Binaries in path
-export PATH="$PATH:$HOME/.local/bin"
+append_path "$HOME/.local/bin"
 
 # Scripts in path
-export PATH="$PATH:$HOME/scripts"
+append_path "$HOME/scripts"
+
+export PATH
+unset -f append_path
